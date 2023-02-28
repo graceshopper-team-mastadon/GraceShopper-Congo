@@ -8,7 +8,10 @@ OrderProduct.belongsTo(Product);
 Product.hasMany(OrderProduct);
 
 OrderProduct.belongsTo(Order);
-Order.hasMany(OrderProduct)
+Order.hasMany(OrderProduct);
+
+Order.belongsTo(User);
+User.hasMany(Order);
 
 module.exports = {
     models: {
