@@ -17,7 +17,7 @@ app.use("/api/products", require("./api/productsRoutes"));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "/public/index.html"));
 });
-app.get("/login", loginRouter);
+// app.get("/login", loginRouter);
 
 app.use(express.static(path.join(__dirname, "..", "/public")));
 

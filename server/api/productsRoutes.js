@@ -7,7 +7,6 @@ const {
 router.get("/", async (req, res, next) => {
   try {
     const products = await Product.findAll();
-    console.log("api products:", products);
     res.send(products);
   } catch (err) {
     next(err);
