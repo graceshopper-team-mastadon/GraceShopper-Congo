@@ -5,8 +5,7 @@ import AllProducts from "./components/BrowseProducts/AllProducts";
 import CategoryView from "./components/BrowseProducts/CategoryView";
 import NavBar from "./components/NavBar";
 import Signup from "./components/Signup";
-import Login from "./components/LogIn";
-
+import Login from "./components/Login";
 
 const App = () => {
   return (
