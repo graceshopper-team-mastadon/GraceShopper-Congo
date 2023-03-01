@@ -1,9 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import singleProductReducer from "../slices/singleProductSlice"
+import { configureStore } from "@reduxjs/toolkit";
+import userSlice from "../slices/userSlice";
+import productsReducer from "../slices/productsSlice";
 
 const store = configureStore({
-    reducer: {
-        singleProduct: singleProductReducer
-    }
-})
-export default store
+  reducer: {
+    products: productsReducer,
+    singleProduct: singleProductReducer,
+  },
+});
+export default store;
