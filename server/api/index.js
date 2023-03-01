@@ -1,12 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-// /api/ 
-
-router.get('/', (req, res) => {
-    res.json('filler Statement')
-})
-
-
+router.use('/products', require('./productsRoutes'))
 
 module.exports = router
