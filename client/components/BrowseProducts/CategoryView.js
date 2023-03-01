@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "./Product";
 import { getProductCategory } from "../../slices/productsSlice";
+import { useEffect } from "react";
 
 const CategoryView = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const CategoryView = () => {
   return (
     <>
       <div className="browse-products">
-        <h2 clsssName="category-title"></h2>
+        <h2 className="category-title"></h2>
         <div>
           {products.map((product) => (
             <Product product={product} key={product.id} />
