@@ -24,4 +24,25 @@ router.get("/:category", async (req, res, next) => {
   }
 });
 
+//get singular product by id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const product = await Product.findByPk(req.params.id);
+    res.send(product)
+  }
+  catch (err) {
+    next(err)
+  }
+})
+
+//this should be an ADMIN function to edit a product
+router.put('/:id', async (req, res, next) => {
+  try {
+    const product = await Product.findByPk(req.params.id);
+    res.send(await product.update(req.body))
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router;

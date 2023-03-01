@@ -6,7 +6,7 @@ const Product = (props) => {
   const { product } = props;
 
   return (
-    <div className="product">
+    <div className="product-element">
       <h2>
         <Link to={`/products/${product.id}`}>{product.name}</Link>
       </h2>
