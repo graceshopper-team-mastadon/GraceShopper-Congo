@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "./Product";
-import { getAllProducts } from "../slices/productsSlice";
+import { getAllProducts } from "../../slices/productsSlice";
 
-const Products = () => {
+const AllProducts = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.allProducts);
+  const products = useSelector((state) => state.products.Products);
 
   /*
 To show either all products or products of a certain category:
@@ -22,8 +22,8 @@ To show either all products or products of a certain category:
 
   return (
     <>
-      <div className="all-products">
-        <h2 clsssName="category-title">Browse All Products</h2>
+      <div className="browse-products">
+        <h2 className="category-title">Browse All Products</h2>
         <div>
           {products.map((product) => (
             <Product product={product} key={product.id} />
@@ -34,4 +34,4 @@ To show either all products or products of a certain category:
   );
 };
 
-export default Products;
+export default AllProducts;
