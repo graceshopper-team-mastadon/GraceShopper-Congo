@@ -28,9 +28,8 @@ const User = db.define('user', {
         type: Sequelize.STRING
     },
     role: {
-        type: Sequelize.ENUM({
-            values: [ADMIN, MEMBER]
-        })
+        type: Sequelize.ENUM("ADMIN", "MEMBER"),
+        defaultValue: "MEMBER"
     }
 });
 
