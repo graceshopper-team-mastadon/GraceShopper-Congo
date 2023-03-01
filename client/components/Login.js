@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+const axios = require("axios");
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   // const emailRef = useRef();
   // const passwordRef = useRef();
   // const [error, setError] = useState("");
@@ -22,6 +26,15 @@ export default function Login() {
   //     setLoading(false);
   //   }
   // }
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  await axios.post('./auth/login', {username: username, password: password})
+  setUsername('');
+  setPassword('')
+
+}
+
   return (
     <div
       className="d-flex align-items-center justify-content-center"
@@ -33,14 +46,14 @@ export default function Login() {
             <h2 className="text-center mb-4">Log In</h2>
             {/* {currentUser.email} */}
             {/* {error && <Alert variant="danger">{error}</Alert>} */}
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group id="username">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="username" required></Form.Control>
+                <Form.Control type="username" value={username} onChange={(e) => setUsername(e.target.value)} required></Form.Control>
               </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" required></Form.Control>
+                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required></Form.Control>
               </Form.Group>
               <Button className="w-100" type="submit">
                 Log In

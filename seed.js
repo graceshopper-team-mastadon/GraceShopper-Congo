@@ -26,8 +26,8 @@ const products = [{
 }]
 
 const users = [{
-    username: "AndrewA",
-    password: "AndrewB",
+    username: "Andrew",
+    password: "1",
     email: "andrew@gmail.com",
     address: "Andrew St 123",
     role: "ADMIN"

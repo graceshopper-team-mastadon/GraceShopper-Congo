@@ -41,9 +41,9 @@ User.prototype.corretPassword = function(passedPassword) {
     // Comparing the "passed Password" to the actual password
     return bcrypt.compare(passedPassword, this.password)
 }
-// Generating a new token of other one expired
+// Generating a new token if other one expired
 User.prototype.generateToken = function() {
-    return jwt.sign({ id: this.id}, test)
+    return jwt.sign({ id: this.id}, 'test')
 }
 // Finding User by Token
 
@@ -64,13 +64,21 @@ return user
 
 // authenticating the User name and password connection
 User.authenticate = async function({ username, password}) {
-    const user = await User.findone({ where: {username}})
-    if (!user || !(await user.correctPassword(password))) {
+    const user = await this.findOne({ where: {username}})
+    if (!user || !(await user.corretPassword(password))) {
         const errMsg = Error('Incorrect Username or Password')
         errMsg.status = 401
         throw errMsg
     }
     return user.generateToken()
+}
+User.Verify = async function({ token }) {
+    if (jwt.verify(token, "test")) {
+        return true
+    } else {
+        return false
+    }
+
 }
 
 // Hooks to hash the password after a new user is created
@@ -80,6 +88,7 @@ const hashPassword = async(user) => {
         user.password = await bcrypt.hash(user.password, 5)
     }
 }
+
 // Hooks to make this happen on creation :D
 
 User.beforeCreate(hashPassword)
