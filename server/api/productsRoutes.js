@@ -7,6 +7,7 @@ const {
 router.get("/", async (req, res, next) => {
   try {
     const products = await Product.findAll();
+    console.log("api products:", products);
     res.send(products);
   } catch (err) {
     next(err);
@@ -15,7 +16,7 @@ router.get("/", async (req, res, next) => {
 
 // GET /api/products/:category
 // Add where clause
-router.get("/", async (req, res, next) => {
+router.get("/:category", async (req, res, next) => {
   try {
     const products = await Product.findAll({
       where: {},
