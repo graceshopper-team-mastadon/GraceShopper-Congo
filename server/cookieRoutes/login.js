@@ -1,7 +1,9 @@
 module.exports = async (req, res) => {
   const { username, password } = req.body;
 
-  const user = await getUser(username);
+
+ // const user = await getUser(username);
+
 
   if (user.password !== password) {
     return res.status(403).json({
