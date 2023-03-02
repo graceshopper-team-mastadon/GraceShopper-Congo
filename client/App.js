@@ -10,6 +10,10 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Cart from "./components/Cart";
 import UserProfile from "./components/AccountView/UserProfile";
+import OrderHistory from "./components/AccountView/OrderHistory";
+import AddressBook from "./components/AccountView/AddressBook";
+import PaymentCards from "./components/AccountView/PaymentCards";
+import Feedback from "./components/AccountView/Feedback";
 
 const App = () => {
   return (
@@ -25,6 +29,10 @@ const App = () => {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/profile" element={<UserProfile />} />
+        <Route exact path="/order-history" element={<OrderHistory />} />
+        <Route exact path="/address-book" element={<AddressBook />} />
+        <Route exact path="/payment-cards" element={<PaymentCards />} />
+        <Route exact path="/feedback" element={<Feedback />} />
       </Routes>
     </>
   );
