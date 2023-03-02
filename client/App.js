@@ -9,6 +9,7 @@ import PokeHome from "./components/PokeHome";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Cart from "./components/Cart";
+import UserProfile from "./components/AccountView/UserProfile";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/my-account" element={<UserProfile />} />
       </Routes>
     </>
   );
