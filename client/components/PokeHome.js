@@ -24,6 +24,7 @@ const PokeHome = () => {
           <Nav.Link href="/login">Login</Nav.Link>
           <Nav.Link href="/signup">Sign Up</Nav.Link>
           <Nav.Link href="/cart">Cart</Nav.Link>
+          <Nav.Link href="/my-account">Account</Nav.Link>
         </Container>
       </Navbar>
     </div>
