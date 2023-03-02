@@ -24,7 +24,7 @@ const App = () => {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/my-account" element={<UserProfile />} />
+        <Route exact path="/profile" element={<UserProfile />} />
       </Routes>
     </>
   );
