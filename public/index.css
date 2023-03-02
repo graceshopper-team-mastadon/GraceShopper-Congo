@@ -1,6 +1,26 @@
-* {
+.Userprofile {
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* /* .Sidebar {
+  width: 50%;
+  display: flex;
+  position: left;
+} */
+
+.Profile {
+  display: flex;
+  position: right
+}
+
+.listGroup {
+  position: right
+}
+
+
+*/ * {
   margin: 0;
   padding: 0;
   font-family: "poppins", sans-serif;
 }
-
