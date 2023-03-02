@@ -4,20 +4,25 @@ const User = require('../db/models/User')
 
 router.post('/login', async (req, res, next) => {
     try {
-res.cookie('token', await User.authenticate(req.body))
-res.sendStatus(200)
+        res.cookie('token', await User.authenticate(req.body))
+        res.sendStatus(200)
     } catch (err) {
         console.log(err)
         res.sendStatus(500)
     }
-})  
+})
 router.get('/verify', async (req, res, next) => {
     try {
-    await User.Verify(req.cookies)
-    res.status(200).send(true)
+        if (
+            await User.Verify(req.cookies)
+        ) {
+            res.send(true)
+        } else {
+            res.send(false)
+        }
     } catch (err) {
         console.log(err)
-        res.status(500).send(false)
+        next(err)
     }
 })
 router.post('/signup', async (req, res, next) => {
