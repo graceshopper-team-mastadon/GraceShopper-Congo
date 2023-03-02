@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
-// import { useAuth } from "../contexts/AuthContext";
+const axios = require('axios')
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
   // const emailRef = useRef();
   // const passwordRef = useRef();
   // const passwordConfirmRef = useRef();
@@ -29,6 +33,20 @@ export default function Signup() {
   //     setLoading(false);
   //   }
   // }
+
+  const handleSubmit = async function handleSubmit(e) {
+e.preventDefault();
+await axios.post('./auth/signup', {
+  username: username,
+  password: password,
+  email: email,
+  address: address
+})
+setUsername('')
+setPassword('')
+setEmail('')
+setAddress('')
+  }
   return (
     <div
       className="d-flex align-items-center justify-content-center"
@@ -40,22 +58,22 @@ export default function Signup() {
             <h2 className="text-center mb-4">Sign Up</h2>
             {/* {currentUser.email} */}
             {error && <Alert variant="danger">{error}</Alert>}
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group id="username">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="username" required></Form.Control>
+                <Form.Control type="username" value={username} onChange={(e) => setUsername(e.target.value)} required></Form.Control>
               </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" required></Form.Control>
+                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)}  required></Form.Control>
               </Form.Group>
               <Form.Group id="email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" required></Form.Control>
+                <Form.Control type="email"  value={email} onChange={(e) => setEmail(e.target.value)}  required></Form.Control>
               </Form.Group>
               <Form.Group id="address">
                 <Form.Label>Address</Form.Label>
-                <Form.Control type="address" required></Form.Control>
+                <Form.Control type="address" value={address} onChange={(e) => setAddress(e.target.value)}  required></Form.Control>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Sign Up

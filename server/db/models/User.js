@@ -7,6 +7,7 @@ const User = db.define('user', {
     username: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
         validate: {
             notEmpty: true
         }
@@ -49,7 +50,7 @@ User.prototype.generateToken = function() {
 
 User.byToken = async function(token) {
     try {
-        const {id} = await jwt.verify(token, test) /* test = password */
+        const {id} = await jwt.verify(token, 'test') /* test = password */
         const user = User.findByPk(id)
         if (!user) {
 throw new error(401)
