@@ -6,10 +6,31 @@ import {
   Form,
   Navbar,
   Nav,
+  NavLink,
   Container,
+  ListGroup,
+  ListGroupItem
 } from "react-bootstrap";
+import { Offcanvas, OffcanvasBody, OffcanvasHeader, OffcanvasTitle } from "react-bootstrap";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const PokeHome = () => {
+  const [show, setShow] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    const thing = async () => {
+      const data = await axios.get('./auth/verify');
+      setLoggedIn(data)
+    };
+    thing();
+  }, [])
+
   return (
     <div>
       <Navbar className="navbar navbar-fixed-bottom bg-light">
@@ -21,10 +42,25 @@ const PokeHome = () => {
             </FormGroup>
             <Button type="submit">Submit</Button>
           </Form>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/signup">Sign Up</Nav.Link>
-          <Nav.Link href="/cart">Cart</Nav.Link>
-          <Nav.Link href="/my-account">Account</Nav.Link>
+          <Link to="/cart">Cart</Link>
+
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Nav.Link href="" onClick={handleShow}>Account</Nav.Link>
+          <Offcanvas show={show} onHide={handleClose} placement="end">
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Account</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <ListGroup>
+                <ListGroup.Item><Nav.Link href="/profile">Profile </Nav.Link></ListGroup.Item>
+                <ListGroup.Item>Order History</ListGroup.Item>
+                <ListGroup.Item>Address Book</ListGroup.Item>
+                <ListGroup.Item>Payment Cards</ListGroup.Item>
+                <ListGroup.Item>Send us Feedback</ListGroup.Item>
+              </ListGroup>
+            </Offcanvas.Body>
+          </Offcanvas>
         </Container>
       </Navbar>
     </div>
