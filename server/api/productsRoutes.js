@@ -13,16 +13,16 @@ router.get("/", async (req, res, next) => {
 
 // GET /api/products/:category
 // Add where clause
-router.get("/:category", async (req, res, next) => {
-  try {
-    const products = await Product.findAll({
-      where: {},
-    });
-    res.send(products);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.get("/category/:category", async (req, res, next) => {
+//   try {
+//     const products = await Product.findAll({
+//       where: {},
+//     });
+//     res.send(products);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 //get singular product by id
 router.get('/:id', async (req, res, next) => {
