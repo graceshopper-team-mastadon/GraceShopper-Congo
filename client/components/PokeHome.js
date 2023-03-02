@@ -23,7 +23,7 @@ const PokeHome = () => {
           </Form>
           <Nav.Link href="/login">Login</Nav.Link>
           <Nav.Link href="/signup">Sign Up</Nav.Link>
-          <Nav.Link href="">Cart</Nav.Link>
+          <Nav.Link href="/cart">Cart</Nav.Link>
         </Container>
       </Navbar>
     </div>

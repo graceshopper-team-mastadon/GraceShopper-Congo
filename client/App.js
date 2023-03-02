@@ -2,12 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import AllProducts from "./components/BrowseProducts/AllProducts";
-import SingleProduct from "./components/SingleProduct/SingleProductView"
+import SingleProduct from "./components/SingleProduct/SingleProductView";
 // import CategoryView from "./components/BrowseProducts/CategoryView";
 import NavBar from "./components/NavBar";
 import PokeHome from "./components/PokeHome";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         {/* <Route exact path = "/products/:category" element={<CategoryView/>} /> */}
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/cart" element={<Cart />} />
       </Routes>
     </>
   );
