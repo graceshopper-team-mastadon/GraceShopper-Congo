@@ -25,7 +25,7 @@ const PokeHome = () => {
 
   useEffect(() => {
     const thing = async () => {
-      const data = await axios.get('./auth/verify');
+      const data = await axios.get('/auth/verify');
       setLoggedIn(data)
     };
     thing();

@@ -45,13 +45,4 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
-  try {
-    const newOrderProduct = await OrderProduct.create(req.body);
-    res.send(newOrderProduct);
-  } catch (err) {
-    next(err);
-  }
-});
-
 module.exports = router;

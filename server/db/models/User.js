@@ -36,7 +36,6 @@ const User = db.define('user', {
     }
 });
 
-module.exports = User
 
 User.prototype.corretPassword = function(passedPassword) {
     // Comparing the "passed Password" to the actual password
@@ -58,8 +57,19 @@ throw new error(401)
 return user
     } catch (err) {
         const errMsg = Error('bad token')
-        error.status = 401
-        throw error
+        errMsg.status = 401
+        throw errMsg
+    }
+}
+
+User.getId = async function(token) {
+    try {
+const {id} = await jwt.verify(token.token, 'test')
+return id
+    } catch (err) {
+        const errMsg = Error('bad token')
+        errMsg.status = 401
+        throw errMsg
     }
 }
 
@@ -94,4 +104,6 @@ const hashPassword = async(user) => {
 
 User.beforeCreate(hashPassword)
 User.beforeUpdate(hashPassword)
+
+module.exports = User
 
