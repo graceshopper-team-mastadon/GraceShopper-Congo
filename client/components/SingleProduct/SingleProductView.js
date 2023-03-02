@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProduct } from "../../slices/singleProductSlice";
+import { fetchProduct, selectSingleProduct } from "../../slices/singleProductSlice";
 import { editProduct } from "../../slices/singleProductSlice";
 
 const SingleProduct = () => {
     const dispatch = useDispatch();
     const params = useParams();
     const id = params.id;
-    const singleProduct = useSelector((state) => state.singleProduct);
+    const singleProduct = useSelector(selectSingleProduct);
+
+    const [optionValue, setOptionValue] = useState('');
 
     useEffect(() => {
         dispatch(fetchProduct(id))
@@ -20,8 +22,21 @@ const SingleProduct = () => {
     return (
         <>
             <div className="single-product">
-                <h1> Product Name : {`${singleProduct.name}`}</h1>
-                <img className="product-picture" src={`${singleProduct.imageUrl}`} />
+                <div className="product-header">
+                    Product Name : {`${singleProduct.name}`}
+                </div>
+                <div productpage="product-page">
+                    <img className="product-picture" src={`${singleProduct.imageUrl}`} />
+                    Product Price: {`${singleProduct.price}`} <br></br>
+                    <select value={optionValue} onChange={e => setOptionValue(e.target.value)}>
+                        <option> Normal </option>
+                        <option> Egg </option>
+                        <option> Shiny </option>
+                    </select><br></br>
+                    <button type="buy"> Buy Now </button><br>
+                    </br>
+                    <button type="cart"> Add to Cart</button>
+                </div>
             </div>
         </>
     )

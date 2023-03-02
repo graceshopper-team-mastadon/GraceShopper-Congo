@@ -2,8 +2,13 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchProduct = createAsyncThunk("singleProduct", async (id) => {
-    const { data } = await axios.get(`http://localhost:3000/api/products/${id}`);
-    return data
+    try {
+        const { data } = await axios.get(`http://localhost:3000/api/products/${id}`);
+        console.log('data is:', data)
+        return data
+    } catch (err) {
+        next(err)
+    }
 })
 
 export const editProduct = createAsyncThunk('editSingleProduct', async ({ name, description, category, inventory, imageUrl, price }) => {
