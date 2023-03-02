@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const Product = require('../db/models/Product')
+const Product = require("../db/models/Product");
+const OrderProduct = require("../db/models/OrderProduct");
 
 // GET /api/products
 router.get("/", async (req, res, next) => {
@@ -25,24 +26,32 @@ router.get("/", async (req, res, next) => {
 // });
 
 //get singular product by id
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
-    res.send(product)
+    res.send(product);
+  } catch (err) {
+    next(err);
   }
-  catch (err) {
-    next(err)
-  }
-})
+});
 
 //this should be an ADMIN function to edit a product
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
-    res.send(await product.update(req.body))
+    res.send(await product.update(req.body));
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newOrderProduct = await OrderProduct.create(req.body);
+    res.send(newOrderProduct);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

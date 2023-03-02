@@ -15,6 +15,18 @@ export const getProductCategory = createAsyncThunk(
   }
 );
 
+export const AddToCart = createAsyncThunk(
+  "products/addToCart",
+  async ({ productId, price }) => {
+    const { data } = await axios.post("/api/products", {
+      productId,
+      price,
+    });
+
+    return data;
+  }
+);
+
 export const productsSlice = createSlice({
   name: "products",
   initialState: {

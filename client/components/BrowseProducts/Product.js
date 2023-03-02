@@ -12,7 +12,7 @@ const Product = (props) => {
       </h2>
       <img src={product.imageUrl} />
       <div>{product.price}</div>
-      <div>{<QuickAdd productId={product.id} />}</div>
+      <div>{<QuickAdd productId={product.id} price={product.price} />}</div>
     </div>
   );
 };
