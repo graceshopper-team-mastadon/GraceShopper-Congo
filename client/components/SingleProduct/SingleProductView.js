@@ -12,6 +12,7 @@ const SingleProduct = () => {
     const singleProduct = useSelector(selectSingleProduct);
 
     const [optionValue, setOptionValue] = useState('');
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         dispatch(fetchProduct(id))
@@ -27,11 +28,19 @@ const SingleProduct = () => {
                 </div>
                 <div productpage="product-page">
                     <img className="product-picture" src={`${singleProduct.imageUrl}`} />
-                    Product Price: {`${singleProduct.price}`} <br></br>
+                    Product Price: {`${singleProduct.price}`}
+                    <br></br>
                     <select value={optionValue} onChange={e => setOptionValue(e.target.value)}>
                         <option> Normal </option>
                         <option> Egg </option>
                         <option> Shiny </option>
+                    </select>
+                    <select value={quantity} onChange={e => setQuantity(e.target.value)}>
+                        <option> 1 </option>
+                        <option> 2 </option>
+                        <option> 3 </option>
+                        <option> 4 </option>
+                        <option> 5 </option>
                     </select><br></br>
                     <button type="buy"> Buy Now </button><br>
                     </br>
