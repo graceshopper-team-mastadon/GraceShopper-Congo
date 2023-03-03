@@ -4,11 +4,6 @@ const { OrderProduct, Product, User, Order } = require("../db");
 router.get("/", async (req, res, next) => {
   try {
     const id = await User.getId(req.cookies);
-    console.log("id is:", id);
-    const user = await User.findByPk(id, {
-      include: [Order],
-    });
-    console.log("user is:", user.addOrder);
     // const cart = await Order.create();
     // await user.addOrder(cart);
     // console.log("cart is:", cart);
@@ -16,7 +11,6 @@ router.get("/", async (req, res, next) => {
     const cart = await Order.findOrCreate({
       where: { userId: id, state: "CART" },
     });
-    console.log("cart is:", cart);
     res.send(cart);
   } catch (err) {
     next(err);

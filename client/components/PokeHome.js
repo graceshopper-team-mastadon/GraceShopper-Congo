@@ -13,7 +13,8 @@ import {
 } from "react-bootstrap";
 import { Offcanvas, OffcanvasBody, OffcanvasHeader, OffcanvasTitle } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useSelector } from "react-redux"
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -22,6 +23,7 @@ const PokeHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const state = useSelector((state) => state)
 
   useEffect(() => {
     const thing = async () => {
@@ -29,7 +31,7 @@ const PokeHome = () => {
       setLoggedIn(data)
     };
     thing();
-  }, [])
+  }, [state.auth])
 
   return (
     <div>

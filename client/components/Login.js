@@ -2,8 +2,12 @@ import React, { useState } from "react";
 const axios = require("axios");
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authTrue } from '../slices/authSlice'
 
 export default function Login() {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -30,6 +34,10 @@ export default function Login() {
 const handleSubmit = async (e) => {
   e.preventDefault();
   await axios.post('./auth/login', {username: username, password: password})
+  if (await axios.get('/auth/verify')) {
+dispatch(authTrue())
+navigate('/')
+  }
   setUsername('');
   setPassword('')
 

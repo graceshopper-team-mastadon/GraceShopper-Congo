@@ -1,10 +1,12 @@
 const React = require("react");
 import { ListGroup } from "react-bootstrap";
 import Sidebar from "./Sidebar";
+const axios = require("axios");
 
 //need to get the user by id
 
 const UserProfile = () => {
+
     return (
         <div className="Userprofile">
             <div>
