@@ -20,6 +20,10 @@ const Product = db.define('product', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    generation: {
+type: Sequelize.STRING,
+allowNull: true,
+    },
     inventory: {
         type: Sequelize.INTEGER,
         allowNull: false,
