@@ -1,45 +1,44 @@
-const Sequelize = require('sequelize');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const db = require("../db");
 
-const User = db.define('user', {
-    username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            notEmpty: true
-        }
+const User = db.define("user", {
+  username: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      notEmpty: true,
     },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: true,
+  }
+  name: {
+      type: Sequelize.STRING,
+      allowNull: true,
+  },
+  password: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+          notEmpty: true
+      }
+  },
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      isEmail: true,
+      notEmpty: true,
     },
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-    },
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-            notEmpty: true
-        }
-    },
-    address: {
-        type: Sequelize.STRING
-    },
-    role: {
-        type: Sequelize.ENUM("ADMIN", "MEMBER"),
-        defaultValue: "MEMBER"
-    }
+  },
+  address: {
+    type: Sequelize.STRING,
+  },
+  role: {
+    type: Sequelize.ENUM("ADMIN", "MEMBER"),
+    defaultValue: "MEMBER",
+  },
 });
-
 
 User.prototype.corretPassword = function (passedPassword) {
     // Comparing the "passed Password" to the actual password
@@ -64,7 +63,13 @@ User.byToken = async function (token) {
         errMsg.status = 401
         throw errMsg
     }
-}
+    return user;
+  } catch (err) {
+    const errMsg = Error("bad token");
+    errMsg.status = 401;
+    throw errMsg;
+  }
+};
 
 User.getId = async function (token) {
     try {
@@ -106,8 +111,7 @@ const hashPassword = async (user) => {
 
 // Hooks to make this happen on creation :D
 
-User.beforeCreate(hashPassword)
-User.beforeUpdate(hashPassword)
+User.beforeCreate(hashPassword);
+User.beforeUpdate(hashPassword);
 
-module.exports = User
-
+module.exports = User;

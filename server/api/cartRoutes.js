@@ -1,51 +1,49 @@
-const router = require('express').Router();
-const OrderProduct = require("../db/models/OrderProduct");
-const User = require("../db/models/User");
-const Order = require("../db/models/Order");
-const Product = require("../db/models/Product");
+const router = require("express").Router();
+const { OrderProduct, Product, User, Order } = require("../db");
 
+router.get("/", async (req, res, next) => {
+  try {
+    const id = await User.getId(req.cookies);
+    console.log("id is:", id);
+    const user = await User.findByPk(id, {
+      include: [Order],
+    });
+    console.log("user is:", user.addOrder);
+    // const cart = await Order.create();
+    // await user.addOrder(cart);
+    // console.log("cart is:", cart);
 
-// router.get('/', async (req, res, next) => {
-//     try {
-//     const id = await User.getId(req.cookies)
-// const cart = await Order.findOrCreate({
-//     where: {
-//         userId: id
-//     },
-//     include: {
-//         model: OrderProduct,
-//     }
-// })
-// console.log(cart)
-// res.send(cart)
-//     } catch (err) {
-//         next(err);
-//     }
-// })
+    const cart = await Order.findOrCreate({
+      where: { userId: id, state: "CART" },
+    });
+    console.log("cart is:", cart);
+    res.send(cart);
+  } catch (err) {
+    next(err);
+  }
+});
 
+router.post("/", async (req, res, next) => {
+  try {
+    const id = req.body.id;
+    // if findOrCreate --> another line to check quantity  ++
+    const newOrderProduct = await OrderProduct.findOrCreate({
+      include: [
+        {
+          model: Product,
+          where: {
+            productId: id,
+          },
+        },
+      ],
+    });
+    //   console.log(newOrderProduct)
+    res.send(newOrderProduct);
+  } catch (err) {
+    //   console.log(err)
+    //   res.json(err);
+    next();
+  }
+});
 
-
-
-
-// router.post("/", async (req, res, next) => {
-//     try {
-//         const id = req.body.id
-//       const newOrderProduct = await OrderProduct.findOrCreate({
-//         include: {
-//             model: Product,
-//             where: {
-//                 productId: id,
-//             }
-//         },
-//       });
-//     //   console.log(newOrderProduct)
-//       res.send(newOrderProduct);
-//     } catch (err) {
-//     //   console.log(err)
-//     //   res.json(err);
-//     next()
-//     }
-//   });
-
-  
-module.exports = router
+module.exports = router;
