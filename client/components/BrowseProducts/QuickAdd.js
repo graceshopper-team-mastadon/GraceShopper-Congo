@@ -9,14 +9,12 @@ const QuickAdd = (props) => {
   const dispatch = useDispatch();
 
   const quickAddHandler = async (productInfo) => {
-    await axios.get('/api/cart')
+    await axios.get("/api/cart");
     await dispatch(AddToCart(productInfo));
   };
 
   return (
-    <button onClick={() => quickAddHandler(product)}>
-      Quick Add To Cart
-    </button>
+    <button onClick={() => quickAddHandler(product)}>Quick Add To Cart</button>
   );
 };
 

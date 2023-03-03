@@ -15,15 +15,15 @@ export const getProductCategory = createAsyncThunk(
   }
 );
 
-export const AddToCart = createAsyncThunk(
-  "/addToCart",
-  async (productInfo) => {
-    //console.log(productInfo)
-    const { data } = await axios.post("/api/cart", productInfo);
-
-    return data;
-  }
-);
+export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
+  console.log("productInfo in thunk:", productInfo);
+  const { data } = await axios.post(
+    "http://localhost:3000/api/cart",
+    productInfo
+  );
+  // console.log("data returned to thunk:", data);
+  return data;
+});
 
 export const productsSlice = createSlice({
   name: "products",
