@@ -1,19 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { AddToCart } from "../../slices/productsSlice";
+const axios = require("axios");
 
 const QuickAdd = (props) => {
-  const { productId } = props;
-  const { price } = props;
+  const { product } = props;
 
   const dispatch = useDispatch();
 
-  const quickAddHandler = async (productId, price) => {
-    await dispatch(AddToCart({ productId, price }));
+  const quickAddHandler = async (productInfo) => {
+    await axios.get('/api/cart')
+    await dispatch(AddToCart(productInfo));
   };
 
   return (
-    <button onClick={() => quickAddHandler(productId, price)}>
+    <button onClick={() => quickAddHandler(product)}>
       Quick Add To Cart
     </button>
   );

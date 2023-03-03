@@ -14,8 +14,6 @@ const User = require("./models/User");
 Product.belongsToMany(Order, {through: OrderProduct})
 Order.belongsToMany(Product, {through: OrderProduct})
 
-
-
 Order.belongsTo(User);
 User.hasMany(Order)
 

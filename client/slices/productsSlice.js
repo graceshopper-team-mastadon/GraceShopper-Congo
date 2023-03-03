@@ -16,12 +16,10 @@ export const getProductCategory = createAsyncThunk(
 );
 
 export const AddToCart = createAsyncThunk(
-  "products/addToCart",
-  async ({ productId, price }) => {
-    const { data } = await axios.post("/api/products", {
-      productId,
-      price,
-    });
+  "/addToCart",
+  async (productInfo) => {
+    //console.log(productInfo)
+    const { data } = await axios.post("/api/cart", productInfo);
 
     return data;
   }
