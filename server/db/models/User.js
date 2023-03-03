@@ -11,7 +11,7 @@ const User = db.define("user", {
     validate: {
       notEmpty: true,
     },
-  }
+  },
   name: {
       type: Sequelize.STRING,
       allowNull: true,
@@ -63,13 +63,7 @@ User.byToken = async function (token) {
         errMsg.status = 401
         throw errMsg
     }
-    return user;
-  } catch (err) {
-    const errMsg = Error("bad token");
-    errMsg.status = 401;
-    throw errMsg;
-  }
-};
+  } 
 
 User.getId = async function (token) {
     try {
