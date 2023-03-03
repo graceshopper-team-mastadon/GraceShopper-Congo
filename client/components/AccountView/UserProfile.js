@@ -2,8 +2,8 @@ const React = require("react");
 import { ListGroup } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 const axios = require("axios");
-
-//need to get the user by id
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const UserProfile = () => {
     const dispatch = useDispatch();
@@ -12,10 +12,16 @@ const UserProfile = () => {
     const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
 
-    const allCookies = document.cookie;
-    // const id = await User.getId(allCookies.token)
+    const getId = async () => {
+        if (await axios.get('/auth/verify')) {
+            let id = await axios.get('/auth/id');
+            return id;
+        } else {
+            return "wrong person bud"
+        }
+    }
 
-    // console.log('where ma id andrew?', id)
+    getId();
 
     // useEffect(() => {
     //     setUsername(username || "");

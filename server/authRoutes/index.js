@@ -25,15 +25,17 @@ router.get("/verify", async (req, res, next) => {
 });
 router.get('/id', async (req, res, next) => {
   try {
-    console.log(req.cookies.token)
-  const id = User.getId(req.cookies)
-  res.send(id)
+
+    const id = await User.getId(req.cookies.token);
+    console.log("id is: ", id)
+    res.send(id)
   } catch (err) {
     const errMsg = Error('bad token')
     errMsg.status = 401
     throw errMsg
   }
-})
+});
+
 router.post("/signup", async (req, res, next) => {
   try {
     await User.create(req.body);

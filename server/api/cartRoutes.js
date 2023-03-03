@@ -3,7 +3,7 @@ const { OrderProduct, Product, User, Order } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
-    const id = await User.getId(req.cookies);
+    const id = await User.getId(req.cookies.token);
     // const cart = await Order.create();
     // await user.addOrder(cart);
     // console.log("cart is:", cart);
