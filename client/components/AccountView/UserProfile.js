@@ -1,11 +1,9 @@
 const React = require("react");
 import { ListGroup } from "react-bootstrap";
 import Sidebar from "./Sidebar";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { useEffect } from "react";
-import { updateUser } from "../../slices/userSlice";
-// const { User } = require("../../../server/db/index.js")
+const axios = require("axios");
+
+//need to get the user by id
 
 const UserProfile = () => {
     const dispatch = useDispatch();
