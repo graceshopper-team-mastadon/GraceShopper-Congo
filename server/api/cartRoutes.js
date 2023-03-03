@@ -3,46 +3,40 @@ const { OrderProduct, Product, User, Order } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
-    const id = await User.getId(req.cookies);
-    console.log("id is:", id);
-    const user = await User.findByPk(id, {
-      include: [Order],
-    });
-    console.log("user is:", user.addOrder);
-    // const cart = await Order.create();
-    // await user.addOrder(cart);
-    // console.log("cart is:", cart);
-
+    const UserId = await User.getId(req.cookies);
     const cart = await Order.findOrCreate({
-      where: { userId: id, state: "CART" },
+      where: { userId: UserId, state: "CART" },
     });
-    console.log("cart is:", cart);
     res.send(cart);
   } catch (err) {
     next(err);
   }
 });
 
+// add UserId to state?
 router.post("/", async (req, res, next) => {
   try {
-    const id = req.body.id;
-    // if findOrCreate --> another line to check quantity  ++
-    const newOrderProduct = await OrderProduct.findOrCreate({
-      include: [
-        {
-          model: Product,
-          where: {
-            productId: id,
-          },
-        },
-      ],
+    const UserId = await User.getId(req.cookies);
+    const cart = await Order.findOne({
+      where: { userId: UserId },
     });
-    //   console.log(newOrderProduct)
-    res.send(newOrderProduct);
+    const productId = req.body.id;
+    const itemExists = await OrderProduct.findOne({
+      where: {
+        productId: productId,
+        orderId: cart.id,
+      },
+    });
+    if (itemExists) {
+      const updatedCartItem = await itemExists.increment("count", { by: 1 });
+      res.send(updatedCartItem);
+    } else {
+      const product = await Product.findByPk(productId);
+      const newCartItem = cart.addProduct(product);
+      res.send(newCartItem);
+    }
   } catch (err) {
-    //   console.log(err)
-    //   res.json(err);
-    next();
+    next(err);
   }
 });
 
