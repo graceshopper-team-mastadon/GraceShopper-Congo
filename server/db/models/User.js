@@ -11,13 +11,17 @@ const User = db.define("user", {
     validate: {
       notEmpty: true,
     },
+  }
+  name: {
+      type: Sequelize.STRING,
+      allowNull: true,
   },
   password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+          notEmpty: true
+      }
   },
   email: {
     type: Sequelize.STRING,
@@ -37,21 +41,27 @@ const User = db.define("user", {
 });
 
 User.prototype.corretPassword = function (passedPassword) {
-  // Comparing the "passed Password" to the actual password
-  return bcrypt.compare(passedPassword, this.password);
-};
+    // Comparing the "passed Password" to the actual password
+    return bcrypt.compare(passedPassword, this.password)
+}
 // Generating a new token if other one expired
 User.prototype.generateToken = function () {
-  return jwt.sign({ id: this.id }, "test");
-};
+    return jwt.sign({ id: this.id }, 'test')
+}
 // Finding User by Token
 
 User.byToken = async function (token) {
-  try {
-    const { id } = await jwt.verify(token, "test"); /* test = password */
-    const user = User.findByPk(id);
-    if (!user) {
-      throw new error(401);
+    try {
+        const { id } = await jwt.verify(token, 'test') /* test = password */
+        const user = User.findByPk(id)
+        if (!user) {
+            throw new error(401)
+        }
+        return user
+    } catch (err) {
+        const errMsg = Error('bad token')
+        errMsg.status = 401
+        throw errMsg
     }
     return user;
   } catch (err) {
@@ -62,41 +72,42 @@ User.byToken = async function (token) {
 };
 
 User.getId = async function (token) {
-  try {
-    const { id } = await jwt.verify(token.token, "test");
-    return id;
-  } catch (err) {
-    const errMsg = Error("bad token");
-    errMsg.status = 401;
-    throw errMsg;
-  }
-};
+    try {
+        const { id } = await jwt.verify(token.token, 'test')
+        return id
+    } catch (err) {
+        const errMsg = Error('bad token')
+        errMsg.status = 401
+        throw errMsg
+    }
+}
 
 // authenticating the User name and password connection
 User.authenticate = async function ({ username, password }) {
-  const user = await this.findOne({ where: { username } });
-  if (!user || !(await user.corretPassword(password))) {
-    const errMsg = Error("Incorrect Username or Password");
-    errMsg.status = 401;
-    throw errMsg;
-  }
-  return user.generateToken();
-};
+    const user = await this.findOne({ where: { username } })
+    if (!user || !(await user.corretPassword(password))) {
+        const errMsg = Error('Incorrect Username or Password')
+        errMsg.status = 401
+        throw errMsg
+    }
+    return user.generateToken()
+}
 User.Verify = async function ({ token }) {
-  if (jwt.verify(token, "test")) {
-    return true;
-  } else {
-    return false;
-  }
-};
+    if (jwt.verify(token, "test")) {
+        return true
+    } else {
+        return false
+    }
+
+}
 
 // Hooks to hash the password after a new user is created
 
 const hashPassword = async (user) => {
-  if (user.changed("password")) {
-    user.password = await bcrypt.hash(user.password, 5);
-  }
-};
+    if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 5)
+    }
+}
 
 // Hooks to make this happen on creation :D
 
