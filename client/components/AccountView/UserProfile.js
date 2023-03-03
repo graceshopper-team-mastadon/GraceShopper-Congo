@@ -3,25 +3,29 @@ import { ListGroup } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 const axios = require("axios");
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const UserProfile = () => {
     const dispatch = useDispatch();
+    const [id, setId] = useState(false)
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
 
-    const getId = async () => {
-        if (await axios.get('/auth/verify')) {
-            let id = await axios.get('/auth/id');
-            return id;
-        } else {
-            return "wrong person bud"
+    useEffect(() => {
+        const getId = async () => {
+            if (await axios.get('/auth/verify')) {
+                const {data} = await axios.get('/auth/getId');
+                setId(data)
+            } else {
+                setId(false)
+            }
         }
-    }
+        getId();
+    }, [])
 
-    getId();
+    console.log("idkIhatethis", id)
 
     // useEffect(() => {
     //     setUsername(username || "");
