@@ -21,17 +21,25 @@ import axios from "axios";
 const PokeHome = () => {
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const state = useSelector((state) => state)
+  const auth = useSelector((state) => state.auth)
 
   useEffect(() => {
-    const thing = async () => {
+    const loggedInStatus = async () => {
       const data = await axios.get('/auth/verify');
       setLoggedIn(data)
     };
-    thing();
-  }, [state.auth])
+    const adminStatus = async () => {
+      const { data } = await axios.get('/api/users/checkadmin');
+      setIsAdmin(data)
+    };
+    loggedInStatus();
+    adminStatus();
+  }, [auth]);
+
+  console.log("is admin?", isAdmin);
 
   return (
     <div>
@@ -48,7 +56,6 @@ const PokeHome = () => {
           {!loggedIn ?
             <> <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link> </> : <>
-              <Link to="/signout"> Sign Out </Link>
               <Nav.Link href="" onClick={handleShow}>Account</Nav.Link>
               <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>
@@ -61,6 +68,8 @@ const PokeHome = () => {
                     <ListGroup.Item><Nav.Link href="/address-book">Address Book </Nav.Link></ListGroup.Item>
                     <ListGroup.Item><Nav.Link href="/payment-cards">Payment Cards</Nav.Link></ListGroup.Item>
                     <ListGroup.Item><Nav.Link href="/feedback">Send us Feedback</Nav.Link></ListGroup.Item>
+                    {isAdmin && <><ListGroup.Item><Nav.Link href="/dashboard">Dashboard</Nav.Link></ListGroup.Item> </>}
+                    <ListGroup.Item><Nav.Link href="/signout">Sign Out</Nav.Link></ListGroup.Item>
                   </ListGroup>
                 </Offcanvas.Body>
               </Offcanvas></>}
