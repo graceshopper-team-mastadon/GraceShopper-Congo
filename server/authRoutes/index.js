@@ -23,12 +23,10 @@ router.get("/verify", async (req, res, next) => {
     next(err);
   }
 });
-router.get('/id', async (req, res, next) => {
+router.get('/getId', async (req, res, next) => {
   try {
-
     const id = await User.getId(req.cookies.token);
-    console.log("id is: ", id)
-    res.send(id)
+    res.json(id)
   } catch (err) {
     const errMsg = Error('bad token')
     errMsg.status = 401
