@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import { Offcanvas, OffcanvasBody, OffcanvasHeader, OffcanvasTitle } from "react-bootstrap";
 import { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
 import { useEffect } from "react";
 import axios from "axios";
@@ -48,6 +48,7 @@ const PokeHome = () => {
           {!loggedIn ?
             <> <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link> </> : <>
+              <Link to="/signout"> Sign Out </Link>
               <Nav.Link href="" onClick={handleShow}>Account</Nav.Link>
               <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>

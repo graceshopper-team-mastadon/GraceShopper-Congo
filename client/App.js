@@ -14,6 +14,7 @@ import OrderHistory from "./components/AccountView/OrderHistory";
 import AddressBook from "./components/AccountView/AddressBook";
 import PaymentCards from "./components/AccountView/PaymentCards";
 import Feedback from "./components/AccountView/Feedback";
+import Signout from "./components/Signout"
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/signout" element={<Signout />} />
         <Route exact path="/profile" element={<UserProfile />} />
         <Route exact path="/order-history" element={<OrderHistory />} />
         <Route exact path="/address-book" element={<AddressBook />} />
