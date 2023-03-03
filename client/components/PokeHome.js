@@ -57,7 +57,7 @@ const PokeHome = () => {
                     <ListGroup.Item>Order History</ListGroup.Item>
                     <ListGroup.Item>Address Book</ListGroup.Item>
                     <ListGroup.Item>Payment Cards</ListGroup.Item>
-                    <ListGroup.Item>Send us Feedback</ListGroup.Item>
+                    <ListGroup.Item><Nav.Link href="/feedback">Send us Feedback</Nav.Link></ListGroup.Item>
                   </ListGroup>
                 </Offcanvas.Body>
               </Offcanvas></>}
