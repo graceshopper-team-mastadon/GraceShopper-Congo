@@ -4,40 +4,40 @@ const jwt = require("jsonwebtoken");
 const db = require("../db");
 
 const User = db.define("user", {
-  username: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      notEmpty: true,
+    username: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            notEmpty: true,
+        },
     },
-  },
-  name: {
-      type: Sequelize.STRING,
-      allowNull: true,
-  },
-  password: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-          notEmpty: true
-      }
-  },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      isEmail: true,
-      notEmpty: true,
+    name: {
+        type: Sequelize.STRING,
+        allowNull: true,
     },
-  },
-  address: {
-    type: Sequelize.STRING,
-  },
-  role: {
-    type: Sequelize.ENUM("ADMIN", "MEMBER"),
-    defaultValue: "MEMBER",
-  },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            isEmail: true,
+            notEmpty: true,
+        },
+    },
+    address: {
+        type: Sequelize.STRING,
+    },
+    role: {
+        type: Sequelize.ENUM("ADMIN", "MEMBER"),
+        defaultValue: "MEMBER",
+    },
 });
 
 User.prototype.corretPassword = function (passedPassword) {
@@ -46,7 +46,9 @@ User.prototype.corretPassword = function (passedPassword) {
 }
 // Generating a new token if other one expired
 User.prototype.generateToken = function () {
-    return jwt.sign({ id: this.id }, 'test')
+    return jwt.sign({
+        id: this.id, role: this.role
+    }, 'test')
 }
 // Finding User by Token
 
@@ -63,18 +65,29 @@ User.byToken = async function (token) {
         errMsg.status = 401
         throw errMsg
     }
-  } 
+}
 
 User.getId = async function (token) {
     try {
-        const { id } = await jwt.verify(token.token, 'test')
-        return id
+        const data = await jwt.verify(token, 'test')
+        return data.id
     } catch (err) {
         const errMsg = Error('bad token')
         errMsg.status = 401
         throw errMsg
     }
 }
+// User.getUserByToken = async function (token) {
+//     try {
+//         console.log(token)
+// const newUser = await jwt.verify(token, "test")
+// return newUser
+//     } catch (err) {
+//         const errMsg = Error('bad token')
+//         errMsg.status = 401
+//         throw errMsg
+//     }
+// }
 
 // authenticating the User name and password connection
 User.authenticate = async function ({ username, password }) {
@@ -86,13 +99,23 @@ User.authenticate = async function ({ username, password }) {
     }
     return user.generateToken()
 }
+
 User.Verify = async function ({ token }) {
     if (jwt.verify(token, "test")) {
         return true
     } else {
         return false
     }
+}
 
+User.isAdmin = async function (token) {
+    const data = await jwt.verify(token, "test")
+    if (data.role === 'ADMIN') {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 // Hooks to hash the password after a new user is created
