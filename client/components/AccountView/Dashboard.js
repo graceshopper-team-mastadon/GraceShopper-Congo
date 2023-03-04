@@ -1,13 +1,35 @@
-const React = require("react");
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Dashboard = () => {
-    return (
-        <>
-            <div>
-                <h1> this is the dashboard lol </h1>
-            </div>
-        </>
-    )
+  const [isAdmin, setIsAdmin] = useState(false);
 
+  useEffect(() => {
+    const adminStatus = async () => {
+      const { data } = await axios.get("/api/users/checkadmin");
+      setIsAdmin(data);
+    };
+    adminStatus();
+  }, []);
+
+  return (
+    <>
+      {!isAdmin && (
+        <>
+          <p>
+            You do not have permission to view Admin Dashboard. Please log in as
+            Admin to have access to Dashboard.
+          </p>
+        </>
+      )}
+      {isAdmin && (
+        <>
+          <div>
+            <h1> You are Admin and this is your Admin Dashboard! </h1>
+          </div>
+        </>
+      )}
+    </>
+  );
 };
 export default Dashboard;
