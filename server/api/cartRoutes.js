@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { OrderProduct, Product, User, Order } = require("../db");
 
+// Create or Access cart for logged in user
 router.get("/", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies);
@@ -13,7 +14,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// add UserId to state?
+// Add item to cart
 router.post("/", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies);
@@ -35,6 +36,25 @@ router.post("/", async (req, res, next) => {
       const newCartItem = cart.addProduct(product);
       res.send(newCartItem);
     }
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Delete item from Cart
+router.delete("/", async (req, res, next) => {
+  try {
+    const cart = await Order.findOne({
+      where: { userId: UserId },
+    });
+    const deletedCartItem = await OrderProduct.findOne({
+      where: {
+        productId: productId,
+        orderId: cart.id,
+      },
+    });
+    await deletedCartItem.destroy();
+    res.send(deletedCartItem);
   } catch (err) {
     next(err);
   }
