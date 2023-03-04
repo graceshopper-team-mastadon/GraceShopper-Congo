@@ -18,7 +18,7 @@ const Dashboard = () => {
         <>
           <p>
             You do not have permission to view Admin Dashboard. Please log in as
-            Admin to have access to Dashboard.
+            Admin to gain access.
           </p>
         </>
       )}
