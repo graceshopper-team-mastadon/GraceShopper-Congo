@@ -39,8 +39,6 @@ const PokeHome = () => {
     adminStatus();
   }, [auth]);
 
-  console.log("is admin?", isAdmin);
-
   return (
     <div>
       <Navbar className="navbar navbar-fixed-bottom bg-light">

@@ -16,6 +16,10 @@ import PaymentCards from "./components/AccountView/PaymentCards";
 import Feedback from "./components/AccountView/Feedback";
 import Signout from "./components/Signout";
 import Dashboard from "./components/AccountView/Dashboard"
+import New from "./components/BrowseProducts/New";
+import Pokemon from "./components/BrowseProducts/Pokemon";
+import Potions from "./components/BrowseProducts/Potions";
+import Pokeballs from "./components/BrowseProducts/Pokeballs";
 
 const App = () => {
   return (
@@ -26,7 +30,10 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<AllProducts />} />
         <Route exact path="/products/:id" element={<SingleProduct />} />
-        {/* <Route exact path = "/products/:category" element={<CategoryView/>} /> */}
+        <Route exact path="/new" element={<New />} />
+        <Route exact path="/category/pokemon-all" element={<Pokemon />} />
+        <Route exact path="/category/potions" element={<Potions />} />
+        <Route exact path="/category/pokeballs" element={<Pokeballs />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
@@ -37,6 +44,7 @@ const App = () => {
         <Route exact path="/payment-cards" element={<PaymentCards />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+
       </Routes>
     </>
   );
