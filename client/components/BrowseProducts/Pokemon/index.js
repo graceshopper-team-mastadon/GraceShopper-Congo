@@ -14,10 +14,10 @@ const Pokemon = () => {
 
     return (
         <div className="pokemon-view">
-            {/* {pokemons.map((pokemon) => (
+            {pokemons.map((pokemon) => (
                 <PokemonElement key={pokemon.id} />
             )
-            )} */}
+            )}
             THIS IS A WORK IN PROGRESS!!!!
         </div>
     )
