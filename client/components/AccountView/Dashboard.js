@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import DashContent from "./DashContent";
 
 const Dashboard = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -24,9 +25,7 @@ const Dashboard = () => {
       )}
       {isAdmin && (
         <>
-          <div>
-            <h1> You are Admin and this is your Admin Dashboard! </h1>
-          </div>
+          <div>{<DashContent />} </div>
         </>
       )}
     </>

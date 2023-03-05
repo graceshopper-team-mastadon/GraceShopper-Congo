@@ -12,6 +12,31 @@ const { User } = require("../db");
 //     }
 // })
 
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.send(users);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/user", async (req, res, next) => {
+  try {
+    if (!req.cookies.token) {
+      res.send(null);
+    } else {
+      const userId = await User.getId(req.cookies.token);
+      const user = await User.findByPk(userId);
+      res.send(user);
+    }
+  } catch (err) {
+    const errMsg = Error("bad token");
+    errMsg.status = 401;
+    throw errMsg;
+  }
+});
+
 router.put("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
@@ -22,7 +47,7 @@ router.put("/:id", async (req, res, next) => {
 });
 
 router.get("/checkadmin", async (req, res, next) => {
-  console.log("cookies:", req.cookies.token);
+  // console.log("cookies:", req.cookies.token);
   try {
     if (!req.cookies.token) {
       res.send(false);
