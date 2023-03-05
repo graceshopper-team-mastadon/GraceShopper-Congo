@@ -43,8 +43,11 @@ router.post("/signup", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
-router.delete('/logout', async (req, res, next) => {
-  req.clearCookies()
+
+router.get('/logout', async (req, res, next) => {
+  console.log('testtestestest')
+  res.clearCookie('token')
+  res.end()
 })
 
 module.exports = router;
