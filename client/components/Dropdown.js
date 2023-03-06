@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteSingleUser } from "../slices/userSlice";
+import { deleteSingleProduct } from "../slices/productsSlice";
 import { DropdownButton, Dropdown, Button } from "react-bootstrap";
 
 const TableDropdown = (props) => {
@@ -16,7 +17,11 @@ const TableDropdown = (props) => {
 
   const deleteHandler = async (id) => {
     console.log("deleteHandler will delete this item id: ", id);
-    await dispatch(deleteSingleitem(id));
+    if (item.role) {
+      await dispatch(deleteSingleUser(id));
+    } else if (item.category) {
+      await dispatch(deleteSingleProduct(id));
+    }
   };
 
   return (
@@ -28,7 +33,7 @@ const TableDropdown = (props) => {
 
         <Dropdown.Item>
           <Button variant="danger" onClick={() => deleteHandler(deleteId)}>
-            Delete User
+            Delete
           </Button>
         </Dropdown.Item>
       </DropdownButton>

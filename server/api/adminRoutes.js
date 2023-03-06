@@ -9,6 +9,25 @@ const { OrderProduct, Product, User, Order } = require("../db");
 
 // Delete product
 
+router.get("/products/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete("/products/:id", async (req, res, next) => {
+  try {
+    const deletedProduct = await Product.findByPk(req.params.id);
+    await deletedProduct.destroy();
+    res.send(deletedProduct);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // USERS
 
 // Add user
