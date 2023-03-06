@@ -2,8 +2,10 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import QuickAdd from "../QuickAdd";
 
 const PokemonElement = (props) => {
+    const { pokemon } = props;
     const pokemonId = props.pokemon.id;
     const pokemonName = props.pokemon.name;
     const pokemonDescription = props.pokemon.description;
@@ -17,7 +19,7 @@ const PokemonElement = (props) => {
                     <Card.Title><Link to={`/products/${pokemonId}`}>{`${pokemonName}`}</Link></Card.Title>
                     <Card.Text>
                         {`${pokemonDescription}`}                    </Card.Text>
-                    <Button variant="primary">Add to Cart</Button>
+                    {<QuickAdd product={pokemon} key={pokemon.id} />}
                 </Card.Body>
             </Card>
         </div>

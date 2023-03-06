@@ -2,9 +2,11 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import QuickAdd from "../QuickAdd";
 
 
 const PotionElement = (props) => {
+    const { potion } = props;
     const potionId = props.potion.id;
     const potionName = props.potion.name;
     const potionDescription = props.potion.description;
@@ -18,7 +20,7 @@ const PotionElement = (props) => {
                     <Card.Title><Link to={`/products/${potionId}`}>{`${potionName}`}</Link></Card.Title>
                     <Card.Text>
                         {`${potionDescription}`}                    </Card.Text>
-                    <Button variant="primary">Add to Cart</Button>
+                    {<QuickAdd product={potion} key={potion.id} />}
                 </Card.Body>
             </Card>
         </div>
