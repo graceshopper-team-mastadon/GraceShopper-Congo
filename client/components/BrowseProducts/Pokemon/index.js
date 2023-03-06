@@ -9,18 +9,21 @@ const Pokemon = () => {
     useEffect(() => {
         dispatch(getAllPokemon());
     }, []);
-    console.log("what is pokemons? ====", pokemons)
     // pokemon is an array of three objects
 
-    return (
-        <div className="pokemon-view">
-            {pokemons.map((pokemon) => (
-                <PokemonElement key={pokemon.id} />
-            )
-            )}
-            THIS IS A WORK IN PROGRESS!!!!
-        </div>
-    )
+    if (pokemons.length === 0) {
+        return <h1> Loading your products!! </h1>
+    } else {
+        return (
+            <div className="pokemon-view">
+                {pokemons.map((pokemon) => (
+                    <PokemonElement key={pokemon.id} pokemon={pokemon} />
+                )
+                )}
+            </div>
+        )
+    }
+
 };
 export default Pokemon;
 

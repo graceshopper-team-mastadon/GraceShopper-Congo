@@ -28,13 +28,13 @@ export const categorySlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getAllPokemon.fulfilled, (state, { payload }) => {
-            state.pokemon.push([...payload])
+            state.pokemon = payload
         });
         builder.addCase(getAllPotions.fulfilled, (state, { payload }) => {
-            state.pokeballs.push([...payload])
+            state.pokeballs = payload
         });
         builder.addCase(getAllPokeballs.fulfilled, (state, { payload }) => {
-            state.potions.push([...payload])
+            state.potions = payload
         })
     }
 })
