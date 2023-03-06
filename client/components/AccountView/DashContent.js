@@ -11,7 +11,6 @@ const DashContent = () => {
     dispatch(fetchSingleUser());
   }, []);
 
-  //   console.log("user is:", user);
   return (
     <>
       <div className="admin-dashboard">

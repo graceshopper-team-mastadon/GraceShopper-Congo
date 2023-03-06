@@ -16,22 +16,32 @@ import {
   OffcanvasTitle,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { authTrue, authFalse } from "../slices/authSlice";
 
 const PokeHome = () => {
+  const dispatch = useDispatch()
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const auth = useSelector((state) => state.auth);
-  console.log(auth);
+  // console.log(auth);
 
   useEffect(() => {
     const loggedInStatus = async () => {
-      const { data } = await axios.get("/auth/verify");
-      setLoggedIn(data);
+      const status = await axios.get("/auth/verify")
+      if (status.data) {
+        dispatch(authTrue());
+        setLoggedIn(true)
+      }
+      else {
+        setLoggedIn(false)
+        dispatch(authFalse())
+
+      }
     };
     const adminStatus = async () => {
       const { data } = await axios.get("/api/users/checkadmin");

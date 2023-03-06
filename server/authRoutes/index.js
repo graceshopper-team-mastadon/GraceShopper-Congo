@@ -11,6 +11,19 @@ router.post("/login", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
+
+router.post('/guestCart', async (req, res, next) => {
+  if (!req.cookies.guestCart) {
+  await res.cookie('guestCart', [{name: 'dog', id: '1'}])
+ setTimeout(() => {
+  console.log('testest', req.cookies)
+ }, 1000)
+  res.end()
+  } else {
+    console.log('testest', req.cookies.guestCart)
+    req.cookies.guestCart
+  }
+})
 router.get("/verify", async (req, res, next) => {
   try {
     if (!req.cookies.token) {

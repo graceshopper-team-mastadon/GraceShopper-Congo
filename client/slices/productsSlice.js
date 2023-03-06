@@ -17,7 +17,6 @@ export const getProductCategory = createAsyncThunk(
 export const deleteSingleProduct = createAsyncThunk(
   "deleteProduct",
   async (id) => {
-    console.log("thunk receives this id: ", id);
     const { data } = await axios.get(
       `http://localhost:3000/api/dashboard/products/${id}`,
       { id }

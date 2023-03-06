@@ -20,6 +20,41 @@ router.get("/", async (req, res, next) => {
 // Add item to cart
 router.post("/", async (req, res, next) => {
   try {
+    const input = req.body.singleProduct;
+    console.log("body is:", req.body);
+    console.log("quantity is:", input.quantity);
+    const UserId = await User.getId(req.cookies.token);
+    const num = input.quantity;
+    const cart = await Order.findOne({
+      where: { userId: UserId },
+    });
+    const productId = input.singleProduct.id;
+    const itemExists = await OrderProduct.findOne({
+      where: {
+        productId: productId,
+        orderId: cart.id,
+      },
+    });
+    if (itemExists) {
+      console.log("item exists!!");
+      const updatedCartItem = await itemExists.increment("count", {
+        by: num,
+      });
+      res.send(updatedCartItem);
+    } else {
+      const product = await Product.findByPk(productId);
+      const newCartItem = cart.addProduct(product);
+      newCartItem.count = num;
+      res.send(newCartItem);
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+//Quick add
+router.post("/quickadd", async (req, res, next) => {
+  try {
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
       where: { userId: UserId },
@@ -32,7 +67,9 @@ router.post("/", async (req, res, next) => {
       },
     });
     if (itemExists) {
-      const updatedCartItem = await itemExists.increment("count", { by: 1 });
+      const updatedCartItem = await itemExists.increment("count", {
+        by: 1,
+      });
       res.send(updatedCartItem);
     } else {
       const product = await Product.findByPk(productId);
