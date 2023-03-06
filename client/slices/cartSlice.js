@@ -14,6 +14,15 @@ export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
   return data;
 });
 
+export const deleteSingleItem = createAsyncThunk(
+  "cart/deleteItem",
+  async (id) => {
+    const { data } = await axios.delete(`/api/cart/${id}`);
+
+    return data;
+  }
+);
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -27,6 +36,12 @@ export const cartSlice = createSlice({
 
     builder.addCase(AddToCart.fulfilled, (state, { payload }) => {
       state.cart.push(payload);
+    });
+
+    builder.addCase(deleteSingleItem.fulfilled, (state, { payload }) => {
+      state.cart = state.cart.filter(
+        (element) => element.productId !== payload.productId
+      );
     });
   },
 });

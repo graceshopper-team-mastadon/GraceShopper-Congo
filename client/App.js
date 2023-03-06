@@ -15,12 +15,10 @@ import AddressBook from "./components/AccountView/AddressBook";
 import PaymentCards from "./components/AccountView/PaymentCards";
 import Feedback from "./components/AccountView/Feedback";
 import Signout from "./components/Signout";
-
 import Dashboard from "./components/AccountView/Dashboard";
 import UserTable from "./components/AdminView/UserTable";
 import EditUser from "./components/AdminView/EditUser";
 import ProductTable from "./components/AdminView/ProductTable";
-
 import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
 import Potions from "./components/BrowseProducts/Potions";
