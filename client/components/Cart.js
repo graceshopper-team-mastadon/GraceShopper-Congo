@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllCart } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
+import { deleteSingleItem } from "../slices/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ const Cart = () => {
     );
   }
 
-  // const handleRemove = async (id) => {
-  //   await dispatch(removeFromCart(id));
-  // };
+  const handleRemove = async (id) => {
+    await dispatch(deleteSingleItem(id));
+  };
 
   const calculatePrice = () => {
     let totalPrice = 0;

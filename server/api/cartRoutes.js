@@ -45,14 +45,15 @@ router.post("/", async (req, res, next) => {
 });
 
 // Delete item from Cart
-router.delete("/", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
+    const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
       where: { userId: UserId },
     });
     const deletedCartItem = await OrderProduct.findOne({
       where: {
-        productId: productId,
+        productId: req.params.id,
         orderId: cart.id,
       },
     });
