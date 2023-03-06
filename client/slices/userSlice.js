@@ -24,8 +24,14 @@ export const fetchSingleUser = createAsyncThunk("getUser", async () => {
   return data;
 });
 
-export const DeleteSingleUser = createAsyncThunk("deleteUser", async (id) => {
-  const { data } = await axios.delete(`http://localhost:3000/api/users/${id}`);
+export const deleteSingleUser = createAsyncThunk("deleteUser", async (id) => {
+  console.log("thunk receives this id: ", id);
+  const { data } = await axios.get(
+    `http://localhost:3000/api/dashboard/users/${id}`,
+    { id }
+  );
+  await axios.delete(`http://localhost:3000/api/dashboard/users/${id}`, { id });
+  console.log("data in thunk:", data);
   return data;
 });
 
@@ -43,11 +49,12 @@ export const userSlice = createSlice({
     });
     builder.addCase(fetchAllUsers.fulfilled, (state, { payload }) => {
       state.allUsers = payload;
-      //   console.log("reducer: ", payload);
-      //   console.log("state: ", state.allUsers);
     });
     builder.addCase(fetchSingleUser.fulfilled, (state, { payload }) => {
       state.singleUser = payload;
+    });
+    builder.addCase(deleteSingleUser.fulfilled, (state, { payload }) => {
+      state.allUsers = state.allUsers.filter((user) => user.id !== payload.id);
     });
   },
 });

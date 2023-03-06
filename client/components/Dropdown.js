@@ -1,37 +1,56 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import { deleteSingleUser } from "";
+import { useDispatch } from "react-redux";
+import { deleteSingleUser } from "../slices/userSlice";
+import { DropdownButton, Dropdown, Button } from "react-bootstrap";
 
-const Dropdown = (props) => {
-  const { user } = props;
-  const [open, setOpen] = useState(false);
+const TableDropdown = (props) => {
+  const { item } = props;
+  const deleteId = item.id;
+  //   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
+  const dispatch = useDispatch();
+
+  //   const handleOpen = () => {
+  //     setOpen(!open);
+  //   };
 
   const deleteHandler = async (id) => {
-    await dispatchEvent(deleteSingleUser(id));
+    console.log("deleteHandler will delete this item id: ", id);
+    await dispatch(deleteSingleitem(id));
   };
 
   return (
-    <div className="dropdown">
-      <button onClick={handleOpen}>Dropdown</button>
-      {open ? (
-        <ul className="menu">
-          <li className="menu-item">
-            <Link to={`/dashboard/users/edit/${user.id}`}>
-              <button>Edit</button>
-            </Link>
-          </li>
-          <li className="menu-item">
-            <button onCLick={deleteHandler(user.id)}>Delete</button>
-          </li>
-        </ul>
-      ) : null}
-      {/* {open ? <div>Is Open</div> : <div>Is Closed</div>} */}
+    <div>
+      <DropdownButton title="">
+        <Dropdown.Item href={`/dashboard/items/edit/${item.id}`}>
+          Edit
+        </Dropdown.Item>
+
+        <Dropdown.Item>
+          <Button variant="danger" onClick={() => deleteHandler(deleteId)}>
+            Delete User
+          </Button>
+        </Dropdown.Item>
+      </DropdownButton>
     </div>
+
+    // <div className="dropdown">
+    //   <button onClick={handleOpen}>Dropdown</button>
+    //   {open ? (
+    //     <ul className="menu">
+    //       {/* <Link to={`/dashboard/users/edit/${user.id}`}> */}
+    //       <li className="menu-item">
+    //         <button>Edit</button>
+    //       </li>
+    //       {/* </Link> */}
+    //       <li className="menu-item">
+    //         <button onClick={deleteHandler(user.id)}>Delete</button>
+    //       </li>
+    //     </ul>
+    //   ) : null}
+    //   {/* {open ? <div>Is Open</div> : <div>Is Closed</div>} */}
+    // </div>
   );
 };
 
-export default Dropdown;
+export default TableDropdown;

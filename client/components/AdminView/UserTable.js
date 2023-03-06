@@ -4,7 +4,7 @@ import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { fetchAllUsers } from "../../slices/userSlice";
 import Pagination from "../Pagination";
-import Dropdown from "../Dropdown";
+import TableDropdown from "../Dropdown";
 
 const UserTable = () => {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const UserTable = () => {
                 <td>{user.email}</td>
                 <td>{user.address}</td>
                 <td>{user.role}</td>
-                <td>{<Dropdown user={user} />}</td>
+                <td>{<TableDropdown item={user} />}</td>
               </tr>
             ))}
         </tbody>

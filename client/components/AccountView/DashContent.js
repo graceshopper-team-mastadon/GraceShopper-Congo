@@ -17,7 +17,10 @@ const DashContent = () => {
       <div className="admin-dashboard">
         <div className="admin-header">Welcome, {user.username}!</div>
         <div className="user-table">
-          <Link to="/dashboard/users">User Table</Link>
+          <Link to="/dashboard/users">Manage Users</Link>
+        </div>
+        <div className="product-table">
+          <Link to="/dashboard/products">Manage Products</Link>
         </div>
       </div>
     </>

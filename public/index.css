@@ -46,3 +46,7 @@ img {
   margin: 0;
   background-color: white;
 }
+
+.links {
+  text-decoration: none;
+}
