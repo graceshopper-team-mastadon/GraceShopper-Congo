@@ -2,14 +2,17 @@ import React, { useState } from "react";
 const axios = require("axios");
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authFalse } from '../slices/authSlice'
 
 export default function Login() {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const signOut = async (e) => {
-        //andrew write your thing here
         e.preventDefault();
         await axios.get('/auth/logout')
+        dispatch(authFalse())
         navigate('/');
     }
 
@@ -22,11 +25,11 @@ export default function Login() {
                 <Card>
                     <Card.Body>
                         <h2 className="text-center mb-4">Sign Out</h2>
-                        <Form>
+                        <Form onSubmit={signOut} >
                             <Form.Group id="signout">
                                 <Form.Label>Are you sure you want to sign out?</Form.Label>
                             </Form.Group>
-                            <Button onClick={signOut} className="w-100" type="submit">
+                            <Button className="w-100" type="submit">
                                 Sign Out
                             </Button><br></br>
                         </Form>

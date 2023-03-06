@@ -42,14 +42,16 @@ const User = db.define("user", {
 
 User.prototype.corretPassword = function (passedPassword) {
     // Comparing the "passed Password" to the actual password
-    return bcrypt.compare(passedPassword, this.password)
+        return bcrypt.compare(passedPassword, this.password)
 }
+
 // Generating a new token if other one expired
 User.prototype.generateToken = function () {
     return jwt.sign({
         id: this.id, role: this.role
     }, 'test')
 }
+
 // Finding User by Token
 
 User.byToken = async function (token) {

@@ -26,6 +26,7 @@ const PokeHome = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const auth = useSelector((state) => state.auth);
+  console.log(auth);
 
   useEffect(() => {
     const loggedInStatus = async () => {
