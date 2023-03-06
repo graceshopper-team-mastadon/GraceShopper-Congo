@@ -14,12 +14,13 @@ export const getAllPotions = createAsyncThunk("/category/potions", async () => {
 
 export const getAllPokeballs = createAsyncThunk("/category/pokeballs", async () => {
     const { data } = await axios.get('/api/category/pokeballs');
+    console.log("data is:", data)
     return data
 })
 
 
 export const categorySlice = createSlice({
-    name: "category",
+    name: "categories",
     initialState: {
         pokemon: [],
         pokeballs: [],
@@ -31,13 +32,14 @@ export const categorySlice = createSlice({
             state.pokemon = payload
         });
         builder.addCase(getAllPotions.fulfilled, (state, { payload }) => {
-            state.pokeballs = payload
+            state.potions = payload;
         });
         builder.addCase(getAllPokeballs.fulfilled, (state, { payload }) => {
-            state.potions = payload
+            state.pokeballs = payload;
+            console.log("payload is : ", payload)
         })
     }
 })
 
-export const getCategories = (state) => state.category;
+export const getCategories = (state) => state.categories;
 export default categorySlice.reducer;

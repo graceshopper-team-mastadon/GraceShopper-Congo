@@ -10,13 +10,10 @@ const store = configureStore({
     products: productsReducer,
     auth: authSlice,
     singleProduct: singleProductReducer,
-
     users: userReducer,
-
     user: userReducer,
     categories: categoryReducer,
     cart: cartReducer,
-
   },
 });
 export default store;

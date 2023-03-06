@@ -9,7 +9,6 @@ const Pokemon = () => {
     useEffect(() => {
         dispatch(getAllPokemon());
     }, []);
-    // pokemon is an array of three objects
 
     if (pokemons.length === 0) {
         return <h1> Loading your products!! </h1>
