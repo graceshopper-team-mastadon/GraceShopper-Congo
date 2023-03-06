@@ -8,7 +8,6 @@ import { getAllProducts } from "../../slices/productsSlice";
 const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.Products);
-  console.log("products are ======> : ", products)
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
 
