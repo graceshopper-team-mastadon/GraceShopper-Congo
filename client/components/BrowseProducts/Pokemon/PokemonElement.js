@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const PokemonElement = (props) => {
+    const pokemonId = props.pokemon.id;
     const pokemonName = props.pokemon.name;
     const pokemonDescription = props.pokemon.description;
     const pokemonImg = props.pokemon.imageUrl;
@@ -12,7 +14,7 @@ const PokemonElement = (props) => {
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={`${pokemonImg}`} />
                 <Card.Body>
-                    <Card.Title>{`${pokemonName}`}</Card.Title>
+                    <Card.Title><Link to={`/products/${pokemonId}`}>{`${pokemonName}`}</Link></Card.Title>
                     <Card.Text>
                         {`${pokemonDescription}`}                    </Card.Text>
                     <Button variant="primary">Add to Cart</Button>

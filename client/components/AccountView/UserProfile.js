@@ -16,7 +16,7 @@ const UserProfile = () => {
     useEffect(() => {
         const getId = async () => {
             if (await axios.get('/auth/verify')) {
-                const {data} = await axios.get('/auth/getId');
+                const { data } = await axios.get('/auth/getId');
                 setId(data)
             } else {
                 setId(false)
@@ -24,8 +24,6 @@ const UserProfile = () => {
         }
         getId();
     }, [])
-
-    console.log("idkIhatethis", id)
 
     // useEffect(() => {
     //     setUsername(username || "");
