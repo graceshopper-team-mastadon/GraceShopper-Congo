@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 const axios = require("axios");
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -9,31 +9,8 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [name, setName] = useState("");
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-  // const passwordConfirmRef = useRef();
-  // const { signUp } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  // const navigate = useNavigate();
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-  //     return setError("Passwords do not match");
-  //   }
-
-  //   try {
-  //     setError("");
-  //     setLoading(true);
-  //     await signUp(emailRef.current.value, passwordRef.current.value);
-  //     navigate("/");
-  //   } catch {
-  //     setError("Failed to create user");
-  //     setLoading(false);
-  //   }
-  // }
 
   const handleSubmit = async function handleSubmit(e) {
     e.preventDefault();
@@ -59,7 +36,6 @@ export default function Signup() {
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>
-            {/* {currentUser.email} */}
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="name">
