@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const jwt = require("jsonwebtoken");
 const { User } = require("../db");
 
 router.post("/login", async (req, res, next) => {
@@ -15,12 +14,8 @@ router.post("/login", async (req, res, next) => {
 router.post('/guestCart', async (req, res, next) => {
   if (!req.cookies.guestCart) {
   await res.cookie('guestCart', [{name: 'dog', id: '1'}])
- setTimeout(() => {
-  console.log('testest', req.cookies)
- }, 1000)
   res.end()
   } else {
-    console.log('testest', req.cookies.guestCart)
     req.cookies.guestCart
   }
 })

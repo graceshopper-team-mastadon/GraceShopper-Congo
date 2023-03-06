@@ -11,7 +11,7 @@ const QuickAdd = (props) => {
   const dispatch = useDispatch();
 
   const quickAddHandler = async (productInfo) => {
-    // await axios.post('/auth/guestCart')
+    await axios.post('/auth/guestCart')
     await axios.get("/api/cart");
     await dispatch(QuickAddToCart(productInfo));
   };
