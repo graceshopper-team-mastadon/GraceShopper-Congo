@@ -48,7 +48,6 @@ router.post("/signup", async (req, res, next) => {
 
 
 router.get('/logout', async (req, res, next) => {
-  console.log('testtestestest')
   res.clearCookie('token')
   res.end()
 })
