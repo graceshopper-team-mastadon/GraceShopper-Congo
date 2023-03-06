@@ -18,7 +18,7 @@ const ProductTable = () => {
   const indexOfFirstItems = indexOfLastItems - itemsPerPage;
   const currentItems = products.slice(indexOfFirstItems, indexOfLastItems);
 
-  // Change the page
+  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
