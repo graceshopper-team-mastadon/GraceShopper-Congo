@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { AddToCart } from "../../slices/cartSlice";
+import { QuickAddToCart } from "../../slices/cartSlice";
 const axios = require("axios");
 
 const QuickAdd = (props) => {
@@ -10,7 +10,7 @@ const QuickAdd = (props) => {
 
   const quickAddHandler = async (productInfo) => {
     await axios.get("/api/cart");
-    await dispatch(AddToCart(productInfo));
+    await dispatch(QuickAddToCart(productInfo));
   };
 
   return (
