@@ -13,30 +13,30 @@ const UserProfile = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
 
-  useEffect(() => {
-    const getId = async () => {
-      if (await axios.get("/auth/verify")) {
-        const { data } = await axios.get("/auth/getId");
-        setId(data);
-      } else {
-        setId(false);
-      }
-    };
-    getId();
-  }, []);
+    useEffect(() => {
+        const getId = async () => {
+            if (await axios.get('/auth/verify')) {
+                const { data } = await axios.get('/auth/getId');
+                setId(data)
+            } else {
+                setId(false)
+            }
+        }
+        getId();
+    }, [])
 
-  // useEffect(() => {
-  //     setUsername(username || "");
-  //     setEmail(email || "");
-  //     setPassword(password || "");
-  //     setAddress(address || "");
-  // }, []);
+    // useEffect(() => {
+    //     setUsername(username || "");
+    //     setEmail(email || "");
+    //     setPassword(password || "");
+    //     setAddress(address || "");
+    // }, []);
 
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    console.log("work in progress yall");
-    // await dispatch(updateUser({ id, username, email, password, address }))
-  };
+    const handleEdit = async (e) => {
+        e.preventDefault();
+        console.log('work in progress yall')
+        // await dispatch(updateUser({ id, username, email, password, address }))
+    }
 
   return (
     <div className="Userprofile">
