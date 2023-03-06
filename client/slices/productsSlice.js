@@ -30,6 +30,10 @@ export const deleteSingleProduct = createAsyncThunk(
   }
 );
 
+/*
+
+DELETE IF IN CART SLICE:
+
 export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
   const { data } = await axios.post(
     "http://localhost:3000/api/cart",
@@ -38,6 +42,7 @@ export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
   // console.log("data returned to thunk:", data);
   return data;
 });
+*/
 
 export const productsSlice = createSlice({
   name: "products",
