@@ -5,15 +5,18 @@ import authSlice from "../slices/authSlice";
 import userReducer from "../slices/userSlice";
 import categoryReducer from "../slices/categorySlice";
 import cartReducer from "../slices/cartSlice";
-
 const store = configureStore({
   reducer: {
     products: productsReducer,
     auth: authSlice,
     singleProduct: singleProductReducer,
+
+    users: userReducer,
+
     user: userReducer,
     categories: categoryReducer,
     cart: cartReducer,
+
   },
 });
 export default store;

@@ -1,30 +1,63 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
-const Axios = require('axios')
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const updateUser = createAsyncThunk("updateUser", async ({ id, username, email, password, address }) => {
+export const updateUser = createAsyncThunk(
+  "updateUser",
+  async ({ id, username, email, password, address }) => {
     const { data } = await axios.put(`http://localhost:3000/api/users/${id}`, {
-        username, email, password, address
+      username,
+      email,
+      password,
+      address,
     });
-    return data
+    return data;
+  }
+);
+
+export const fetchAllUsers = createAsyncThunk("getUsers", async () => {
+  const { data } = await axios.get("http://localhost:3000/api/users/");
+  return data;
 });
 
-// export const getUser = createAsyncThunk("getUser", async (id) => {
-//     const { data } = await axios.get(`http://localhost:3000/api/user/${id}`);
-//     return data;
-// })
+export const fetchSingleUser = createAsyncThunk("getUser", async () => {
+  const { data } = await axios.get("http://localhost:3000/api/users/user");
+  return data;
+});
+
+export const deleteSingleUser = createAsyncThunk("deleteUser", async (id) => {
+  console.log("thunk receives this id: ", id);
+  const { data } = await axios.get(
+    `http://localhost:3000/api/dashboard/users/${id}`,
+    { id }
+  );
+  await axios.delete(`http://localhost:3000/api/dashboard/users/${id}`, { id });
+  console.log("data in thunk:", data);
+  return data;
+});
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState: [],
-    reducers: {
-    },
-    extraReducers: (builder) => {
-        builder.addCase(updateUser.fulfilled, (state, { payload }) => {
-            return payload
-        })
-    },
-})
+  name: "users",
+  initialState: {
+    allUsers: [],
+    singleUser: {},
+    userStatus: {},
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(updateUser.fulfilled, (state, { payload }) => {
+      state.singleUser = payload;
+    });
+    builder.addCase(fetchAllUsers.fulfilled, (state, { payload }) => {
+      state.allUsers = payload;
+    });
+    builder.addCase(fetchSingleUser.fulfilled, (state, { payload }) => {
+      state.singleUser = payload;
+    });
+    builder.addCase(deleteSingleUser.fulfilled, (state, { payload }) => {
+      state.allUsers = state.allUsers.filter((user) => user.id !== payload.id);
+    });
+  },
+});
 
-export const selectUser = (state) => state.user;
-export default userSlice.reducer
+export const userState = (state) => state.users;
+export default userSlice.reducer;

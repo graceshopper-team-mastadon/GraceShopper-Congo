@@ -13,7 +13,9 @@ router.post("/login", async (req, res, next) => {
 });
 router.get("/verify", async (req, res, next) => {
   try {
-    if (await User.Verify(req.cookies)) {
+    if (!req.cookies.token) {
+      res.send(false);
+    } else if (await User.Verify(req.cookies)) {
       res.send(true);
     } else {
       res.send(false);
@@ -23,14 +25,14 @@ router.get("/verify", async (req, res, next) => {
     next(err);
   }
 });
-router.get('/getId', async (req, res, next) => {
+router.get("/getId", async (req, res, next) => {
   try {
     const id = await User.getId(req.cookies.token);
-    res.json(id)
+    res.json(id);
   } catch (err) {
-    const errMsg = Error('bad token')
-    errMsg.status = 401
-    throw errMsg
+    const errMsg = Error("bad token");
+    errMsg.status = 401;
+    throw errMsg;
   }
 });
 
@@ -44,10 +46,12 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
+
 router.get('/logout', async (req, res, next) => {
   console.log('testtestestest')
   res.clearCookie('token')
   res.end()
 })
+
 
 module.exports = router;
