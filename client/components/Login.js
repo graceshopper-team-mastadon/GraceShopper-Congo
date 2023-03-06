@@ -18,7 +18,7 @@ export default function Login() {
       password: password,
     });
     if (await axios.get("/auth/verify")) {
-      dispatch(authTrue());
+      dispatch(authTrue())
       navigate("/");
     }
     setUsername("");
