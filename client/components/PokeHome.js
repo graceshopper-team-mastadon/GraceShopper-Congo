@@ -54,15 +54,14 @@ const PokeHome = () => {
           <Link to="/cart">Cart</Link>
           {!loggedIn ? (
             <>
-              {" "}
               <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>{" "}
+              <Link to="/signup">Sign Up</Link>
             </>
           ) : (
             <>
-              <Nav.Link href="" onClick={handleShow}>
+              <Link to="" onClick={handleShow}>
                 Account
-              </Nav.Link>
+              </Link>
               <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Account</Offcanvas.Title>
@@ -70,29 +69,29 @@ const PokeHome = () => {
                 <Offcanvas.Body>
                   <ListGroup>
                     <ListGroup.Item>
-                      <Nav.Link href="/profile">Profile </Nav.Link>
+                      <Link to="/profile">Profile </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Nav.Link href="/order-history">Order History </Nav.Link>
+                      <Link to="/order-history">Order History </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Nav.Link href="/address-book">Address Book </Nav.Link>
+                      <Link to="/address-book">Address Book </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Nav.Link href="/payment-cards">Payment Cards</Nav.Link>
+                      <Link to="/payment-cards">Payment Cards</Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Nav.Link href="/feedback">Send us Feedback</Nav.Link>
+                      <Link to="/feedback">Send us Feedback</Link>
                     </ListGroup.Item>
                     {isAdmin && (
                       <>
                         <ListGroup.Item>
-                          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+                          <Link to="/dashboard">Dashboard</Link>
                         </ListGroup.Item>
                       </>
                     )}
                     <ListGroup.Item>
-                      <Nav.Link href="/signout">Sign Out</Nav.Link>
+                      <Link to="/signout">Sign Out</Link>
                     </ListGroup.Item>
                   </ListGroup>
                 </Offcanvas.Body>

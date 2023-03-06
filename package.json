@@ -36,7 +36,6 @@
     "react-admin": "^4.8.1",
     "react-admin-lb4": "^1.0.3",
     "react-bootstrap": "^2.7.2",
-    "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2",
     "sequelize": "^6.29.0",
