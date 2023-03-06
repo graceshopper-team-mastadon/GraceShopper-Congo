@@ -47,13 +47,9 @@ const App = () => {
         <Route exact path="/payment-cards" element={<PaymentCards />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
-
         <Route exact path="/dashboard/users" element={<UserTable />} />
         <Route exact path="/dashboard/users/edit/:id" element={<EditUser />} />
         <Route exact path="/dashboard/products" element={<ProductTable />} />
-
-
-
       </Routes>
     </>
   );

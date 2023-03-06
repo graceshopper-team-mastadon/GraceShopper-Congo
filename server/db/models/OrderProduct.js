@@ -6,9 +6,6 @@ const OrderProduct = db.define("orderProduct", {
     type: Sequelize.INTEGER,
     defaultValue: 1,
   },
-  price: {
-    type: Sequelize.FLOAT,
-  },
 });
 
 //set up the relationships

@@ -47,7 +47,6 @@ router.put("/:id", async (req, res, next) => {
 });
 
 router.get("/checkadmin", async (req, res, next) => {
-  // console.log("cookies:", req.cookies.token);
   try {
     if (!req.cookies.token) {
       res.send(false);
