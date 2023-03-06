@@ -18,14 +18,13 @@ import Signout from "./components/Signout";
 
 import Dashboard from "./components/AccountView/Dashboard";
 import UserTable from "./components/AdminView/UserTable";
-import EditUser from "./components/AdminView/Edituser";
+import EditUser from "./components/AdminView/EditUser";
 import ProductTable from "./components/AdminView/ProductTable";
 
 import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
 import Potions from "./components/BrowseProducts/Potions";
 import Pokeballs from "./components/BrowseProducts/Pokeballs";
-
 
 const App = () => {
   return (
@@ -50,13 +49,9 @@ const App = () => {
         <Route exact path="/payment-cards" element={<PaymentCards />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
-
         <Route exact path="/dashboard/users" element={<UserTable />} />
         <Route exact path="/dashboard/users/edit/:id" element={<EditUser />} />
         <Route exact path="/dashboard/products" element={<ProductTable />} />
-
-
-
       </Routes>
     </>
   );

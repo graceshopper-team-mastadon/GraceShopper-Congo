@@ -25,13 +25,11 @@ export const fetchSingleUser = createAsyncThunk("getUser", async () => {
 });
 
 export const deleteSingleUser = createAsyncThunk("deleteUser", async (id) => {
-  console.log("thunk receives this id: ", id);
   const { data } = await axios.get(
     `http://localhost:3000/api/dashboard/users/${id}`,
     { id }
   );
   await axios.delete(`http://localhost:3000/api/dashboard/users/${id}`, { id });
-  console.log("data in thunk:", data);
   return data;
 });
 

@@ -7,19 +7,13 @@ import { DropdownButton, Dropdown, Button } from "react-bootstrap";
 const TableDropdown = (props) => {
   const { item } = props;
   const deleteId = item.id;
-  //   const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
 
-  //   const handleOpen = () => {
-  //     setOpen(!open);
-  //   };
-
   const deleteHandler = async (id) => {
-    console.log("deleteHandler will delete this item id: ", id);
     if (item.role) {
       await dispatch(deleteSingleUser(id));
-    } else if (item.category) {
+    } else {
       await dispatch(deleteSingleProduct(id));
     }
   };

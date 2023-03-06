@@ -7,12 +7,10 @@ export const getAllCart = createAsyncThunk("/cart", async () => {
 });
 
 export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
-  console.log("productInfo in thunk:", productInfo);
   const { data } = await axios.post(
     "http://localhost:3000/api/cart",
     productInfo
   );
-  // console.log("data returned to thunk:", data);
   return data;
 });
 
