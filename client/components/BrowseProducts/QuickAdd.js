@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { AddToCart } from "../../slices/productsSlice";
+import { AddToCart } from "../../slices/cartSlice";
 const axios = require("axios");
 
 const QuickAdd = (props) => {

@@ -3,11 +3,14 @@ const { OrderProduct, Product, User, Order } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
-    const UserId = await User.getId(req.cookies);
+    const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOrCreate({
       where: { userId: UserId, state: "CART" },
     });
-    res.send(cart);
+    const orderProductInfo = await OrderProduct.findAll({
+      where: { orderId: cart[0].id },
+    });
+    res.send(orderProductInfo);
   } catch (err) {
     next(err);
   }
@@ -16,7 +19,7 @@ router.get("/", async (req, res, next) => {
 // add UserId to state?
 router.post("/", async (req, res, next) => {
   try {
-    const UserId = await User.getId(req.cookies);
+    const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
       where: { userId: UserId },
     });
