@@ -1,20 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-// export const updateUser = createAsyncThunk(
-//   "updateUser",
-//   async ({ id, username, email, password, address }) => {
-//     const { data } = await axios.put(`http://localhost:3000/api/users/${id}`, {
-//       username,
-//       email,
-//       password,
-//       address,
-//     });
-//     console.log("what is data?", data);
-//     return data;
-//   }
-// );
-
 export const fetchAllUsers = createAsyncThunk("getUsers", async () => {
   const { data } = await axios.get("http://localhost:3000/api/users/");
   return data;
