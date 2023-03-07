@@ -1,3 +1,8 @@
+* {
+  text-decoration: none;
+  font-family: "optima";
+}
+
 .Userprofile {
   display: flex;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -7,8 +12,6 @@ img.littleguys {
   width: 40%;
   height: 40%;
 }
-
-
 
 .Profile {
   display: flex;
@@ -51,3 +54,4 @@ img {
 .links {
   text-decoration: none;
 }
+

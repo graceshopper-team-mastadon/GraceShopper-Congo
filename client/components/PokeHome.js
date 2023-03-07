@@ -21,6 +21,19 @@ import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
 
 const PokeHome = () => {
+  const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    fontFamily: "optima",
+    color: "steelblue",
+  };
+  const sideStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    fontFamily: "optima",
+    color: "steelblue",
+  };
+
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -53,22 +66,32 @@ const PokeHome = () => {
     <div>
       <Navbar className="navbar navbar-fixed-bottom bg-light">
         <Container>
-          <Link to="/">PokeHome</Link>
+          <Link to="/" style={linkStyle}>
+            PokeHome
+          </Link>
           <Form className="navbar bg-light">
             <FormGroup>
               <FormControl type="text" placeholder="Search" />
             </FormGroup>
-            <Button type="submit">Submit</Button>
+            <Button variant="outline-secondary" type="submit">
+              Submit
+            </Button>
           </Form>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" style={linkStyle}>
+            Cart
+          </Link>
           {!loggedIn ? (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/login" style={linkStyle}>
+                Login
+              </Link>
+              <Link to="/signup" style={linkStyle}>
+                Sign Up
+              </Link>
             </>
           ) : (
             <>
-              <Link to="" onClick={handleShow}>
+              <Link to="" style={linkStyle} onClick={handleShow}>
                 Account
               </Link>
               <Offcanvas show={show} onHide={handleClose} placement="end">
@@ -78,29 +101,43 @@ const PokeHome = () => {
                 <Offcanvas.Body>
                   <ListGroup>
                     <ListGroup.Item>
-                      <Link to="/profile">Profile </Link>
+                      <Link to="/profile" style={sideStyle}>
+                        Profile{" "}
+                      </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/order-history">Order History </Link>
+                      <Link to="/order-history" style={sideStyle}>
+                        Order History{" "}
+                      </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/address-book">Address Book </Link>
+                      <Link to="/address-book" style={sideStyle}>
+                        Address Book{" "}
+                      </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/payment-cards">Payment Cards</Link>
+                      <Link to="/payment-cards" style={sideStyle}>
+                        Payment Cards
+                      </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/feedback">Send us Feedback</Link>
+                      <Link to="/feedback" style={sideStyle}>
+                        Send us Feedback
+                      </Link>
                     </ListGroup.Item>
                     {isAdmin && (
                       <>
                         <ListGroup.Item>
-                          <Link to="/dashboard">Dashboard</Link>
+                          <Link to="/dashboard" style={sideStyle}>
+                            Dashboard
+                          </Link>
                         </ListGroup.Item>
                       </>
                     )}
                     <ListGroup.Item>
-                      <Link to="/signout">Sign Out</Link>
+                      <Link to="/signout" style={sideStyle}>
+                        Sign Out
+                      </Link>
                     </ListGroup.Item>
                   </ListGroup>
                 </Offcanvas.Body>
