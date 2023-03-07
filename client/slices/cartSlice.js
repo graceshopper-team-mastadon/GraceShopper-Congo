@@ -6,8 +6,7 @@ export const getAllCart = createAsyncThunk("/cart", async () => {
   return data;
 });
 export const cartUpdate = createAsyncThunk("/guest/cart", async (product) => {
-  console.log("product", product);
-  return product;
+  return product
 });
 
 export const QuickAddToCart = createAsyncThunk(
