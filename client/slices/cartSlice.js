@@ -70,19 +70,35 @@ export const cartSlice = createSlice({
     // },
   },
   extraReducers: (builder) => {
-    builder.addCase(cartUpdate.fulfilled, (state, {payload}) => {
-      state.cart = payload
-    })
+    builder.addCase(cartUpdate.fulfilled, (state, { payload }) => {
+      state.cart = payload;
+    });
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;
     });
 
     builder.addCase(QuickAddToCart.fulfilled, (state, { payload }) => {
-      state.cart.push(payload);
+      for (let i = 0; i < state.cart.length; i++) {
+        if (state.cart[i].productId === payload.productId) {
+          state.cart[i] = payload;
+          break;
+        }
+        if (i === state.cart.length - 1) {
+          state.cart.push(payload);
+        }
+      }
     });
 
     builder.addCase(AddToCart.fulfilled, (state, { payload }) => {
-      state.cart.push(payload);
+      for (let i = 0; i < state.cart.length; i++) {
+        if (state.cart[i].productId === payload.productId) {
+          state.cart[i] = payload;
+          break;
+        }
+        if (i === state.cart.length - 1) {
+          state.cart.push(payload);
+        }
+      }
     });
 
     builder.addCase(deleteSingleItem.fulfilled, (state, { payload }) => {
