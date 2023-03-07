@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import GuestCart from "./GuestCart";
+const axios = require("axios");
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllCart } from "../slices/cartSlice";
+import { getAllCart, cartUpdate } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
 import { deleteSingleItem } from "../slices/cartSlice";
 import { incrementItemCount } from "../slices/cartSlice";
@@ -9,19 +11,28 @@ import { decrementItemCount } from "../slices/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const logged = useSelector((state) => state.auth);
+  // console.log('logged', logged);
 
   useEffect(() => {
+    const blah = async () => {
+      const {data} = await axios.get('/auth/guestCart')
+      dispatch(cartUpdate(data))
+        }
+  blah()
     dispatch(getAllCart());
     dispatch(getAllProducts());
   }, []);
-
   const cart = useSelector((state) => state.cart.cart);
   const products = useSelector((state) => state.products.Products);
 
   const singleProduct = cart.map((element) => {
     return products.filter((elem) => elem.id === element.productId);
   });
-
+  if (logged === false) {
+    return <GuestCart/>
+  }
+  else  {
   if (cart.length === 0 || singleProduct[0].length === 0) {
     return (
       <h2>
@@ -29,7 +40,7 @@ const Cart = () => {
         <Link to={"/products"}>here</Link>
       </h2>
     );
-  }
+  } 
 
   const handleRemove = async (id) => {
     await dispatch(deleteSingleItem(id));
@@ -61,7 +72,6 @@ const Cart = () => {
 
     return totalItems;
   };
-
   return (
     <div>
       <h1>Cart</h1>
@@ -99,6 +109,7 @@ const Cart = () => {
       </ul>
     </div>
   );
+      }
 };
 
 export default Cart;
