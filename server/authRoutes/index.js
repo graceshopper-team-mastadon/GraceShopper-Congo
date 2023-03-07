@@ -12,12 +12,34 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.post('/guestCart', async (req, res, next) => {
+  const productName = req.body.name
+  const productBody = req.body
+  let active = false
   if (!req.cookies.guestCart) {
-  await res.cookie('guestCart', [{name: 'dog', id: '1'}])
+    productBody['quantity'] = 1
+  res.cookie('guestCart', [productBody])
   res.end()
-  } else {
-    req.cookies.guestCart
+  } else {  
+    const guestCart = req.cookies.guestCart
+    for (let i = 0; i <  guestCart.length; i++) {
+      if (guestCart[i].name === req.body.name) {
+        guestCart[i]['quantity'] = (guestCart[i]['quantity'] + 1)
+        res.cookie('guestCart', guestCart)
+        active = true
+        break
+      }
+    }
+    if (active === false) {
+      req.body['quantity'] = 1
+      guestCart.push(req.body)
+      res.cookie('guestCart', guestCart)
+    }
+    res.end()
   }
+})
+router.get('/guestCart', async (req, res, next) => {
+  res.send(req.cookies.guestCart);
+
 })
 router.get("/verify", async (req, res, next) => {
   try {

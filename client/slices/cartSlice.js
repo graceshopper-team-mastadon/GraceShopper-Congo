@@ -5,6 +5,10 @@ export const getAllCart = createAsyncThunk("/cart", async () => {
   const { data } = await axios.get("/api/cart");
   return data;
 });
+export const cartUpdate = createAsyncThunk("/guest/cart", async (product) => {
+  console.log('product', product);
+  return product
+});
 
 export const QuickAddToCart = createAsyncThunk(
   "/QuickAddToCart",
@@ -42,8 +46,16 @@ export const cartSlice = createSlice({
   initialState: {
     cart: [],
   },
-  reducers: {},
+  reducers: {
+    // cartUpdate: (state, action) => {
+    //   console.log('payload', action)
+    //   state.cart.push(action.payload)
+    // },
+  },
   extraReducers: (builder) => {
+    builder.addCase(cartUpdate.fulfilled, (state, {payload}) => {
+      state.cart = payload
+    })
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;
     });
