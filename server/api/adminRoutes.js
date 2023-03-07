@@ -19,7 +19,6 @@ router.put("/products/:id", async (req, res, next) => {
 });
 
 // Delete product
-
 router.get("/products/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
@@ -43,9 +42,18 @@ router.delete("/products/:id", async (req, res, next) => {
 // USERS
 
 // Add user
+router.post("/users/add", async (req, res, next) => {
+  try {
+    console.log("reqbody --> ", req.body);
+    const newUser = await User.create(req.body);
+    console.log("user --> ", newUser);
+    res.send(newUser);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Edit user
-
 router.put("/users/:id", async (req, res, next) => {
   try {
     console.log("id--> ", req.body.id);

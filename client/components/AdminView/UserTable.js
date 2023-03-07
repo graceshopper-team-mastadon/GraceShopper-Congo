@@ -25,13 +25,15 @@ const UserTable = () => {
     dispatch(fetchAllUsers());
   }, []);
 
-  console.log("users: ", users);
+  // console.log("users: ", users);
   return (
     <div className="userTable">
       <h3>Manage Users</h3>
       <Card>
         <Card.Body>
-          <Button variant="success">Add User</Button>
+          <Link to="/dashboard/users/add">
+            <Button variant="success">Add User</Button>
+          </Link>
         </Card.Body>
       </Card>
       <Card>
