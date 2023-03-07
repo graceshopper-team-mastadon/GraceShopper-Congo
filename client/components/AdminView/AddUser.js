@@ -1,39 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Card, Form, Button } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import { editUser } from "../../slices/userSlice";
-import { deleteSingleUser } from "../../slices/userSlice";
+import { Link } from "react-router-dom";
+import { addUser } from "../../slices/userSlice";
 
-const EditUser = () => {
+const AddUser = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const user = location.state.item;
-  const [isDeleted, setIsDeleted] = useState(user);
-  const id = user.id;
 
-  const [name, setName] = useState(user.name);
-  const [username, setUsername] = useState(user.username);
-  const [email, setEmail] = useState(user.email);
-  const [address, setAddress] = useState(user.address);
-  const [role, setRole] = useState(user.role);
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [role, setRole] = useState("");
+  const password = "DefaultPassword";
 
-  const handleSubmit = (e) => {
+  const [added, setAdded] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = user.id;
-    dispatch(editUser({ id, name, username, email, address, role }));
+    console.log("name is --> ", name);
+    console.log("role is --> ", role);
+    await dispatch(addUser({ name, username, password, email, address, role }));
+    setAdded(true);
   };
 
-  const deleteHandler = async (id) => {
-    await dispatch(deleteSingleUser(id));
-    setIsDeleted(false);
-  };
-  const cancelEdits = () => {
-    setName(user.name);
-    setUsername(user.username);
-    setEmail(user.email);
-    setAddress(user.address);
-    setRole(user.role);
+  const clearForm = () => {
+    setName("");
+    setUsername("");
+    setEmail("");
+    setAddress("");
+    setRole("");
   };
 
   return (
@@ -43,14 +39,14 @@ const EditUser = () => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Card>
-          {isDeleted ? (
+          {!added ? (
             <Card.Body>
               <Card.Title>Edit User</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group>
                   <Form.Label>Name</Form.Label>
                   <Form.Control
-                    type="name"
+                    type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -59,10 +55,19 @@ const EditUser = () => {
                 <Form.Group>
                   <Form.Label>Username</Form.Label>
                   <Form.Control
-                    type="username"
+                    type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={password}
+                    disabled
+                    readOnly
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
@@ -77,7 +82,7 @@ const EditUser = () => {
                 <Form.Group>
                   <Form.Label>Address</Form.Label>
                   <Form.Control
-                    type="address"
+                    type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     required
@@ -85,29 +90,29 @@ const EditUser = () => {
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Role</Form.Label>
-                  <Form.Control
-                    type="role"
+                  <Form.Select
+                    className="form-select"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    required
-                  ></Form.Control>
+                  >
+                    <option>Select below</option>
+                    <option value="MEMBER">Member</option>
+                    <option value="ADMIN">Admin</option>
+                  </Form.Select>
                 </Form.Group>
                 <div className="mb-2">
                   <Button variant="success" type="submit">
-                    Confirm Edits
+                    Create User
                   </Button>
-                  <Button variant="secondary" onClick={cancelEdits}>
-                    Cancel Edits
-                  </Button>
-                  <Button variant="danger" onClick={() => deleteHandler(id)}>
-                    Delete User
+                  <Button variant="secondary" onClick={clearForm}>
+                    Reset Form
                   </Button>
                 </div>
               </Form>
             </Card.Body>
           ) : (
             <Card.Body>
-              <Card.Text>This user has been deleted</Card.Text>
+              <Card.Text>Success! New user has been created.</Card.Text>
             </Card.Body>
           )}
         </Card>
@@ -125,4 +130,4 @@ const EditUser = () => {
   );
 };
 
-export default EditUser;
+export default AddUser;

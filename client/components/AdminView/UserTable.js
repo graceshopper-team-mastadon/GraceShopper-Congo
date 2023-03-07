@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { fetchAllUsers } from "../../slices/userSlice";
 import Pagination from "../Pagination";
@@ -25,41 +25,54 @@ const UserTable = () => {
     dispatch(fetchAllUsers());
   }, []);
 
-  console.log("users: ", users);
+  // console.log("users: ", users);
   return (
     <div className="userTable">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.length > 0 &&
-            currentItems.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.address}</td>
-                <td>{user.role}</td>
-                <td>{<TableDropdown item={user} />}</td>
+      <h3>Manage Users</h3>
+      <Card>
+        <Card.Body>
+          <Link to="/dashboard/users/add">
+            <Button variant="success">Add User</Button>
+          </Link>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <h5>Current Users</h5>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Role</th>
               </tr>
-            ))}
-        </tbody>
-      </Table>
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={users.length}
-        paginate={paginate}
-      />
-      <Link to="/dashboard">Back to Dashboard</Link>
+            </thead>
+            <tbody>
+              {users.length > 0 &&
+                currentItems.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.username}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.address}</td>
+                    <td>{user.role}</td>
+                    <td>{<TableDropdown item={user} />}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </Table>
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={users.length}
+            paginate={paginate}
+          />
+          <Link to="/dashboard">Back to Dashboard</Link>
+        </Card.Body>
+      </Card>
     </div>
   );
 };
