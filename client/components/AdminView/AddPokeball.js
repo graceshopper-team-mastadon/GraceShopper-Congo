@@ -20,8 +20,6 @@ const AddPokeball = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("name is --> ", name);
-    console.log("category is --> ", category);
     await dispatch(
       addProduct({
         name,

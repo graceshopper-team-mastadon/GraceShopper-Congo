@@ -9,7 +9,7 @@ const EditProduct = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const product = location.state.item;
-  const [isDeleted, setIsDeleted] = useState(product);
+  const [productExists, setProductExists] = useState(product);
   const id = product.id;
 
   const [name, setName] = useState(product.name);
@@ -18,6 +18,8 @@ const EditProduct = () => {
   const [inventory, setInventory] = useState(product.inventory);
   const [imageUrl, setImageUrl] = useState(product.imageUrl);
   const [price, setPrice] = useState(product.price);
+
+  const [edited, setEdited] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,11 +35,12 @@ const EditProduct = () => {
         price,
       })
     );
+    setEdited(true);
   };
 
   const deleteHandler = async (id) => {
     await dispatch(deleteSingleProduct(id));
-    setIsDeleted(false);
+    setProductExists(false);
   };
   const cancelEdits = () => {
     setName(product.name);
@@ -55,7 +58,7 @@ const EditProduct = () => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Card>
-          {isDeleted ? (
+          {productExists && !edited && (
             <Card.Body>
               <Card.Title>Edit Product</Card.Title>
               <Form onSubmit={handleSubmit}>
@@ -78,13 +81,17 @@ const EditProduct = () => {
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="text"
+                  <Form.Label>Category</Form.Label>
+                  <Form.Select
+                    className="form-select"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    required
-                  ></Form.Control>
+                  >
+                    <option>Select below</option>
+                    <option value="pokemon">Pokemon</option>
+                    <option value="medicine">Potion</option>
+                    <option value="pokeballs">Pokeball</option>
+                  </Form.Select>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Inventory</Form.Label>
@@ -126,9 +133,15 @@ const EditProduct = () => {
                 </div>
               </Form>
             </Card.Body>
-          ) : (
+          )}
+          {!productExists && (
             <Card.Body>
               <Card.Text>This product has been deleted</Card.Text>
+            </Card.Body>
+          )}
+          {edited && (
+            <Card.Body>
+              <Card.Text>{`Success! Product ${product.name} has been edited.`}</Card.Text>
             </Card.Body>
           )}
         </Card>

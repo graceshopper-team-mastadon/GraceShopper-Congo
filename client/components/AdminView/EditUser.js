@@ -9,7 +9,7 @@ const EditUser = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const user = location.state.item;
-  const [isDeleted, setIsDeleted] = useState(user);
+  const [userExists, setUserExists] = useState(user);
   const id = user.id;
 
   const [name, setName] = useState(user.name);
@@ -18,15 +18,18 @@ const EditUser = () => {
   const [address, setAddress] = useState(user.address);
   const [role, setRole] = useState(user.role);
 
-  const handleSubmit = (e) => {
+  const [edited, setEdited] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const id = user.id;
-    dispatch(editUser({ id, name, username, email, address, role }));
+    await dispatch(editUser({ id, name, username, email, address, role }));
+    setEdited(true);
   };
 
   const deleteHandler = async (id) => {
     await dispatch(deleteSingleUser(id));
-    setIsDeleted(false);
+    setUserExists(false);
   };
   const cancelEdits = () => {
     setName(user.name);
@@ -43,7 +46,7 @@ const EditUser = () => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Card>
-          {isDeleted ? (
+          {userExists && !edited && (
             <Card.Body>
               <Card.Title>Edit User</Card.Title>
               <Form onSubmit={handleSubmit}>
@@ -85,12 +88,15 @@ const EditUser = () => {
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Role</Form.Label>
-                  <Form.Control
-                    type="role"
+                  <Form.Select
+                    className="form-select"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    required
-                  ></Form.Control>
+                  >
+                    <option>Select below</option>
+                    <option value="MEMBER">Member</option>
+                    <option value="ADMIN">Admin</option>
+                  </Form.Select>
                 </Form.Group>
                 <div className="mb-2">
                   <Button variant="success" type="submit">
@@ -105,9 +111,15 @@ const EditUser = () => {
                 </div>
               </Form>
             </Card.Body>
-          ) : (
+          )}
+          {!userExists && (
             <Card.Body>
               <Card.Text>This user has been deleted</Card.Text>
+            </Card.Body>
+          )}
+          {edited && (
+            <Card.Body>
+              <Card.Text>{`Success! User ${user.username} has been edited.`}</Card.Text>
             </Card.Body>
           )}
         </Card>

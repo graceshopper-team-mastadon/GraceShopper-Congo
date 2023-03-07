@@ -18,8 +18,6 @@ const AddUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("name is --> ", name);
-    console.log("role is --> ", role);
     await dispatch(addUser({ name, username, password, email, address, role }));
     setAdded(true);
   };
