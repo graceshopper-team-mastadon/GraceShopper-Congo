@@ -22,10 +22,10 @@ const PaymentCards = () => {
                             <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="" />
                         </div>
                         <div class="number">
-                            <label class="fw-bold" for="">**** **** **** 1060</label>
+                            <label class="fw-bold" for="">**** **** **** 4358</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                            <small><span class="fw-bold">Expiry date:</span><span>10/24</span></small>
                             <small><span class="fw-bold">Name:</span><span>{name}</span></small>
 
                         </div>
@@ -38,10 +38,10 @@ const PaymentCards = () => {
                                 alt="" />
                         </div>
                         <div class="number">
-                            <label class="fw-bold">**** **** **** 1060</label>
+                            <label class="fw-bold">**** **** **** 2777</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                            <small><span class="fw-bold">Expiry date:</span><span>11/26</span></small>
                             <small><span class="fw-bold">Name:</span><span>{name}</span></small>
 
                         </div>
@@ -54,10 +54,10 @@ const PaymentCards = () => {
                                 alt="" />
                         </div>
                         <div class="number">
-                            <label class="fw-bold">**** **** **** 1060</label>
+                            <label class="fw-bold">**** **** **** 9599</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between">
-                            <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                            <small><span class="fw-bold">Expiry date:</span><span>03/24</span></small>
                             <small><span class="fw-bold">Name:</span><span>{name}</span></small>
 
                         </div>
