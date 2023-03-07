@@ -13,17 +13,17 @@ const Cart = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.auth);
   console.log("logged", logged);
+  const cart = useSelector((state) => state.cart.cart);
+  const products = useSelector((state) => state.products.Products);
 
   useEffect(() => {
-      dispatch(getAllCart());
-      dispatch(getAllProducts())
+    dispatch(getAllCart());
+    dispatch(getAllProducts());
   }, []);
 
   if (logged === false) {
     return <GuestCart />;
   } else {
-    const cart = useSelector((state) => state.cart.cart);
-    const products = useSelector((state) => state.products.Products);
     const singleProduct = cart.map((element) => {
       return products.filter((elem) => elem.id === element.productId);
     });
@@ -71,8 +71,7 @@ const Cart = () => {
       <div>
         <h1>Cart</h1>
         <h3>
-          Total Price: ${totalPrice}, Total Items: {calculateTotalItems()}{" "}
-          items{" "}
+          Total Price: ${totalPrice}, Total Items: {calculateTotalItems()} items{" "}
         </h3>
         <div>
           <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
