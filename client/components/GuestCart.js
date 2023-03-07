@@ -3,35 +3,35 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartUpdate } from "../slices/cartSlice";
 const axios = require("axios");
 
+let total = 0
+let totalPrice = 0
 const GuestCart = () => {
-  const [total, setTotal] = useState(9)
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart); 
   const dispatch = useDispatch()
 
-//   const totalItems = async (data) => {
-//     let totalitems = 0
-//   for (let i = 0; i < data.length; i++) {
-//   totalItems += data[i].quantity
-// // setTotalPrice(totalPrice + (data[i].price * data[i].quantity))
-//   }
-//   setTotal(totalitems)
-//   }
+  const totalItems = async (data) => {
+  for (let i = 0; i < data.length; i++) {
+    total += data[i].quantity;
+    totalPrice += data[i].price *  data[i].quantity
+  }
+  }
 
   useEffect(() => {
   const blah = async () => {
     const { data } = await axios.get("/auth/guestCart");
     dispatch(cartUpdate(data));
+    totalItems(data)
   };
   blah();
 }, [])
 
-  // const handleRemove = async (poke) => {
-  //   const id = Number(poke.id)
-  //   await axios.delete(`/auth/guestCart/${id}`)
-  //   const { data } = await axios.get("/auth/guestCart");
-  //   dispatch(cartUpdate(data));
-  //   // setTotal(total - 1)
-  // }
+  const handleRemove = async (poke) => {
+    const id = Number(poke.id)
+    await axios.delete(`/auth/guestCart/${id}`)
+    const { data } = await axios.get("/auth/guestCart");
+    dispatch(cartUpdate(data));
+    total--
+  }
 
 
   return (
@@ -40,7 +40,7 @@ const GuestCart = () => {
         {cart.length > 0 ? (
           <div>
             <h1>Cart</h1>
-            {/* <h3>{`Total Price: $${totalPrice} Total Items: ${total}`}</h3> */}
+            <h3>{`Total Price: ${totalPrice} Total Items: ${total}`}</h3>
             <ul>
               {cart.map((pokemon) => {
                 return (
