@@ -32,6 +32,25 @@ export const deleteSingleUser = createAsyncThunk("deleteUser", async (id) => {
   await axios.delete(`http://localhost:3000/api/dashboard/users/${id}`, { id });
   return data;
 });
+export const editUser = createAsyncThunk(
+  "editUser",
+  async ({ id, name, username, email, address, role }) => {
+    // const newName = name;
+
+    const { data } = await axios.put(
+      `http://localhost:3000/api/dashboard/users/${id}`,
+      {
+        name: name,
+        username: username,
+        email: email,
+        address: address,
+        role: role,
+      }
+    );
+
+    return data;
+  }
+);
 
 export const userSlice = createSlice({
   name: "users",

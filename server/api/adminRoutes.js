@@ -35,6 +35,19 @@ router.delete("/products/:id", async (req, res, next) => {
 
 // Edit user
 
+router.put("/users/:id", async (req, res, next) => {
+  try {
+    console.log("id--> ", req.body.id);
+    const user = await User.findByPk(req.params.id);
+
+    const editedUser = await user.update(req.body);
+    res.send(editedUser);
+    console.log("user --> ", editedUser);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Delete user
 
 router.get("/users/:id", async (req, res, next) => {
