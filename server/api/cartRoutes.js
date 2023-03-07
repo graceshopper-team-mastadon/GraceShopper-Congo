@@ -48,8 +48,12 @@ router.post("/", async (req, res, next) => {
           orderId: cart.id,
         },
       });
-      newItem.count = num;
-      res.send(newItem);
+      const newCount = num - 1;
+      const updatedCart = await newItem.increment("count", {
+        by: newCount,
+      });
+
+      res.send(updatedCart);
     }
   } catch (err) {
     next(err);
@@ -145,8 +149,9 @@ router.put("/decrement/:id", async (req, res, next) => {
       });
 
       res.send(updatedCartItem);
+    } else {
+      res.sendStatus(400);
     }
-    res.send(updatedCartItem);
   } catch (err) {
     next(err);
   }
