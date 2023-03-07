@@ -3,25 +3,27 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div>
       <Navbar className="navbar bg-light">
         <Container>
-          <Nav.Link href="/products">All Products</Nav.Link>
-          <Nav.Link href="/new">New Selection </Nav.Link>
+          <Link to="/products">All Products</Link>
+          <Link to="/new">New Selection </Link>
           <NavDropdown title="Pokemon" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/category/pokemon-all">All Pokemon</NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/category/pokemon-all"> All Pokemon</Link>
+            </NavDropdown.Item>
             <NavDropdown.Item href="">Generation I</NavDropdown.Item>
             <NavDropdown.Item href="">Generation II</NavDropdown.Item>
             <NavDropdown.Item href="">Generation III</NavDropdown.Item>
             <NavDropdown.Item href="">Generation IV</NavDropdown.Item>
             <NavDropdown.Item href="">Generation V</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="/category/pokeballs">Pokeballs</Nav.Link>
-          <Nav.Link href="/category/potions">Potions</Nav.Link>
+          <Link to="/category/pokeballs">Pokeballs</Link>
+          <Link to="/category/potions">Potions</Link>
         </Container>
       </Navbar>
     </div>

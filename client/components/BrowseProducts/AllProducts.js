@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Product from "./Product";
 import Pagination from "../Pagination";
 import { getAllProducts } from "../../slices/productsSlice";
+import { Container, Card, Col, Row } from "react-bootstrap";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -25,21 +26,65 @@ const AllProducts = () => {
 
   return (
     <>
-      <div className="browse-products">
-        <h2 className="category-title">Browse All Products</h2>
-        <div class="row">
+
+
+      <Container>
+        <Row>
+
           {currentItems.map((product) => (
-            <Product product={product} key={product.id} />
+            <div key={product.id} id="cardItem" className="col-xs-2">
+              <Product product={product} key={product.id} />
+            </div>
           ))}
+        </Row>
+        <div>
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={products.length}
+            paginate={paginate}
+          />
         </div>
-        <Pagination
-          itemsPerPage={itemsPerPage}
-          totalItems={products.length}
-          paginate={paginate}
-        />
-      </div>
+      </Container>
     </>
   );
 };
 
 export default AllProducts;
+
+// return (
+//   <>
+//     <div>
+//       <Row xs={1} md={4} className="g-4">
+//         <Col>
+//           {currentItems.map((product) => (
+//             <Product product={product} key={product.id} />
+//           ))}
+//         </Col>
+//       </Row>
+//     </div>
+//     <div>
+//       <Pagination
+//         itemsPerPage={itemsPerPage}
+//         totalItems={products.length}
+//         paginate={paginate}
+//       />
+//     </div>
+//   </>
+// );
+// return (
+//   <>
+//     <div className="browse-products">
+//       <h2 className="category-title">Browse All Products</h2>
+//       <div>
+//         {currentItems.map((product) => (
+//           <Product product={product} key={product.id} />
+//         ))}
+//       </div>
+//       <Pagination
+//         itemsPerPage={itemsPerPage}
+//         totalItems={products.length}
+//         paginate={paginate}
+//       />
+//     </div>
+//   </>
+// );

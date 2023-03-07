@@ -21,7 +21,7 @@ import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
 
 const PokeHome = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -32,15 +32,13 @@ const PokeHome = () => {
 
   useEffect(() => {
     const loggedInStatus = async () => {
-      const status = await axios.get("/auth/verify")
+      const status = await axios.get("/auth/verify");
       if (status.data) {
         dispatch(authTrue());
-        setLoggedIn(true)
-      }
-      else {
-        setLoggedIn(false)
-        dispatch(authFalse())
-
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+        dispatch(authFalse());
       }
     };
     const adminStatus = async () => {
@@ -55,7 +53,7 @@ const PokeHome = () => {
     <div>
       <Navbar className="navbar navbar-fixed-bottom bg-light">
         <Container>
-          <Navbar.Brand href="/">PokeHome</Navbar.Brand>
+          <Link to="/">PokeHome</Link>
           <Form className="navbar bg-light">
             <FormGroup>
               <FormControl type="text" placeholder="Search" />
