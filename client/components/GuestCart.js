@@ -16,10 +16,9 @@ const GuestCart = () => {
   }
   }
 
-  useEffect(() => {
-    
-total = 0
-totalPrice = 0
+  useEffect(() => {  
+  total = 0
+  totalPrice = 0
   const blah = async () => {
     const { data } = await axios.get("/auth/guestCart");
     dispatch(cartUpdate(data));
@@ -33,7 +32,9 @@ totalPrice = 0
     await axios.delete(`/auth/guestCart/${id}`)
     const { data } = await axios.get("/auth/guestCart");
     dispatch(cartUpdate(data));
-    total--
+    total = 0
+    totalPrice = 0
+    totalItems(data)
   }
 
 
