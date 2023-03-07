@@ -8,6 +8,7 @@ import { updateUser } from "../../slices/userSlice";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
+  const [name, setName] = useState();
   const [id, setId] = useState();
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
@@ -26,6 +27,7 @@ const UserProfile = () => {
     };
     const adminStatus = async () => {
       const { data } = await axios.get("/api/users/user");
+      setName(data.name)
       setUsername(data.username);
       setEmail(data.email);
       setPassword(data.password);
@@ -64,7 +66,7 @@ const UserProfile = () => {
           <ListGroup className="listGroup">
             <ListGroup.Item>
               Personal Info <br></br>
-              Name: This will be the actual name of the User Id{" "}
+              Name: {name}
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="username"> Username: </label>
