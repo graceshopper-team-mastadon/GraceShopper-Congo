@@ -47,23 +47,6 @@ const TableDropdown = (props) => {
         </Dropdown.Item>
       </DropdownButton>
     </div>
-
-    // <div className="dropdown">
-    //   <button onClick={handleOpen}>Dropdown</button>
-    //   {open ? (
-    //     <ul className="menu">
-    //       {/* <Link to={`/dashboard/users/edit/${user.id}`}> */}
-    //       <li className="menu-item">
-    //         <button>Edit</button>
-    //       </li>
-    //       {/* </Link> */}
-    //       <li className="menu-item">
-    //         <button onClick={deleteHandler(user.id)}>Delete</button>
-    //       </li>
-    //     </ul>
-    //   ) : null}
-    //   {/* {open ? <div>Is Open</div> : <div>Is Closed</div>} */}
-    // </div>
   );
 };
 

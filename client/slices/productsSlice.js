@@ -29,6 +29,18 @@ export const deleteSingleProduct = createAsyncThunk(
   }
 );
 
+// Admin adds Product
+export const addProduct = createAsyncThunk(
+  "AdminAddPokemon",
+  async (productInfo) => {
+    const { data } = await axios.post(
+      "http://localhost:3000/api/dashboard/products/add",
+      productInfo
+    );
+    return data;
+  }
+);
+
 // Admin edits product information
 export const editProduct = createAsyncThunk(
   "AdminEditsProduct",
@@ -68,8 +80,12 @@ export const productsSlice = createSlice({
         (product) => product.id !== payload.id
       );
     });
-    builder.addCase(editProduct.fulfilled, (state, action) => {
-      state.singleProduct = action.payload;
+    builder.addCase(editProduct.fulfilled, (state, { payload }) => {
+      state.singleProduct = payload;
+    });
+    builder.addCase(addProduct.fulfilled, (state, { payload }) => {
+      state.singleProduct = payload;
+      state.Products.push(payload);
     });
   },
 });

@@ -2,32 +2,44 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { addUser } from "../../slices/userSlice";
+import { addProduct } from "../../slices/productsSlice";
 
-const AddUser = () => {
+const AddPokeball = () => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [role, setRole] = useState("");
-  const password = "DefaultPassword";
+  const [description, setDescription] = useState("");
+  //   const [category, setCategory] = useState("");
+  const [inventory, setInventory] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [price, setPrice] = useState("");
+
+  const category = "pokeballs";
 
   const [added, setAdded] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(addUser({ name, username, password, email, address, role }));
+    await dispatch(
+      addProduct({
+        name,
+        description,
+        category,
+        inventory,
+        imageUrl,
+        price,
+      })
+    );
     setAdded(true);
   };
 
   const clearForm = () => {
     setName("");
-    setUsername("");
-    setEmail("");
-    setAddress("");
-    setRole("");
+    setDescription("");
+    setCategory("");
+    setInventory("");
+    setImageUrl("");
+    setPrice("");
   };
 
   return (
@@ -39,7 +51,7 @@ const AddUser = () => {
         <Card>
           {!added ? (
             <Card.Body>
-              <Card.Title>Edit User</Card.Title>
+              <Card.Title>Add Pokemon</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group>
                   <Form.Label>Name</Form.Label>
@@ -51,56 +63,53 @@ const AddUser = () => {
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     required
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label>Category</Form.Label>
                   <Form.Control
                     type="text"
-                    value={password}
+                    value={category}
                     disabled
                     readOnly
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>Inventory</Form.Label>
                   <Form.Control
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="number"
+                    value={inventory}
+                    onChange={(e) => setInventory(e.target.value)}
                     required
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Address</Form.Label>
+                  <Form.Label>imageUrl</Form.Label>
                   <Form.Control
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
+                    type="url"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
                     required
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Role</Form.Label>
-                  <Form.Select
-                    className="form-select"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option>Select below</option>
-                    <option value="MEMBER">Member</option>
-                    <option value="ADMIN">Admin</option>
-                  </Form.Select>
+                  <Form.Label>Price</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                  ></Form.Control>
                 </Form.Group>
                 <div className="mb-2">
                   <Button variant="success" type="submit">
-                    Create User
+                    Create Product
                   </Button>
                   <Button variant="secondary" onClick={clearForm}>
                     Reset Form
@@ -110,14 +119,14 @@ const AddUser = () => {
             </Card.Body>
           ) : (
             <Card.Body>
-              <Card.Text>Success! New user has been created.</Card.Text>
+              <Card.Text>Success! New Pokeball is listed for sale!</Card.Text>
             </Card.Body>
           )}
         </Card>
         <br />
         <Card>
           <Card.Body>
-            <Link to="/dashboard/users">Back to All Users</Link>
+            <Link to="/dashboard/products">Back to All Products</Link>
           </Card.Body>
           <Card.Body>
             <Link to="/dashboard">Back to Dashboard</Link>
@@ -128,4 +137,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddPokeball;

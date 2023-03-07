@@ -1,54 +1,47 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Card, Form, Button } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import { editProduct } from "../../slices/productsSlice";
-import { deleteSingleProduct } from "../../slices/productsSlice";
+import { Link } from "react-router-dom";
+import { addProduct } from "../../slices/productsSlice";
 
-const EditProduct = () => {
+const AddPokemon = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const product = location.state.item;
-  const [productExists, setProductExists] = useState(product);
-  const id = product.id;
 
-  const [name, setName] = useState(product.name);
-  const [description, setDescription] = useState(product.description);
-  const [category, setCategory] = useState(product.category);
-  const [inventory, setInventory] = useState(product.inventory);
-  const [imageUrl, setImageUrl] = useState(product.imageUrl);
-  const [price, setPrice] = useState(product.price);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [generation, setGeneration] = useState("");
+  const [inventory, setInventory] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [price, setPrice] = useState("");
 
-  const [edited, setEdited] = useState(false);
+  const category = "pokemon";
 
-  const handleSubmit = (e) => {
+  const [added, setAdded] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = product.id;
-    dispatch(
-      editProduct({
-        id,
+    await dispatch(
+      addProduct({
         name,
         description,
+        generation,
         category,
         inventory,
         imageUrl,
         price,
       })
     );
-    setEdited(true);
+    setAdded(true);
   };
 
-  const deleteHandler = async (id) => {
-    await dispatch(deleteSingleProduct(id));
-    setProductExists(false);
-  };
-  const cancelEdits = () => {
-    setName(product.name);
-    setDescription(product.description);
-    setCategory(product.category);
-    setInventory(product.inventory);
-    setImageUrl(product.imageUrl);
-    setPrice(product.price);
+  const clearForm = () => {
+    setName("");
+    setDescription("");
+    setCategory("");
+    setGeneration("");
+    setInventory("");
+    setImageUrl("");
+    setPrice("");
   };
 
   return (
@@ -58,9 +51,9 @@ const EditProduct = () => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Card>
-          {productExists && !edited && (
+          {!added ? (
             <Card.Body>
-              <Card.Title>Edit Product</Card.Title>
+              <Card.Title>Add Pokemon</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group>
                   <Form.Label>Name</Form.Label>
@@ -82,16 +75,21 @@ const EditProduct = () => {
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Category</Form.Label>
-                  <Form.Select
-                    className="form-select"
+                  <Form.Control
+                    type="text"
                     value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
-                    <option>Select below</option>
-                    <option value="pokemon">Pokemon</option>
-                    <option value="medicine">Potion</option>
-                    <option value="pokeballs">Pokeball</option>
-                  </Form.Select>
+                    disabled
+                    readOnly
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Generation</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={generation}
+                    onChange={(e) => setGeneration(e.target.value)}
+                    required
+                  ></Form.Control>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Inventory</Form.Label>
@@ -99,15 +97,6 @@ const EditProduct = () => {
                     type="number"
                     value={inventory}
                     onChange={(e) => setInventory(e.target.value)}
-                    required
-                  ></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
                     required
                   ></Form.Control>
                 </Form.Group>
@@ -120,28 +109,30 @@ const EditProduct = () => {
                     required
                   ></Form.Control>
                 </Form.Group>
+                <Form.Group>
+                  <Form.Label>Price</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                  ></Form.Control>
+                </Form.Group>
                 <div className="mb-2">
                   <Button variant="success" type="submit">
-                    Confirm Edits
+                    Create Product
                   </Button>
-                  <Button variant="secondary" onClick={cancelEdits}>
-                    Cancel Edits
-                  </Button>
-                  <Button variant="danger" onClick={() => deleteHandler(id)}>
-                    Delete Product
+                  <Button variant="secondary" onClick={clearForm}>
+                    Reset Form
                   </Button>
                 </div>
               </Form>
             </Card.Body>
-          )}
-          {!productExists && (
+          ) : (
             <Card.Body>
-              <Card.Text>This product has been deleted</Card.Text>
-            </Card.Body>
-          )}
-          {edited && (
-            <Card.Body>
-              <Card.Text>{`Success! Product ${product.name} has been edited.`}</Card.Text>
+              <Card.Text>
+                Success! New Pokemon is listed for adoption!
+              </Card.Text>
             </Card.Body>
           )}
         </Card>
@@ -159,4 +150,4 @@ const EditProduct = () => {
   );
 };
 
-export default EditProduct;
+export default AddPokemon;
