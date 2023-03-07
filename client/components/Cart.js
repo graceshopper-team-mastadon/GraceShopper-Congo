@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import GuestCart from "./GuestCart";
 const axios = require("axios");
 import { useSelector, useDispatch } from "react-redux";
+import { Table, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getAllCart, cartUpdate } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
@@ -81,6 +82,11 @@ const Cart = () => {
           Total Price: ${calculatePrice()}, Total Items: {calculateTotalItems()}{" "}
           items{" "}
         </h3>
+        <div>
+          <Link to="/payment" state={{ cart: cart }}>
+            <Button variant="success">Checkout!</Button>
+          </Link>
+        </div>
         <ul>
           {singleProduct.map((pokemon, index) => {
             return (
