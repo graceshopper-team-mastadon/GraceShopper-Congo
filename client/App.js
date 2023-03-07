@@ -20,6 +20,9 @@ import UserTable from "./components/AdminView/UserTable";
 import EditUser from "./components/AdminView/EditUser";
 import EditProduct from "./components/AdminView/EditProduct";
 import AddUser from "./components/AdminView/AddUser";
+import AddPokemon from "./components/AdminView/AddPokemon";
+import AddPokeball from "./components/AdminView/AddPokeball";
+import AddPotion from "./components/AdminView/AddPotion";
 import ProductTable from "./components/AdminView/ProductTable";
 import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
@@ -57,6 +60,21 @@ const App = () => {
           exact
           path="/dashboard/products/edit/:id"
           element={<EditProduct />}
+        />
+        <Route
+          exact
+          path="/dashboard/products/add/pokemon"
+          element={<AddPokemon />}
+        />
+        <Route
+          exact
+          path="/dashboard/products/add/pokeball"
+          element={<AddPokeball />}
+        />
+        <Route
+          exact
+          path="/dashboard/products/add/potion"
+          element={<AddPotion />}
         />
       </Routes>
     </>
