@@ -19,7 +19,7 @@ export const fetchAllUsers = createAsyncThunk("getUsers", async () => {
   return data;
 });
 
-export const fetchSingleUser = createAsyncThunk("getUser", async () => {
+export const fetchSingleUser = createAsyncThunk("getUser", async (id) => {
   const { data } = await axios.get("http://localhost:3000/api/users/user");
   return data;
 });

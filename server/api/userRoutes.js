@@ -1,25 +1,16 @@
 const router = require("express").Router();
 const { User } = require("../db");
 
-//should be an admin only function
+// should be an admin only function
 // router.get('/:id', async (req, res, next) => {
-//     try {
-//         const user = await User.findByPk(req.params.id);
-//         res.send(user)
-//     }
-//     catch (err) {
-//         next(err)
-//     }
+//   try {
+//     const user = await User.findByPk(req.params.id);
+//     res.send(user)
+//   }
+//   catch (err) {
+//     next(err)
+//   }
 // })
-
-router.get("/", async (req, res, next) => {
-  try {
-    const users = await User.findAll();
-    res.send(users);
-  } catch (err) {
-    next(err);
-  }
-});
 
 router.get("/user", async (req, res, next) => {
   try {
@@ -54,6 +45,15 @@ router.get("/checkadmin", async (req, res, next) => {
       const adminStatus = await User.isAdmin(req.cookies.token);
       res.send(adminStatus);
     }
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.send(users);
   } catch (err) {
     next(err);
   }
