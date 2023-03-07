@@ -26,8 +26,11 @@ const AllProducts = () => {
 
   return (
     <>
+
+
       <Container>
         <Row>
+
           {currentItems.map((product) => (
             <div key={product.id} id="cardItem" className="col-xs-2">
               <Product product={product} key={product.id} />

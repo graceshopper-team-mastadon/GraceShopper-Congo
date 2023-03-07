@@ -10,7 +10,24 @@ router.post("/login", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
-
+router.delete('/guestCart/:id', async (req, res, next) => {
+  const guestCart = req.cookies.guestCart;
+  const id = Number(req.params.id);
+  const filtered = guestCart.filter((item) => {
+    if (item.id === id) {
+      if (item.quantity > 1) {
+        item.quantity--
+        return item
+      }
+    }
+     else {
+      return item
+     }
+  })
+  //console.log('filtered', filtered);
+  res.cookie('guestCart', filtered)
+  res.end()
+})
 router.post('/guestCart', async (req, res, next) => {
   const productName = req.body.name
   const productBody = req.body
