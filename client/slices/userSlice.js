@@ -10,6 +10,7 @@ export const updateUser = createAsyncThunk(
       password,
       address,
     });
+    console.log("what is data?", data);
     return data;
   }
 );

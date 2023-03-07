@@ -23,6 +23,7 @@ import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
 import Potions from "./components/BrowseProducts/Potions";
 import Pokeballs from "./components/BrowseProducts/Pokeballs";
+import Payment from "./components/Payment/Payment"
 
 const App = () => {
   return (
@@ -40,11 +41,13 @@ const App = () => {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/signout" element={<Signout />} />
         <Route exact path="/profile" element={<UserProfile />} />
         <Route exact path="/order-history" element={<OrderHistory />} />
         <Route exact path="/address-book" element={<AddressBook />} />
         <Route exact path="/payment-cards" element={<PaymentCards />} />
+        <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/dashboard/users" element={<UserTable />} />
