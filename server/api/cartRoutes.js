@@ -21,8 +21,6 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const input = req.body.singleProduct;
-    console.log("body is:", req.body);
-    console.log("quantity is:", input.quantity);
     const UserId = await User.getId(req.cookies.token);
     const num = input.quantity;
     const cart = await Order.findOne({
@@ -43,9 +41,15 @@ router.post("/", async (req, res, next) => {
       res.send(updatedCartItem);
     } else {
       const product = await Product.findByPk(productId);
-      const newCartItem = cart.addProduct(product);
-      newCartItem.count = num;
-      res.send(newCartItem);
+      await cart.addProduct(product);
+      const newItem = await OrderProduct.findOne({
+        where: {
+          productId: productId,
+          orderId: cart.id,
+        },
+      });
+      newItem.count = num;
+      res.send(newItem);
     }
   } catch (err) {
     next(err);
@@ -96,6 +100,53 @@ router.delete("/:id", async (req, res, next) => {
     });
     await deletedCartItem.destroy();
     res.send(deletedCartItem);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/increment/:id", async (req, res, next) => {
+  try {
+    const UserId = await User.getId(req.cookies.token);
+    const cart = await Order.findOne({
+      where: { userId: UserId },
+    });
+    const item = await OrderProduct.findOne({
+      where: {
+        productId: req.params.id,
+        orderId: cart.id,
+      },
+    });
+    const updatedCartItem = await item.increment("count", {
+      by: 1,
+    });
+
+    res.send(updatedCartItem);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/decrement/:id", async (req, res, next) => {
+  try {
+    const UserId = await User.getId(req.cookies.token);
+    const cart = await Order.findOne({
+      where: { userId: UserId },
+    });
+    const item = await OrderProduct.findOne({
+      where: {
+        productId: req.params.id,
+        orderId: cart.id,
+      },
+    });
+    if (item.count > 0) {
+      const updatedCartItem = await item.decrement("count", {
+        by: 1,
+      });
+
+      res.send(updatedCartItem);
+    }
+    res.send(updatedCartItem);
   } catch (err) {
     next(err);
   }
