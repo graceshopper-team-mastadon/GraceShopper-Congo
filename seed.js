@@ -10,7 +10,8 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/2/21/001Bulbasaur.png/revision/latest/scale-to-width-down/200?cb=20200620223551",
     price: 1,
   },
   {
@@ -20,7 +21,8 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/73/002Ivysaur.png/revision/latest/scale-to-width-down/200?cb=20140328190847",
     price: 2,
   },
   {
@@ -30,61 +32,534 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/a/ae/003Venusaur.png/revision/latest/scale-to-width-down/200?cb=20200731133335",
+    price: 3,
+  },
+  {
+    name: "Charmander",
+    description:
+      "The power of Charmander's flame attacks can be gauged by the size of the flame on its tail.",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/73/004Charmander.png/revision/latest/scale-to-width-down/187?cb=20200620223744",
+    price: 1,
+  },
+  {
+    name: "Charmeleon",
+    description:
+      "Charmeleon, like its other evolutionary forms, can naturally breathe fire. Its powers, though, are much greater than Charmander's, but not as great as Charizard's",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/4/4a/005Charmeleon.png/revision/latest/scale-to-width-down/200?cb=20140328191309",
+    price: 2,
+  },
+  {
+    name: "Charizard",
+    description:
+      "The fire on Charizard's tail will change to a bluish-white color if it is furious.",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/monster/images/9/95/Charizard.png/revision/latest?cb=20170708221247",
+    price: 3,
+  },
+  {
+    name: "Squirtle",
+    description:
+      "Squirtle is a small, light-blue Pokémon with an appearance similar to a turtle.",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c32a.png",
+    price: 1,
+  },
+  {
+    name: "Wartortle",
+    description:
+      "Wartortle is a small, bipedal, turtle-like Pokémon with a similar appearance to that of its pre-evolved form, Squirtle.",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/0/0c/008Wartortle.png/revision/latest/scale-to-width-down/200?cb=20140328191553",
+    price: 2,
+  },
+  {
+    name: "Blastoise",
+    description:
+      "Blastoise, like Wartortle and Squirtle, can naturally shoot water, though not from its mouth, but from its large cannons.",
+    category: "pokemon",
+    generation: "I",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/0/02/009Blastoise.png/revision/latest/scale-to-width-down/190?cb=20200731133731",
+    price: 3,
+  },
+  {
+    name: "Chikorita",
+    description:
+      "Chikorita are docile and friendly, spending a lot of time in the sun to soak up the sun's rays.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/bf/152Chikorita.png/revision/latest/scale-to-width-down/200?cb=20140329012502",
+    price: 1,
+  },
+  {
+    name: "Bayleef",
+    description:
+      "Around its neck are several small leaves that Bayleef can shoot at opponents.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/c/ca/153Bayleef.png/revision/latest/scale-to-width-down/200?cb=20140329012505",
+    price: 2,
+  },
+  {
+    name: "Meganium",
+    description:
+      "Meganium is a tall, heavy Pokémon with a light green body, a pink, white, and yellow flower around its very long neck, and yellow eyes.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/d/d1/154Meganium.png/revision/latest/scale-to-width-down/200?cb=20200524151818",
+    price: 3,
+  },
+  {
+    name: "Cyndaquil",
+    description:
+      "They are covered with a flame-resistant fur that is dark blue in color on its back to its head and light yellow on its underside.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/9/9b/155Cyndaquil.png/revision/latest/scale-to-width-down/200?cb=20140329012506",
+    price: 1,
+  },
+  {
+    name: "Quilava",
+    description:
+      "Quilava is a more slender version of its pre-evolution, while also resembling a weasel.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/b6/156Quilava.png/revision/latest/scale-to-width-down/200?cb=20140329012506",
+    price: 2,
+  },
+  {
+    name: "Typhlosion",
+    description:
+      "Typhlosion looks like a wolverine with a mane of spiky flames around its neck.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/4/47/157Typhlosion.png/revision/latest/scale-to-width-down/200?cb=20140329012507",
+    price: 3,
+  },
+  {
+    name: "Totodile",
+    description:
+      "Totodile is a small Pokémon that appears as a bipedal crocodile. While most of a Totodile's body is blue, they have a yellow, V-shaped marking across their chest, red eyes and spikes that go down its back to its tail.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/d/df/158Totodile.png/revision/latest/scale-to-width-down/200?cb=20140329012507",
+    price: 1,
+  },
+  {
+    name: "Croconaw",
+    description:
+      "Croconaw resembles a crocodile. It has a yellow body with blue spots, which resembles spotted animal skin.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/a/a5/159Croconaw.png/revision/latest/scale-to-width-down/200?cb=20140329012508",
+    price: 2,
+  },
+  {
+    name: "Feraligatr",
+    description:
+      "Feraligatr is a bulky, bipedal, crocodilian Pokémon with blue scales. It has large, powerful jaws lined with several sharp fangs.",
+    category: "pokemon",
+    generation: "II",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/d/d5/160Feraligatr.png/revision/latest/scale-to-width-down/200?cb=20140329012508",
+    price: 3,
+  },
+  {
+    name: "Treecko",
+    description:
+      "They require the least caution or experience out of the three Hoennian starters, given their cool and collected demeanors.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/2/2c/252Treecko.png/revision/latest/scale-to-width-down/200?cb=20201023051357",
+    price: 1,
+  },
+  {
+    name: "Grovyle",
+    description:
+      "Grovyle is a light green, bipedal Pokémon with plant and reptilian features. Its head has a long snout with small nostrils, it also has yellow eyes.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/e/ea/253Grovyle.png/revision/latest/scale-to-width-down/200?cb=20140329020703",
+    price: 2,
+  },
+  {
+    name: "Sceptile",
+    description:
+      "Sceptile is a large, bipedal, reptilian, gecko-like Pokémon that also possess the traits of dinosaurs.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/3/3e/254Sceptile.png/revision/latest/scale-to-width-down/200?cb=20140329020703",
+    price: 3,
+  },
+  {
+    name: "Torchic",
+    description:
+      "Torchic is a small, chick-like Pokémon. Its soft, fluffy plumage is mainly bright orange, with tiny, yellow, developing wings, and a yellow plume of three feathers atop its head.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/9/91/255Torchic.png/revision/latest/scale-to-width-down/200?cb=20201023052610",
+    price: 1,
+  },
+  {
+    name: "Combusken",
+    description:
+      "Combusken is a bipedal bird-like Pokémon that resembles a young chicken or rooster. It is slightly humanoid in body shape.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/2/29/256Combusken.png/revision/latest/scale-to-width-down/200?cb=20140329020704",
+    price: 2,
+  },
+  {
+    name: "Blaziken",
+    description:
+      "Blaziken is a large, bipedal, humanoid bird-like or a humanoid chicken-like Pokémon that resembles a rooster. Its face, lower body, arms, and tail are bright red, with some yellow patches on its chest, and running down its legs and feet.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/9/90/257Blaziken.png/revision/latest/scale-to-width-down/200?cb=20140329020705",
+    price: 3,
+  },
+  {
+    name: "Mudkip",
+    description:
+      "It has a large upright segmented fin atop its head, and large orange cheeks with three pointed whisker-like feelers on each.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/6/60/258Mudkip.png/revision/latest/scale-to-width-down/200?cb=20201023052725",
+    price: 1,
+  },
+  {
+    name: "Marshtomp",
+    description:
+      "It is mainly turquoise blue with a plump orange belly and orange spikes on its cheeks.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/2/27/259Marshtomp.png/revision/latest/scale-to-width-down/200?cb=20140329020706",
+    price: 2,
+  },
+  {
+    name: "Swampert",
+    description:
+      "It has a long bluish/white body with a lighter blue underbelly. It has four appendages that are a cross between legs and fins.",
+    category: "pokemon",
+    generation: "III",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/b6/260Swampert.png/revision/latest/scale-to-width-down/200?cb=20140329020706",
+    price: 3,
+  },
+  {
+    name: "Turtwig",
+    description:
+      "Turtwig is a Pokémon and appears to be a green-ish Pokémon with a small twig on its head.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/5/5c/387Turtwig.png/revision/latest/scale-to-width-down/200?cb=20201023052937",
+    price: 1,
+  },
+  {
+    name: "Grotle",
+    description:
+      "Grotle has a large, yellow shell that covers the back, head and short tail.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/5/53/388Grotle.png/revision/latest/scale-to-width-down/200?cb=20140329033211",
+    price: 2,
+  },
+  {
+    name: "Torterra",
+    description:
+      "It has a dark-green shell on its back with a white rim and diamond shape, along with a large tree on top.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/d/df/389Torterra.png/revision/latest/scale-to-width-down/200?cb=20140329033211",
+    price: 3,
+  },
+  {
+    name: "Chimchar",
+    description:
+      "Chimchar has a light-colored stomach with a little swirl at the top on its chest.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/76/390Chimchar.png/revision/latest/scale-to-width-down/200?cb=20201023053630",
+    price: 1,
+  },
+  {
+    name: "Monferno",
+    description:
+      "It also possesses beige coloring on its belly, hands, feet, mouth, and ears.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/2/2e/391Monferno.png/revision/latest/scale-to-width-down/200?cb=20140329033212",
+    price: 2,
+  },
+  {
+    name: "Infernape",
+    description: "Infernape is based upon the ape as cleared from its name.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/f/fb/392Infernape.png/revision/latest/scale-to-width-down/200?cb=20140329033212",
+    price: 3,
+  },
+  {
+    name: "Piplup",
+    description:
+      "Piplup is a chubby, light-blue penguin-like Pokémon, which is covered in thick down (and, presumably, given its plump appearance and real-world penguin biology, thick layers of fatty tissue) to insulate against the cold.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/b1/393Piplup.png/revision/latest/scale-to-width-down/132?cb=20211216054546",
+    price: 1,
+  },
+  {
+    name: "Prinplup",
+    description:
+      "On Prinplup's head is a yellow crown that lies above the eyes. Prinplup's chubby torso is a light blue with four white spots, two on each side.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/d/df/394Prinplup.png/revision/latest/scale-to-width-down/200?cb=20140329033213",
+    price: 2,
+  },
+  {
+    name: "Empoleion",
+    description:
+      "Empoleon appears to be a stout, navy blue penguin-like Pokémon with orange webbed feet like ducks have.",
+    category: "pokemon",
+    generation: "IV",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/7f/395Empoleon.png/revision/latest/scale-to-width-down/200?cb=20140329033214",
+    price: 3,
+  },
+  {
+    name: "Snivy",
+    description:
+      "Snivy is a serpentine creature with mainly a green body, tan stomach and lower head, with the end of its tail being shaped like a leaf as large as its head.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/75/495Snivy.png/revision/latest/scale-to-width-down/200?cb=20201023053959",
+    price: 1,
+  },
+  {
+    name: "Servine",
+    description:
+      "Servine is a snake-like Pokémon. The top part of its body is a lush green hue, while its face and plump underbelly are cream-colored.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/7/73/496Servine.png/revision/latest/scale-to-width-down/200?cb=20140329044051",
+    price: 2,
+  },
+  {
+    name: "Serperior",
+    description:
+      "Serperior is a very large reptilian snake-like Pokémon. It has a white neck and face with a pointy snout, with pale-green designs on the top of its head with two yellow leaf-like extensions on the back of its head.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/b7/497Serperior.png/revision/latest/scale-to-width-down/200?cb=20140329044051",
+    price: 3,
+  },
+  {
+    name: "Tepig",
+    description:
+      "Tepig is a small quadrupedal mammalian Pokémon that resembles a piglet.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/5/5b/498Tepig.png/revision/latest/scale-to-width-down/200?cb=20201023054106",
+    price: 1,
+  },
+  {
+    name: "Pignite",
+    description:
+      "Pignite is a bipedal pig-like Pokémon that appears to be wearing black spandex tights, similar to a wrestler.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/e/e8/499Pignite.png/revision/latest/scale-to-width-down/200?cb=20140329044052",
+    price: 2,
+  },
+  {
+    name: "Emboar",
+    description:
+      "Emboar is a very large bipedal boar-like Pokémon. It has orange skin seen on the chest and head and flames emanating from around its neck and a small, black spiked tail.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/1/18/500Emboar.png/revision/latest/scale-to-width-down/200?cb=20140329044052",
+    price: 3,
+  },
+  {
+    name: "Oshawott",
+    description:
+      "Oshawott is a bipedal, mammalian sea otter-like Pokémon. It has furs covering its entire body, with white fur on its face and arms, light-blue fur on its chubby torso and a dark blue tail, feet and ears.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/3/3b/501Oshawott.png/revision/latest/scale-to-width-down/200?cb=20201023054214",
+    price: 1,
+  },
+  {
+    name: "Dewott",
+    description:
+      "Dewott is a bipedal otter-like Pokémon. It is mainly light cyan blue in color, with a navy blue apron-like fringe of fur around its thighs that bears two scalchops, which can be removed an used as swords when it battles.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/e/e4/502Dewott.png/revision/latest/scale-to-width-down/200?cb=20140329044053",
+    price: 2,
+  },
+  {
+    name: "Samurott",
+    description:
+      "Samurott is a quadrupedal, aquatic mammalian Pokémon that resembles a sea lion. It is different to its previous evolutions, which were bipedal.",
+    category: "pokemon",
+    generation: "V",
+    inventory: 100,
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/b/b5/503Samurott.png/revision/latest/scale-to-width-down/200?cb=20140329044054",
     price: 3,
   },
   {
     name: "Potion",
-    description: "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 20 points.",
+    description:
+      "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 20 points.",
     category: "medicine",
     inventory: 99,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/d/df/Dream_Potion_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/d/df/Dream_Potion_Sprite.png",
     price: 745,
   },
   {
     name: "Super Potion",
-    description: "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 50 points.",
+    description:
+      "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 50 points.",
     category: "medicine",
     inventory: 20,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/5/57/Dream_Super_Potion_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/5/57/Dream_Super_Potion_Sprite.png",
     price: 971,
   },
   {
     name: "Hyper Potion",
-    description: "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 200 points.",
+    description:
+      "A spray-type medicine for treating wounds. It restores the HP of one Pokémon by 200 points.",
     category: "medicine",
     inventory: 95,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/c/c8/Dream_Hyper_Potion_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/c/c8/Dream_Hyper_Potion_Sprite.png",
     price: 114,
   },
   {
     name: "Max Potion",
-    description: "A spray-type medicine for treating wounds. It will completely restore the max HP of a single Pokémon.",
+    description:
+      "A spray-type medicine for treating wounds. It will completely restore the max HP of a single Pokémon.",
     category: "medicine",
     inventory: 63,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/a/a2/Dream_Max_Potion_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/a/a2/Dream_Max_Potion_Sprite.png",
     price: 344,
   },
   {
     name: "Full Restore",
-    description: "It is an item that fully restores the HP and heals any Status ailments of a Pokémon. It has no effect on a fainted Pokémon.",
+    description:
+      "It is an item that fully restores the HP and heals any Status ailments of a Pokémon. It has no effect on a fainted Pokémon.",
     category: "medicine",
     inventory: 73,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/0/0c/Dream_Full_Restore_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/0/0c/Dream_Full_Restore_Sprite.png",
     price: 3000,
   },
   {
     name: "Poke Ball",
-    description: "It has a simple red and white design, and it's the most known kind of Poké Ball",
+    description:
+      "It has a simple red and white design, and it's the most known kind of Poké Ball",
     category: "pokeballs",
     inventory: 25,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png",
     price: 518,
   },
   {
@@ -93,7 +568,8 @@ const products = [
     category: "pokeballs",
     inventory: 55,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/b/bf/Dream_Great_Ball_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/b/bf/Dream_Great_Ball_Sprite.png",
     price: 340,
   },
   {
@@ -102,284 +578,70 @@ const products = [
     category: "pokeballs",
     inventory: 24,
     generation: null,
-    imageUrl: "https://archives.bulbagarden.net/media/upload/a/a8/Dream_Ultra_Ball_Sprite.png",
+    imageUrl:
+      "https://archives.bulbagarden.net/media/upload/a/a8/Dream_Ultra_Ball_Sprite.png",
     price: 678,
   },
   {
     name: "Feather Ball",
-    description: "Insect bite (nonvenomous), right lower leg, init encntr",
+    description:
+      "It can be thrown farther than a regular Poké Ball and travels quickly in a straight line instead of flying in an arc, allowing the player to catch faraway and flying Pokémon more easily.",
     category: "pokeballs",
     inventory: 17,
     generation: null,
     imageUrl:
-      "https://robohash.org/aliquamnatusofficia.png?size=50x50&set=set1",
+      "https://progameguides.com/wp-content/uploads/2022/01/pokemon-legends-arceus-pokeball-generic.jpg?fit=1200%2C675",
     price: 282,
   },
   {
     name: "Master Ball",
-    description: "A very rare Poké Ball that never fails in an attempt to catch a Pokémon.",
+    description:
+      "A very rare Poké Ball that never fails in an attempt to catch a Pokémon.",
     category: "pokeballs",
     inventory: 5,
     generation: null,
-    imageUrl: "https://static.wikia.nocookie.net/nintendo/images/a/a1/Master_Ball_Sprite.png/revision/latest?cb=20110417161310&path-prefix=en",
+    imageUrl:
+      "https://static.wikia.nocookie.net/nintendo/images/a/a1/Master_Ball_Sprite.png/revision/latest?cb=20110417161310&path-prefix=en",
     price: 99999999,
   },
   {
     name: "Timer Ball",
-    description: "Acquired absence of left wrist",
+    description:
+      "It can be used to catch a wild Pokémon, being more likely to succeed the longer it has been since the start of the battle.",
     category: "pokeballs",
     inventory: 21,
     generation: null,
-    imageUrl: "https://robohash.org/etmolestiaeveniam.png?size=50x50&set=set1",
+    imageUrl:
+      "https://static.wikia.nocookie.net/pokemon/images/4/46/Timer_Ball.png/revision/latest?cb=20151003164314",
     price: 740,
   },
   {
     name: "Antidote",
-    description: "Other injury of esophagus (thoracic part), initial encounter",
+    description: "This can be used to heal a pokemon from poison",
     category: "medicine",
     inventory: 30,
     generation: null,
-    imageUrl: "https://robohash.org/eiusdictaullam.png?size=50x50&set=set1",
+    imageUrl: "https://www.gamerguides.com/assets/media/15/1336/item_0018.png",
     price: 1000,
   },
   {
     name: "Ice Heal",
-    description: "Laceration without foreign body of unsp elbow, sequela",
+    description:
+      "The ice heal can be used to cure a Pokemon from a freeze burn.",
     category: "medicine",
     inventory: 69,
     generation: null,
-    imageUrl:
-      "https://robohash.org/dolorumtemporibusconsequatur.png?size=50x50&set=set1",
+    imageUrl: "https://www.gamerguides.com/assets/media/15/1449/item_0020.png",
     price: 457,
   },
   {
     name: "Burn Heal",
-    description: "Foster-Kennedy syndrome, right eye",
+    description: "The burn heal can be used to cure a Pokemon from a burn.",
     category: "medicine",
     inventory: 86,
     generation: null,
-    imageUrl: "https://robohash.org/idhicquia.png?size=50x50&set=set1",
+    imageUrl: "https://i1.sndcdn.com/artworks-000117633740-5cwgr8-t500x500.jpg",
     price: 139,
-  },
-  {
-    name: "Ford",
-    description: "Unsp pedl cyclst inj in clsn w statnry object nontraf, subs",
-    category: "Delaware",
-    inventory: 15,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/voluptatumquiaaliquid.png?size=50x50&set=set1",
-    price: 994,
-  },
-  {
-    name: "Jeep",
-    description: "Disp fx of base of second MC bone. left hand, sequela",
-    category: "Panamanian",
-    inventory: 50,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/officiisdoloribuslibero.png?size=50x50&set=set1",
-    price: 207,
-  },
-  {
-    name: "Chrysler",
-    description: "Abrasion, right foot",
-    category: "Delaware",
-    inventory: 19,
-    generation: null,
-    imageUrl: "https://robohash.org/modiodioquidem.png?size=50x50&set=set1",
-    price: 452,
-  },
-  {
-    name: "Buick",
-    description: "Nondisp fx of proximal phalanx of right little finger",
-    category: "Paiute",
-    inventory: 63,
-    generation: null,
-    imageUrl: "https://robohash.org/quossapienteex.png?size=50x50&set=set1",
-    price: 865,
-  },
-  {
-    name: "Toyota",
-    description: "Other retained radioactive fragments",
-    category: "Paiute",
-    inventory: 6,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/voluptatesillumdolore.png?size=50x50&set=set1",
-    price: 275,
-  },
-  {
-    name: "Chevrolet",
-    description: "Athscl nonbiol bypass of the right leg w ulceration of thigh",
-    category: "American Indian",
-    inventory: 42,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/excepturisimiliqueex.png?size=50x50&set=set1",
-    price: 611,
-  },
-  {
-    name: "Nissan",
-    description: "Encounter for attention to colostomy",
-    category: "Native Hawaiian and Other Pacific Islander (NHPI)",
-    inventory: 78,
-    generation: null,
-    imageUrl: "https://robohash.org/quibusdamquisaepe.png?size=50x50&set=set1",
-    price: 765,
-  },
-  {
-    name: "Mitsubishi",
-    description: "Multiple fractures of ribs, left side, sequela",
-    category: "Central American",
-    inventory: 10,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/dignissimosesseaspernatur.png?size=50x50&set=set1",
-    price: 590,
-  },
-  {
-    name: "Porsche",
-    description: "Sltr-haris Type IV physl fx upr end l tibia, 7thK",
-    category: "Cheyenne",
-    inventory: 68,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/utvoluptatedeleniti.png?size=50x50&set=set1",
-    price: 967,
-  },
-  {
-    name: "Suzuki",
-    description: "Unsp fx unsp low leg, subs for opn fx type I/2 w delay heal",
-    category: "Nicaraguan",
-    inventory: 17,
-    generation: null,
-    imageUrl: "https://robohash.org/utsequineque.png?size=50x50&set=set1",
-    price: 207,
-  },
-  {
-    name: "Lotus",
-    description: "Malignant melanoma of unspecified lower limb, including hip",
-    category: "Kiowa",
-    inventory: 73,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/temporibusautratione.png?size=50x50&set=set1",
-    price: 266,
-  },
-  {
-    name: "Kia",
-    description: "Superficial foreign body of left index finger, sequela",
-    category: "Eskimo",
-    inventory: 9,
-    generation: null,
-    imageUrl: "https://robohash.org/pariatureumquo.png?size=50x50&set=set1",
-    price: 829,
-  },
-  {
-    name: "Ford",
-    description: "Unspecified injury of axillary artery, left side, sequela",
-    category: "Guamanian",
-    inventory: 43,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/voluptatesrepudiandaeeos.png?size=50x50&set=set1",
-    price: 511,
-  },
-  {
-    name: "Subaru",
-    description: "Toxic effect of pesticides, accidental (unintentional), init",
-    category: "Navajo",
-    inventory: 60,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/eaqueconsequunturfugiat.png?size=50x50&set=set1",
-    price: 611,
-  },
-  {
-    name: "MINI",
-    description: "Breakdown of urinary electronic stimulator device, init",
-    category: "Yuman",
-    inventory: 93,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/eaquenihilrecusandae.png?size=50x50&set=set1",
-    price: 966,
-  },
-  {
-    name: "Kia",
-    description: "Displ bimalleol fx l low leg, 7thN",
-    category: "Osage",
-    inventory: 55,
-    generation: null,
-    imageUrl: "https://robohash.org/consequatureumut.png?size=50x50&set=set1",
-    price: 124,
-  },
-  {
-    name: "Toyota",
-    description: "Pedl cyc driver inj in clsn w rail trn/veh in traf, sequela",
-    category: "Vietnamese",
-    inventory: 62,
-    generation: null,
-    imageUrl: "https://robohash.org/maioresautharum.png?size=50x50&set=set1",
-    price: 969,
-  },
-  {
-    name: "Land Rover",
-    description: "Nondisp fx of pisiform, unsp wrist, subs for fx w nonunion",
-    category: "Salvadoran",
-    inventory: 58,
-    generation: null,
-    imageUrl: "https://robohash.org/nequeanimiqui.png?size=50x50&set=set1",
-    price: 562,
-  },
-  {
-    name: "Kia",
-    description: "Fx unsp prt of nk of l femr, 7thJ",
-    category: "Navajo",
-    inventory: 78,
-    generation: null,
-    imageUrl: "https://robohash.org/doloresabet.png?size=50x50&set=set1",
-    price: 806,
-  },
-  {
-    name: "Ford",
-    description: "Pathological fracture, left tibia, subs for fx w nonunion",
-    category: "Chippewa",
-    inventory: 84,
-    generation: null,
-    imageUrl: "https://robohash.org/aeaenim.png?size=50x50&set=set1",
-    price: 130,
-  },
-  {
-    name: "Pontiac",
-    description: "Nondisp fx of 4th metatarsal bone, r ft, 7thK",
-    category: "Colville",
-    inventory: 79,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/evenietrepudiandaeut.png?size=50x50&set=set1",
-    price: 789,
-  },
-  {
-    name: "Porsche",
-    description: "Vascular abnormalities of conjunctiva, bilateral",
-    category: "Micronesian",
-    inventory: 29,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/omnisoptionecessitatibus.png?size=50x50&set=set1",
-    price: 947,
-  },
-  {
-    name: "Ford",
-    description: "Fracture of alveolus of maxilla, sequela",
-    category: "Chickasaw",
-    inventory: 51,
-    generation: null,
-    imageUrl:
-      "https://robohash.org/consequaturdolorvoluptatem.png?size=50x50&set=set1",
-    price: 369,
   },
 ];
 
