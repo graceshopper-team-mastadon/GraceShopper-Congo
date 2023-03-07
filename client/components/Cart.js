@@ -65,6 +65,7 @@ const Cart = () => {
       });
       return totalPrice;
     };
+    const totalPrice = calculatePrice();
 
     const calculateTotalItems = () => {
       let totalItems = 0;
@@ -79,11 +80,11 @@ const Cart = () => {
       <div>
         <h1>Cart</h1>
         <h3>
-          Total Price: ${calculatePrice()}, Total Items: {calculateTotalItems()}{" "}
+          Total Price: ${totalPrice}, Total Items: {calculateTotalItems()}{" "}
           items{" "}
         </h3>
         <div>
-          <Link to="/payment" state={{ cart: cart }}>
+          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
             <Button variant="success">Checkout!</Button>
           </Link>
         </div>
