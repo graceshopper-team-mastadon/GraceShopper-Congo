@@ -4,39 +4,55 @@ import Sidebar from "./Sidebar";
 const axios = require("axios");
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { updateUser } from "../../slices/userSlice";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const [id, setId] = useState(false);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState();
+  const [id, setId] = useState();
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [address, setAddress] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
 
-    useEffect(() => {
-        const getId = async () => {
-            if (await axios.get('/auth/verify')) {
-                const { data } = await axios.get('/auth/getId');
-                setId(data)
-            } else {
-                setId(false)
-            }
-        }
-        getId();
-    }, [])
+  useEffect(() => {
+    const getId = async () => {
+      if (await axios.get('/auth/verify')) {
+        const { data } = await axios.get('/auth/getId');
+        setId(data)
+      } else {
+        setId(false)
+      }
+    };
+    const adminStatus = async () => {
+      const { data } = await axios.get("/api/users/user");
+      setName(data.name)
+      setUsername(data.username);
+      setEmail(data.email);
+      setPassword(data.password);
+      setAddress(data.address);
+      setIsAdmin(data.role);
+    };
+    getId();
+    adminStatus();
+  }, []);
 
-    // useEffect(() => {
-    //     setUsername(username || "");
-    //     setEmail(email || "");
-    //     setPassword(password || "");
-    //     setAddress(address || "");
-    // }, []);
 
-    const handleEdit = async (e) => {
-        e.preventDefault();
-        console.log('work in progress yall')
-        // await dispatch(updateUser({ id, username, email, password, address }))
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    await dispatch(updateUser({ id, username, email, password, address }))
+  }
+
+  function Toggle() {
+    const temp = document.getElementById("typepass");
+    if (temp.type === "password") {
+      temp.type = "text";
     }
+    else {
+      temp.type = "password";
+    }
+  }
 
   return (
     <div className="Userprofile">
@@ -50,7 +66,7 @@ const UserProfile = () => {
           <ListGroup className="listGroup">
             <ListGroup.Item>
               Personal Info <br></br>
-              Name: This will be the actual name of the User Id{" "}
+              Name: {name}
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="username"> Username: </label>
@@ -59,10 +75,6 @@ const UserProfile = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
-              <button type="edit" onClick={handleEdit}>
-                {" "}
-                Edit{" "}
-              </button>
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="email"> Email: </label>
@@ -71,22 +83,18 @@ const UserProfile = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <button type="edit" onClick={handleEdit}>
-                {" "}
-                Edit{" "}
-              </button>
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="password"> Password: </label>
               <input
-                name="password"
+                type="password"
                 value={password}
+                id="typepass"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="edit" onClick={handleEdit}>
-                {" "}
-                Edit{" "}
-              </button>
+              <input type="checkbox"
+                onClick={() => Toggle()} />
+              <strong>Show Password</strong>
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="address"> Address: </label>
@@ -95,14 +103,13 @@ const UserProfile = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
-              <button type="edit" onClick={handleEdit}>
-                {" "}
-                Edit{" "}
-              </button>
             </ListGroup.Item>
-            <ListGroup.Item>
-              Status: This will be the actual status of the user
-            </ListGroup.Item>
+            {isAdmin === "MEMBER" ? (<><ListGroup.Item>
+              Status: MEMBER </ListGroup.Item></>) : (<><ListGroup.Item> Status: ADMIN
+              </ListGroup.Item></>)}
+            <button type="edit" onClick={handleEdit}>
+              Save Changes
+            </button>
           </ListGroup>
         </form>
       </div>
