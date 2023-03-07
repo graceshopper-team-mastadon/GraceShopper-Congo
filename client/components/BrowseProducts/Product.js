@@ -7,14 +7,17 @@ const Product = (props) => {
   const { product } = props;
 
   return (
-    <div className="d-flex justify-content-around">
-      <Card style={{ width: '18rem' }}>
+    <div>
+      <Card style={{ width: "15rem" }}>
         <Card.Img variant="top" src={product.imageUrl} />
         <Card.Body>
-          <Card.Title><Link to={`/products/${product.id}`}>{product.name}</Link></Card.Title>
+          <Card.Title>
+            <Link to={`/products/${product.id}`}>{product.name}</Link>
+          </Card.Title>
           <Card.Text>
             Price: {`${product.price}`} <br></br>
-            Why is he so squished?</Card.Text>
+            Why is he so squished?
+          </Card.Text>
           {<QuickAdd product={product} key={product.id} />}
         </Card.Body>
       </Card>
@@ -23,4 +26,3 @@ const Product = (props) => {
 };
 
 export default Product;
-

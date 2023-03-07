@@ -1,7 +1,17 @@
 const React = require("react");
 
 const Home = () => {
-  return <h1>Welcome</h1>
-
+  return (
+    <div>
+      <div className="header">
+        <div></div>
+      </div>
+      <main>
+        <div>Poke photo</div>
+        Testimonials and Featured Pokemon
+      </main>
+      Banner? Footer?
+    </div>
+  );
 };
 export default Home;
