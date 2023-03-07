@@ -27,7 +27,7 @@ const AllProducts = () => {
     <>
       <div className="browse-products">
         <h2 className="category-title">Browse All Products</h2>
-        <div>
+        <div class="row">
           {currentItems.map((product) => (
             <Product product={product} key={product.id} />
           ))}

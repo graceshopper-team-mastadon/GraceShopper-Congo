@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import CheckedOut from "./CheckedOut";
 import { useLocation } from "react-router-dom";
-import { fetchProduct } from "../../slices/singleProductSlice";
+import ProductInList from "./ProductInList";
 
 const PaymentSite = () => {
     const [name, setName] = useState();
@@ -32,7 +32,7 @@ const PaymentSite = () => {
         setCardNumber(cardnumber || "");
         setDate(date || "");
         setCVV(cvv || '');
-        getName()
+        getName();
     }, [checkedOut]);
 
     const handleSelect1 = async (e) => {
@@ -63,16 +63,6 @@ const PaymentSite = () => {
         setDate("");
         setCVV("")
     }
-
-    // const handleCreditCard = async (e) => {
-    //     e.preventDefault();
-    //     console.log("hello there!")
-    // }
-
-    // const handleEdit = async (e) => {
-    //     e.preventDefault();
-    //     console.log("i have been edited wee!")
-    // }
 
     const handleCheckout = async (e) => {
         e.preventDefault();
@@ -174,14 +164,15 @@ const PaymentSite = () => {
                                                 <p class="h4 mb-0">Summary</p>
 
                                                 <p class="mb-0">
-                                                    <span class="fw-bold">Total Price:</span>
-                                                    <span class="c-green">$452.90</span>
+                                                    <span class="fw-bold">Total Price: $</span>
+                                                    <span class="c-green"> {price}</span>
                                                 </p>
                                                 <p class="mb-0"><span class="fw-bold">Products:</span><span class="c-green"></span>
                                                 </p>
                                                 <p class="mb-0">
-
-
+                                                    {cart.map((product) => {
+                                                        return (<ProductInList key={product.id} product={product} />)
+                                                    })}
                                                 </p>
                                             </div>
                                             <div class="col-lg-7">

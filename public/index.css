@@ -3,11 +3,12 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-/* /* .Sidebar {
-  width: 50%;
-  display: flex;
-  position: left;
-} */
+img.littleguys {
+  width: 40%;
+  height: 40%;
+}
+
+
 
 .Profile {
   display: flex;
@@ -42,7 +43,7 @@ img {
   width: 150px;
 }
 
-.menu > li {
+.menu>li {
   margin: 0;
   background-color: white;
 }
