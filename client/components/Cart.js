@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import GuestCart from "./GuestCart";
-const axios = require("axios");
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllCart, cartUpdate } from "../slices/cartSlice";
+import { getAllCart } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
 import { deleteSingleItem } from "../slices/cartSlice";
 import { incrementItemCount } from "../slices/cartSlice";
@@ -15,16 +14,8 @@ const Cart = () => {
   console.log("logged", logged);
 
   useEffect(() => {
-    if (!logged) {
-      const blah = async () => {
-        const { data } = await axios.get("/auth/guestCart");
-        dispatch(cartUpdate(data));
-      };
-      blah();
-    } else if (logged) {
       dispatch(getAllCart());
-      dispatch(getAllProducts());
-    }
+      dispatch(getAllProducts())
   }, []);
 
   if (logged === false) {
