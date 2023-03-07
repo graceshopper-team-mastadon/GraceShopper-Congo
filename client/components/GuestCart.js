@@ -17,6 +17,9 @@ const GuestCart = () => {
   }
 
   useEffect(() => {
+    
+total = 0
+totalPrice = 0
   const blah = async () => {
     const { data } = await axios.get("/auth/guestCart");
     dispatch(cartUpdate(data));
