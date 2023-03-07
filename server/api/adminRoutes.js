@@ -6,6 +6,17 @@ const { OrderProduct, Product, User, Order } = require("../db");
 // Add product
 
 // Edit product
+router.put("/products/:id", async (req, res, next) => {
+  try {
+    console.log("id--> ", req.body.id);
+    const product = await Product.findByPk(req.params.id);
+    const editedProduct = await product.update(req.body);
+    res.send(editedProduct);
+    console.log("product --> ", editedProduct);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Delete product
 
@@ -39,7 +50,6 @@ router.put("/users/:id", async (req, res, next) => {
   try {
     console.log("id--> ", req.body.id);
     const user = await User.findByPk(req.params.id);
-
     const editedUser = await user.update(req.body);
     res.send(editedUser);
     console.log("user --> ", editedUser);
@@ -49,7 +59,6 @@ router.put("/users/:id", async (req, res, next) => {
 });
 
 // Delete user
-
 router.get("/users/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
@@ -69,5 +78,7 @@ router.delete("/users/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+// Need to add a deletion of the cookie if that is the person logged in?
 
 module.exports = router;

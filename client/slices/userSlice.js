@@ -68,6 +68,7 @@ export const userSlice = createSlice({
       state.allUsers = payload;
     });
     builder.addCase(fetchSingleUser.fulfilled, (state, { payload }) => {
+      console.log("payload is --> ", payload);
       state.singleUser = payload;
     });
     builder.addCase(deleteSingleUser.fulfilled, (state, { payload }) => {
