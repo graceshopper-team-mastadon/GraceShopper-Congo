@@ -87,7 +87,7 @@ const Cart = () => {
                   Add One
                 </button>
                 <button onClick={() => handleDecrement(pokemon[0].id)}>
-                  remove One
+                  Remove One
                 </button>
                 <button onClick={() => handleRemove(pokemon[0].id)}>
                   Remove from cart

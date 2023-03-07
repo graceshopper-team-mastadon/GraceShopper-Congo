@@ -69,6 +69,7 @@ export const cartSlice = createSlice({
     builder.addCase(QuickAddToCart.fulfilled, (state, { payload }) => {
       state.cart.push(payload);
     });
+
     builder.addCase(AddToCart.fulfilled, (state, { payload }) => {
       state.cart.push(payload);
     });
