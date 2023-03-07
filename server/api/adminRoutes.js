@@ -4,6 +4,16 @@ const { OrderProduct, Product, User, Order } = require("../db");
 // PRODUCTS
 
 // Add product
+router.post("/products/add", async (req, res, next) => {
+  try {
+    console.log("reqbody --> ", req.body);
+    const newProduct = await Product.create(req.body);
+    console.log("user --> ", newProduct);
+    res.send(newProduct);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Edit product
 router.put("/products/:id", async (req, res, next) => {
@@ -12,7 +22,7 @@ router.put("/products/:id", async (req, res, next) => {
     const product = await Product.findByPk(req.params.id);
     const editedProduct = await product.update(req.body);
     res.send(editedProduct);
-    console.log("product --> ", editedProduct);
+    console.log("editedProduct --> ", editedProduct);
   } catch (err) {
     next(err);
   }

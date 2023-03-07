@@ -29,19 +29,25 @@ export const deleteSingleProduct = createAsyncThunk(
   }
 );
 
-/*
-
-DELETE IF IN CART SLICE:
-
-export const AddToCart = createAsyncThunk("/addToCart", async (productInfo) => {
-  const { data } = await axios.post(
-    "http://localhost:3000/api/cart",
-    productInfo
-  );
-  // console.log("data returned to thunk:", data);
-  return data;
-});
-*/
+// Admin edits product information
+export const editProduct = createAsyncThunk(
+  "AdminEditsProduct",
+  async ({ id, name, description, category, inventory, imageUrl, price }) => {
+    const { data } = await axios.put(
+      `http://localhost:3000/api/dashboard/products/${id}`,
+      {
+        id: id,
+        name: name,
+        description: description,
+        category: category,
+        inventory: inventory,
+        imageUrl: imageUrl,
+        price: price,
+      }
+    );
+    return data;
+  }
+);
 
 export const productsSlice = createSlice({
   name: "products",
@@ -61,6 +67,9 @@ export const productsSlice = createSlice({
       state.Products = state.Products.filter(
         (product) => product.id !== payload.id
       );
+    });
+    builder.addCase(editProduct.fulfilled, (state, action) => {
+      state.singleProduct = action.payload;
     });
   },
 });
