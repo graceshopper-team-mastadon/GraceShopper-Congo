@@ -37,6 +37,24 @@ export const deleteSingleItem = createAsyncThunk(
   }
 );
 
+export const incrementItemCount = createAsyncThunk(
+  "cart/addToCount",
+  async (id) => {
+    const { data } = await axios.put(`/api/cart/increment/${id}`);
+
+    return data;
+  }
+);
+
+export const decrementItemCount = createAsyncThunk(
+  "cart/subtractFromCount",
+  async (id) => {
+    const { data } = await axios.put(`/api/cart/decrement/${id}`);
+
+    return data;
+  }
+);
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -59,6 +77,24 @@ export const cartSlice = createSlice({
       state.cart = state.cart.filter(
         (element) => element.productId !== payload.productId
       );
+    });
+
+    builder.addCase(incrementItemCount.fulfilled, (state, { payload }) => {
+      for (let i = 0; i < state.cart.length; i++) {
+        if (state.cart[i].productId === payload.productId) {
+          state.cart[i] = payload;
+          break;
+        }
+      }
+    });
+
+    builder.addCase(decrementItemCount.fulfilled, (state, { payload }) => {
+      for (let i = 0; i < state.cart.length; i++) {
+        if (state.cart[i].productId === payload.productId) {
+          state.cart[i] = payload;
+          break;
+        }
+      }
     });
   },
 });

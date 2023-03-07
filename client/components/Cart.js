@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { getAllCart } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
 import { deleteSingleItem } from "../slices/cartSlice";
+import { incrementItemCount } from "../slices/cartSlice";
+import { decrementItemCount } from "../slices/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,14 @@ const Cart = () => {
 
   const handleRemove = async (id) => {
     await dispatch(deleteSingleItem(id));
+  };
+
+  const handleIncrement = async (id) => {
+    await dispatch(incrementItemCount(id));
+  };
+
+  const handleDecrement = async (id) => {
+    await dispatch(decrementItemCount(id));
   };
 
   const calculatePrice = () => {
@@ -73,6 +83,12 @@ const Cart = () => {
               </p>
               <img src={pokemon[0].imageUrl}></img>
               <div>
+                <button onClick={() => handleIncrement(pokemon[0].id)}>
+                  Add One
+                </button>
+                <button onClick={() => handleDecrement(pokemon[0].id)}>
+                  remove One
+                </button>
                 <button onClick={() => handleRemove(pokemon[0].id)}>
                   Remove from cart
                 </button>
