@@ -3,8 +3,9 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import PaymentCards from "../AccountView/PaymentCards";
 import CheckedOut from "./CheckedOut";
+import { useLocation } from "react-router-dom";
+import { fetchProduct } from "../../slices/singleProductSlice";
 
 const PaymentSite = () => {
     const [name, setName] = useState();
@@ -16,8 +17,11 @@ const PaymentSite = () => {
     const [country, setCountry] = useState();
     const [phone, setPhone] = useState();
     const [selected, isSelected] = useState();
-
     const [checkedOut, setCheckedOut] = useState(false);
+
+    const location = useLocation();
+    const cart = location.state.cart;
+    const price = location.state.totalPrice;
 
     useEffect(() => {
         const getName = async () => {
@@ -65,12 +69,10 @@ const PaymentSite = () => {
     //     console.log("hello there!")
     // }
 
-
     // const handleEdit = async (e) => {
     //     e.preventDefault();
     //     console.log("i have been edited wee!")
     // }
-
 
     const handleCheckout = async (e) => {
         e.preventDefault();
@@ -178,7 +180,7 @@ const PaymentSite = () => {
                                                 <p class="mb-0"><span class="fw-bold">Products:</span><span class="c-green"></span>
                                                 </p>
                                                 <p class="mb-0">
-                                                    This should show a little version of the cart.
+
 
                                                 </p>
                                             </div>
