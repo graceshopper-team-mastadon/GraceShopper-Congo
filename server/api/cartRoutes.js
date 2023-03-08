@@ -11,6 +11,7 @@ router.get("/", async (req, res, next) => {
     const orderProductInfo = await OrderProduct.findAll({
       where: { orderId: cart[0].id },
     });
+
     res.send(orderProductInfo);
   } catch (err) {
     next(err);

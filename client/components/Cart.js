@@ -27,7 +27,14 @@ const Cart = () => {
     const singleProduct = cart.map((element) => {
       return products.filter((elem) => elem.id === element.productId);
     });
-    if (cart.length === 0 || singleProduct[0].length === 0) {
+    const checkIfLoaded = () => {
+      for (let i = 0; i < cart.length; i++) {
+        if (singleProduct[i].length === 0) return true;
+      }
+      return false;
+    };
+
+    if (cart.length === 0 || checkIfLoaded()) {
       return (
         <h2>
           Oops, looks like your cart is empty. To browse pokemon click{" "}
@@ -50,7 +57,6 @@ const Cart = () => {
 
     const calculatePrice = () => {
       let totalPrice = 0;
-
       singleProduct.map((item, index) => {
         totalPrice += item[0].price * cart[index].count;
       });
@@ -73,11 +79,7 @@ const Cart = () => {
         <h3>
           Total Price: ${totalPrice}, Total Items: {calculateTotalItems()} items{" "}
         </h3>
-        <div>
-          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
-            <Button variant="success">Checkout!</Button>
-          </Link>
-        </div>
+
         <ul>
           {singleProduct.map((pokemon, index) => {
             return (
@@ -92,7 +94,7 @@ const Cart = () => {
                   Price: ${pokemon[0].price * cart[index].count} Quantity:{" "}
                   {cart[index].count}
                 </p>
-                <img src={pokemon[0].imageUrl}></img>
+                <img className="pokemonImg" src={pokemon[0].imageUrl}></img>
                 <div>
                   <button onClick={() => handleIncrement(pokemon[0].id)}>
                     Add One
@@ -108,6 +110,11 @@ const Cart = () => {
             );
           })}
         </ul>
+        <div>
+          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
+            <Button variant="success">Checkout!</Button>
+          </Link>
+        </div>
       </div>
     );
   }

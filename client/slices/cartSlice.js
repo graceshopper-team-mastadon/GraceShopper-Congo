@@ -80,7 +80,8 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
-    // orderHistory: [],
+    guestCart: [],
+    orderHistory: [],
   },
   reducers: {
     // cartUpdate: (state, action) => {
@@ -90,7 +91,7 @@ export const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(cartUpdate.fulfilled, (state, { payload }) => {
-      state.cart = payload;
+      state.guestCart = payload;
     });
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;

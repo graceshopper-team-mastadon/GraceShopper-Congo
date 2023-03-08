@@ -8,7 +8,7 @@ const Product = (props) => {
 
   return (
     <Card style={{ width: '18rem', height: '15rem', float: 'left', padding: '10px', margin: '10px', display: 'inline-block' }}>
-      <Card.Img variant="top" src={product.imageUrl} />
+      <Card.Img class="h-25 w-30" variant="top" src={product.imageUrl} />
       <Card.Body style={{ height: '13rem' }}>
         <Card.Title>
           <Link to={`/products/${product.id}`}>{product.name}</Link>
