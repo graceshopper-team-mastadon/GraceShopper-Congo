@@ -26,15 +26,18 @@ export const deleteSingleProduct = createAsyncThunk(
     await axios.delete(`http://localhost:3000/api/dashboard/products/${id}`, {
       id,
     });
-    console.log("data in thunk:", data);
     return data;
   }
 );
-export const searchProduct = createAsyncThunk('searchProduct', async (searchedTerm) => {
-const { data } = await axios.get(`http://localhost:3000/api/products/search/${searchedTerm}`)
-console.log('data', data);
-return data
-})
+export const searchProduct = createAsyncThunk(
+  "searchProduct",
+  async (searchedTerm) => {
+    const { data } = await axios.get(
+      `http://localhost:3000/api/products/search/${searchedTerm}`
+    );
+    return data;
+  }
+);
 // Admin adds Product
 export const addProduct = createAsyncThunk(
   "AdminAddPokemon",
@@ -81,8 +84,8 @@ export const productsSlice = createSlice({
       state.Products = payload;
     });
     builder.addCase(searchProduct.fulfilled, (state, { payload }) => {
-      state.searched = payload
-    })
+      state.searched = payload;
+    });
     builder.addCase(getProductCategory.fulfilled, (state, { payload }) => {
       state.generationProducts = payload;
     });

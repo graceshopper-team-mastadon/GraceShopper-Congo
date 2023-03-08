@@ -4,11 +4,13 @@ import { Card } from "react-bootstrap";
 
 const SingleOrderProduct = (props) => {
   const { product } = props;
-  console.log("product is --> ", product);
   const orderProduct = product.orderProduct;
-  console.log("orderProduct is --> ", orderProduct);
-
   const cost = orderProduct.count * product.price;
+
+  const orderPokeImg = {
+    width: "30%",
+    height: "30%",
+  };
 
   return (
     <div class="container flex-column p-2">
@@ -22,7 +24,7 @@ const SingleOrderProduct = (props) => {
             </div>
             <div class="col-sm">
               <Card.Body>
-                <img className="littleguys" src={`${product.imageUrl}`} />
+                <img style={orderPokeImg} src={`${product.imageUrl}`} />
               </Card.Body>
             </div>
           </div>

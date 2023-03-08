@@ -25,7 +25,6 @@ const UserTable = () => {
     dispatch(fetchAllUsers());
   }, []);
 
-  // console.log("users: ", users);
   return (
     <div className="userTable">
       <h3>Manage Users</h3>

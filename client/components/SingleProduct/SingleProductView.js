@@ -23,7 +23,6 @@ const SingleProduct = () => {
     dispatch(fetchProduct(id));
   }, [dispatch, id]);
 
-  console.log("singleProduct in component:", singleProduct);
   const addHandler = async (singleProduct, quantity) => {
     await axios.get("/api/cart");
     await dispatch(AddToCart({ singleProduct, quantity }));

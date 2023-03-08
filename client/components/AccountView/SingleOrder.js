@@ -6,7 +6,6 @@ import SingleOrderProduct from "./SingleOrderProduct";
 const singleOrder = () => {
   const location = useLocation();
   const order = location.state.order;
-  console.log(order.products);
   const products = order.products;
 
   const date = order.updatedAt;

@@ -22,19 +22,22 @@ import { authTrue, authFalse } from "../slices/authSlice";
 import { searchProduct } from "../slices/productsSlice";
 
 const PokeHome = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
     color: "white",
   };
-
+  const tinyPokeLogo = {
+    width: "10%",
+    height: "10%",
+  };
   const offCanvasStyle = {
     color: "Black",
     margin: "1rem",
     textDecoration: "none",
   };
-  const [searchOptions, setSearchOptions] = useState('')
+  const [searchOptions, setSearchOptions] = useState("");
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -63,21 +66,29 @@ const PokeHome = () => {
   }, [auth]);
 
   const formSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     await dispatch(searchProduct(searchOptions));
-    setSearchOptions('');
-    navigate('/search')
-  }
+    setSearchOptions("");
+    navigate("/search");
+  };
 
   return (
     <div>
       <Navbar className="aboveBar">
         <Container>
-          <Form className="navbar aboveBar aboveBarContent" onSubmit={formSubmit}>
+          <Form
+            className="navbar aboveBar aboveBarContent"
+            onSubmit={formSubmit}
+          >
             <FormGroup>
-              <FormControl type="text" placeholder="Search" value={searchOptions} onChange={(e) => setSearchOptions(e.target.value)} />
+              <FormControl
+                type="text"
+                placeholder="Search"
+                value={searchOptions}
+                onChange={(e) => setSearchOptions(e.target.value)}
+              />
             </FormGroup>
-            <Button variant="outline-secondary" type="submit" >
+            <Button variant="outline-secondary" type="submit">
               Submit
             </Button>
           </Form>
@@ -98,7 +109,7 @@ const PokeHome = () => {
               <Link to="" style={linkStyle} onClick={handleShow}>
                 Account
               </Link>
-              <Offcanvas show={show} onHide={handleClose} placement="end" >
+              <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Account</Offcanvas.Title>
                 </Offcanvas.Header>
@@ -146,9 +157,12 @@ const PokeHome = () => {
         </Container>
       </Navbar>
 
-
       <div className="logo">
-        <img className="pokemonImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png?20161023215848" />
+        <img
+          style={tinyPokeLogo}
+          src=" https://seeklogo.com/images/P/pokeball-logo-DC23868CA1-seeklogo.com.png"
+        />
+        {/* <img className="pokemonImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png?20161023215848" /> */}
         <Link to="/" style={linkStyle}>
           PokeHome
         </Link>

@@ -83,17 +83,6 @@ User.getId = async function (token) {
     throw errMsg;
   }
 };
-// User.getUserByToken = async function (token) {
-//     try {
-//         console.log(token)
-// const newUser = await jwt.verify(token, "test")
-// return newUser
-//     } catch (err) {
-//         const errMsg = Error('bad token')
-//         errMsg.status = 401
-//         throw errMsg
-//     }
-// }
 
 // authenticating the User name and password connection
 User.authenticate = async function ({ username, password }) {
