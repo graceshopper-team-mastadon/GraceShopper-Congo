@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import GuestCart from "./GuestCart";
 import { useSelector, useDispatch } from "react-redux";
-import { Table, Card, Button } from "react-bootstrap";
+import { Table, Card, Button, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getAllCart } from "../slices/cartSlice";
 import { getAllProducts } from "../slices/productsSlice";
 import { deleteSingleItem } from "../slices/cartSlice";
 import { incrementItemCount } from "../slices/cartSlice";
 import { decrementItemCount } from "../slices/cartSlice";
+import { List } from "react-admin";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -73,47 +74,70 @@ const Cart = () => {
       return totalItems;
     };
     return (
-      <div>
-        <h1>Cart</h1>
-        <h3>
-          Total Price: ${totalPrice}, Total Items: {calculateTotalItems()} items{" "}
-        </h3>
+      <div class="container flex-column p-2">
+        <h2>Cart</h2>
+        <div class="p-2">
+          <h5>
+            Total: ${totalPrice}, Total Items: {calculateTotalItems()}
+          </h5>
 
-        <ul>
-          {singleProduct.map((pokemon, index) => {
-            return (
-              <li key={pokemon[0].id}>
-                <h4>
-                  <Link to={`/products/${pokemon[0].id}`}>
-                    {pokemon[0].name}
-                  </Link>
-                </h4>
-                <p></p>
-                <p>
-                  Price: ${pokemon[0].price * cart[index].count} Quantity:{" "}
-                  {cart[index].count}
-                </p>
-                <img className="pokemonImg" src={pokemon[0].imageUrl}></img>
-                <div>
-                  <button onClick={() => handleIncrement(pokemon[0].id)}>
-                    Add One
-                  </button>
-                  <button onClick={() => handleDecrement(pokemon[0].id)}>
-                    Remove One
-                  </button>
-                  <button onClick={() => handleRemove(pokemon[0].id)}>
-                    Remove from cart
-                  </button>
+          <ListGroup>
+            {singleProduct.map((pokemon, index) => {
+              return (
+                <div class="container flex-column p-2">
+                  <ListGroup.Item key={pokemon[0].id}>
+                    <h4>
+                      <Link to={`/products/${pokemon[0].id}`}>
+                        {pokemon[0].name}
+                      </Link>
+                    </h4>
+                    <p></p>
+                    <p>Qty: {cart[index].count}</p>
+                    <p>SubTotal: ${pokemon[0].price * cart[index].count}</p>
+                    <Card.Body>
+                      <img
+                        className="pokemonImg"
+                        src={pokemon[0].imageUrl}
+                      ></img>
+                    </Card.Body>
+                    <div>
+                      <Button
+                        size="sm"
+                        variant="outline-dark"
+                        onClick={() => handleIncrement(pokemon[0].id)}
+                      >
+                        Add One
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline-dark"
+                        onClick={() => handleDecrement(pokemon[0].id)}
+                      >
+                        Remove One
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline-dark"
+                        onClick={() => handleRemove(pokemon[0].id)}
+                      >
+                        Remove From Cart
+                      </Button>
+                    </div>
+                  </ListGroup.Item>
                 </div>
-              </li>
-            );
-          })}
-        </ul>
-        <div>
-          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
-            <Button variant="success">Checkout!</Button>
-          </Link>
+              );
+            })}
+          </ListGroup>
+
+          <div>
+            <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
+              <Button size="sm" variant="success">
+                Checkout!
+              </Button>
+            </Link>
+          </div>
         </div>
+        {/* </Card> */}
       </div>
     );
   }
