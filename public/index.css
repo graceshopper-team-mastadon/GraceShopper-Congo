@@ -8,6 +8,17 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+
+.deck {
+  display: inline;
+  flex-wrap: wrap;
+}
+
+.quickAddButton {
+
+  align-items: center;
+}
+
 img.littleguys {
   width: 40%;
   height: 40%;
@@ -54,4 +65,3 @@ img {
 .links {
   text-decoration: none;
 }
-
