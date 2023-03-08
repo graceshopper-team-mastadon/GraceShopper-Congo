@@ -60,6 +60,32 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.post("/mergeGuest", async (req, res, next) => {
+  try {
+    const UserId = await User.getId(req.cookies.token);
+    const cart = await Order.findOne({
+      where: { userId: UserId },
+    });
+    const productId = req.body.id;
+    const itemExists = await OrderProduct.findOne({
+      where: {
+        productId: productId,
+        orderId: cart.id,
+      },
+    });
+    if (itemExists) {
+      const updatedCartItem = await itemExists.increment("count", {
+        by: 1
+      });
+      res.send(updatedCartItem);
+    } else {
+      const product = await Product.findByPk(productId);
+      const newCartItem = cart.addProduct(product);
+    res.send(newCartItem);
+  } }catch (err) {
+    next(err);
+  }
+})
 //Quick add
 router.post("/quickadd", async (req, res, next) => {
   try {
@@ -76,7 +102,7 @@ router.post("/quickadd", async (req, res, next) => {
     });
     if (itemExists) {
       const updatedCartItem = await itemExists.increment("count", {
-        by: 1,
+        by: 1
       });
       res.send(updatedCartItem);
     } else {
