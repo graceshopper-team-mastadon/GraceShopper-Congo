@@ -28,7 +28,11 @@ export const deleteSingleProduct = createAsyncThunk(
     return data;
   }
 );
-
+export const searchProduct = createAsyncThunk('searchProduct', async (searchedTerm) => {
+const { data } = await axios.get(`http://localhost:3000/api/products/search/${searchedTerm}`)
+console.log('data', data);
+return data
+})
 // Admin adds Product
 export const addProduct = createAsyncThunk(
   "AdminAddPokemon",
@@ -66,12 +70,16 @@ export const productsSlice = createSlice({
   initialState: {
     Products: [],
     singleProduct: {},
+    searched: [],
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.fulfilled, (state, { payload }) => {
       state.Products = payload;
     });
+    builder.addCase(searchProduct.fulfilled, (state, { payload }) => {
+      state.searched = payload
+    })
     builder.addCase(getProductCategory.fulfilled, (state, { payload }) => {
       state.Products = payload;
     });
