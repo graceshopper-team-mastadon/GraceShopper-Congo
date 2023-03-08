@@ -33,7 +33,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://archives.bulbagarden.net/media/upload/thumb/6/6b/0003Venusaur.png/1200px-0003Venusaur.png",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/3-Venusaur.webp",
     price: 3,
   },
   {
@@ -74,7 +74,8 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl: "https://assets.stickpng.com/images/580b57fcd9996e24bc43c32a.png",
+    imageUrl:
+      "https://static.pokemonpets.com/images/monsters-images-800-800/7-Squirtle.webp",
     price: 1,
   },
   {
