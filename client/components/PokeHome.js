@@ -24,14 +24,13 @@ const PokeHome = () => {
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
-    fontFamily: "optima",
-    color: "steelblue",
+    color: "white",
   };
-  const sideStyle = {
+
+  const offCanvasStyle = {
+    color: "Black",
     margin: "1rem",
     textDecoration: "none",
-    fontFamily: "optima",
-    color: "steelblue",
   };
 
   const dispatch = useDispatch();
@@ -61,14 +60,12 @@ const PokeHome = () => {
     adminStatus();
   }, [auth]);
 
+
   return (
     <div>
-      <Navbar className="navbar navbar-fixed-bottom bg-light">
+      <Navbar className="aboveBar">
         <Container>
-          <Link to="/" style={linkStyle}>
-            PokeHome
-          </Link>
-          <Form className="navbar bg-light">
+          <Form className="navbar aboveBar aboveBarContent">
             <FormGroup>
               <FormControl type="text" placeholder="Search" />
             </FormGroup>
@@ -76,15 +73,15 @@ const PokeHome = () => {
               Submit
             </Button>
           </Form>
-          <Link to="/cart" style={linkStyle}>
+          <Link className="aboveBarContent" to="/cart" style={linkStyle}>
             Cart
           </Link>
           {!loggedIn ? (
             <>
-              <Link to="/login" style={linkStyle}>
+              <Link className="aboveBarContent" to="/login" style={linkStyle}>
                 Login
               </Link>
-              <Link to="/signup" style={linkStyle}>
+              <Link className="aboveBarContent" to="/signup" style={linkStyle}>
                 Sign Up
               </Link>
             </>
@@ -93,43 +90,43 @@ const PokeHome = () => {
               <Link to="" style={linkStyle} onClick={handleShow}>
                 Account
               </Link>
-              <Offcanvas show={show} onHide={handleClose} placement="end">
+              <Offcanvas show={show} onHide={handleClose} placement="end" >
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Account</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <ListGroup>
+                  <ListGroup style={offCanvasStyle}>
                     <ListGroup.Item>
-                      <Link to="/profile" style={sideStyle}>
+                      <Link to="/profile" style={offCanvasStyle}>
                         Profile{" "}
                       </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/order-history" style={sideStyle}>
+                      <Link to="/order-history" style={offCanvasStyle}>
                         Order History{" "}
                       </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/payment-cards" style={sideStyle}>
+                      <Link to="/payment-cards" style={offCanvasStyle}>
                         Payment Cards
                       </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/feedback" style={sideStyle}>
+                      <Link to="/feedback" style={offCanvasStyle}>
                         Send us Feedback
                       </Link>
                     </ListGroup.Item>
                     {isAdmin && (
                       <>
                         <ListGroup.Item>
-                          <Link to="/dashboard" style={sideStyle}>
+                          <Link to="/dashboard" style={offCanvasStyle}>
                             Dashboard
                           </Link>
                         </ListGroup.Item>
                       </>
                     )}
                     <ListGroup.Item>
-                      <Link to="/signout" style={sideStyle}>
+                      <Link to="/signout" style={offCanvasStyle}>
                         Sign Out
                       </Link>
                     </ListGroup.Item>
@@ -140,6 +137,14 @@ const PokeHome = () => {
           )}
         </Container>
       </Navbar>
+
+
+      <div className="logo">
+        <img className="pokemonImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png?20161023215848" />
+        <Link to="/" style={linkStyle}>
+          PokeHome
+        </Link>
+      </div>
     </div>
   );
 };
