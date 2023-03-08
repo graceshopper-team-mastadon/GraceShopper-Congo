@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,13 +9,12 @@ const NavBar = () => {
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
-    fontFamily: "optima",
-    color: "steelblue",
+    color: "white",
   };
 
   return (
     <div>
-      <Navbar className="navbar bg-light">
+      <Navbar className="navbar">
         <Container>
           <Link to="/products" style={linkStyle}>
             All Products
@@ -26,9 +24,8 @@ const NavBar = () => {
           </Link>
           <NavDropdown title="Pokemon" id="basic-nav-dropdown">
             <NavDropdown.Item>
-              <Link to="/category/pokemon-all" style={linkStyle}>
-                {" "}
-                All Pokemons
+              <Link to="/category/pokemon-all">
+                All Pokemon
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenI')}>
