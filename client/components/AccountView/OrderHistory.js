@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOrderHistory } from "../../slices/cartSlice";
+import { getOrderHistory } from "../../slices/orderHistorySlice";
 
 const OrderHistory = () => {
   const dispatch = useDispatch();
@@ -10,17 +10,22 @@ const OrderHistory = () => {
   console.log("orders --> ", orders);
   const firstOrder = orders[0];
   console.log("firstOrder--> ", firstOrder);
+  // const firstOrderProduct = firstOrder[state];
+  // console.log("firstOrderProduct--> ", firstOrderProduct);
 
   useEffect(() => {
     dispatch(getOrderHistory());
   }, []);
 
-  return (
-    <>
-      <div>
-        <h1> this is orderhistory lol </h1>
-      </div>
-    </>
-  );
+  if (orders.length === 0) {
+    return <div>This is Loading</div>;
+  } else
+    return (
+      <>
+        <div>
+          <h1> {orders[0].dataValues} </h1>
+        </div>
+      </>
+    );
 };
 export default OrderHistory;

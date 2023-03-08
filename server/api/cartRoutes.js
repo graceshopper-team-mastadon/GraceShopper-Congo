@@ -32,19 +32,21 @@ router.put("/checkout", async (req, res, next) => {
 });
 
 // Order history
-router.get("/order-history", async (req, res, next) => {
-  try {
-    const UserId = await User.getId(req.cookies.token);
-    console.log("UserId --> ", UserId);
-    const orders = await Order.findAll({
-      where: { userId: UserId, state: "COMPLETED" },
-      include: { model: Product },
-    });
-    res.send(orders);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.get("/order-history", async (req, res, next) => {
+//   try {
+//     console.log("cookies ", req.cookies.token);
+//     const UserId = await User.getId(req.cookies.token);
+//     console.log("UserId --> ", UserId);
+//     const orders = await Order.findAll({
+//       where: { userId: UserId, state: "COMPLETED" },
+//       include: { model: Product },
+//     });
+//     console.log("orders-->", orders);
+//     res.send(orders);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 // Add item to cart
 router.post("/", async (req, res, next) => {
@@ -102,17 +104,18 @@ router.post("/mergeGuest", async (req, res, next) => {
     });
     if (itemExists) {
       const updatedCartItem = await itemExists.increment("count", {
-        by: 1
+        by: 1,
       });
       res.send(updatedCartItem);
     } else {
       const product = await Product.findByPk(productId);
       const newCartItem = cart.addProduct(product);
-    res.send(newCartItem);
-  } }catch (err) {
+      res.send(newCartItem);
+    }
+  } catch (err) {
     next(err);
   }
-})
+});
 //Quick add
 router.post("/quickadd", async (req, res, next) => {
   try {
@@ -129,7 +132,7 @@ router.post("/quickadd", async (req, res, next) => {
     });
     if (itemExists) {
       const updatedCartItem = await itemExists.increment("count", {
-        by: 1
+        by: 1,
       });
       res.send(updatedCartItem);
     } else {
