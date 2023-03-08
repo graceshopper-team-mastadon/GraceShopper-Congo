@@ -54,7 +54,7 @@ const GuestCart = () => {
                       Price: ${pokemon.price * pokemon.quantity} Quantity:
                       {pokemon.quantity}
                     </p>
-                    <img src={pokemon.imageUrl}></img>
+                    <img className="pokemonImg" src={pokemon.imageUrl}></img>
                     <div>
                       <button onClick={() => handleRemove(pokemon)}>
                         Remove from cart

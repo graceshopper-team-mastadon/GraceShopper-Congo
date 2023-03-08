@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Op }= require("sequelize");
 // const Product = require("../db/models/Product");
 const { Product } = require("../db");
 // const OrderProduct = require("../db/models/OrderProduct");
@@ -12,19 +13,33 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+router.get('/search/:term', async (req, res, next) => {
+  try {
+  const searchedProducts = await Product.findAll({
+    where: {
+      name: {
+        [Op.substring]: req.params.term
+      }
+    }
+  })
+  res.send(searchedProducts)
+} catch (err) {
+  res.send(false)
+}
+})
 
 // GET /api/products/:category
 // Add where clause
-// router.get("/category/:category", async (req, res, next) => {
-//   try {
-//     const products = await Product.findAll({
-//       where: {},
-//     });
-//     res.send(products);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.get("/category/:id", async (req, res, next) => {
+  try {
+    const products = await Product.findAll({
+      where: { generation: req.params.id },
+    });
+    res.send(products);
+  } catch (err) {
+    next(err);
+  }
+});
 
 //get singular product by id
 router.get("/:id", async (req, res, next) => {

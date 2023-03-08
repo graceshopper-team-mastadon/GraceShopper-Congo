@@ -12,7 +12,6 @@ import { decrementItemCount } from "../slices/cartSlice";
 const Cart = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.auth);
-  console.log("logged", logged);
   const cart = useSelector((state) => state.cart.cart);
   const products = useSelector((state) => state.products.Products);
 
