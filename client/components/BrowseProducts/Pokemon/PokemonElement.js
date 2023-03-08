@@ -12,7 +12,7 @@ const PokemonElement = (props) => {
 
     return (
         <Card style={{ width: '18rem', height: '30rem', float: 'left', padding: '10px', margin: '10px', display: 'inline-block' }}>
-            <Card.Img variant="top" src={`${pokemonImg}`} />
+            <Card.Img class="h-25 w-30" variant="top" className="pokemonImg" src={`${pokemonImg}`} />
             <Card.Body style={{ height: '15rem' }}>
                 <Card.Title>
                     <Link to={`/products/${pokemonId}`}>{`${pokemonName}`}</Link>
