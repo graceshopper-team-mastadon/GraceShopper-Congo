@@ -11,7 +11,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/2/21/001Bulbasaur.png/revision/latest/scale-to-width-down/200?cb=20200620223551",
+      "https://soranews24.com/wp-content/uploads/sites/3/2013/11/pg-5.png?w=580",
     price: 1,
   },
   {
@@ -22,7 +22,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/73/002Ivysaur.png/revision/latest/scale-to-width-down/200?cb=20140328190847",
+      "https://shop7.webmodule.prestashop.net/pokedoge/11268-large_default/ivysaur.jpg",
     price: 2,
   },
   {
@@ -33,7 +33,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/a/ae/003Venusaur.png/revision/latest/scale-to-width-down/200?cb=20200731133335",
+      "https://archives.bulbagarden.net/media/upload/thumb/6/6b/0003Venusaur.png/1200px-0003Venusaur.png",
     price: 3,
   },
   {
@@ -43,8 +43,7 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/73/004Charmander.png/revision/latest/scale-to-width-down/187?cb=20200620223744",
+    imageUrl: "https://cdn.goodvinilos.com/4608/pokemon-charmander.jpg",
     price: 1,
   },
   {
@@ -55,7 +54,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/4/4a/005Charmeleon.png/revision/latest/scale-to-width-down/200?cb=20140328191309",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/5-Charmeleon.webp",
     price: 2,
   },
   {
@@ -65,8 +64,7 @@ const products = [
     category: "pokemon",
     generation: "I",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/monster/images/9/95/Charizard.png/revision/latest?cb=20170708221247",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
     price: 3,
   },
   {
@@ -87,7 +85,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/0/0c/008Wartortle.png/revision/latest/scale-to-width-down/200?cb=20140328191553",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/8-Wartortle.webp",
     price: 2,
   },
   {
@@ -98,7 +96,7 @@ const products = [
     generation: "I",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/0/02/009Blastoise.png/revision/latest/scale-to-width-down/190?cb=20200731133731",
+      "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc2Mjk3OTE5MTkwNjcyNTc0/pokemon-blastoise-nicknames.jpg",
     price: 3,
   },
   {
@@ -108,8 +106,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/bf/152Chikorita.png/revision/latest/scale-to-width-down/200?cb=20140329012502",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/152.png",
     price: 1,
   },
   {
@@ -119,8 +116,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/c/ca/153Bayleef.png/revision/latest/scale-to-width-down/200?cb=20140329012505",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/153.png",
     price: 2,
   },
   {
@@ -130,8 +126,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/d/d1/154Meganium.png/revision/latest/scale-to-width-down/200?cb=20200524151818",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/154.png",
     price: 3,
   },
   {
@@ -141,8 +136,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/9/9b/155Cyndaquil.png/revision/latest/scale-to-width-down/200?cb=20140329012506",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/155.png",
     price: 1,
   },
   {
@@ -152,8 +146,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/b6/156Quilava.png/revision/latest/scale-to-width-down/200?cb=20140329012506",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/156.png",
     price: 2,
   },
   {
@@ -164,7 +157,7 @@ const products = [
     generation: "II",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/4/47/157Typhlosion.png/revision/latest/scale-to-width-down/200?cb=20140329012507",
+      "https://img.pokemondb.net/sprites/scarlet-violet/normal/typhlosion.png",
     price: 3,
   },
   {
@@ -174,8 +167,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/d/df/158Totodile.png/revision/latest/scale-to-width-down/200?cb=20140329012507",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/158.png",
     price: 1,
   },
   {
@@ -185,8 +177,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/a/a5/159Croconaw.png/revision/latest/scale-to-width-down/200?cb=20140329012508",
+    imageUrl: "https://img.pokemondb.net/artwork/large/croconaw.jpg",
     price: 2,
   },
   {
@@ -196,8 +187,7 @@ const products = [
     category: "pokemon",
     generation: "II",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/d/d5/160Feraligatr.png/revision/latest/scale-to-width-down/200?cb=20140329012508",
+    imageUrl: "https://img.pokemondb.net/artwork/large/feraligatr.jpg",
     price: 3,
   },
   {
@@ -207,8 +197,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/2/2c/252Treecko.png/revision/latest/scale-to-width-down/200?cb=20201023051357",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/252.png",
     price: 1,
   },
   {
@@ -218,8 +207,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/e/ea/253Grovyle.png/revision/latest/scale-to-width-down/200?cb=20140329020703",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/253.png",
     price: 2,
   },
   {
@@ -230,7 +218,7 @@ const products = [
     generation: "III",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/3/3e/254Sceptile.png/revision/latest/scale-to-width-down/200?cb=20140329020703",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/254-Sceptile.webp",
     price: 3,
   },
   {
@@ -240,8 +228,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/9/91/255Torchic.png/revision/latest/scale-to-width-down/200?cb=20201023052610",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/255.png",
     price: 1,
   },
   {
@@ -251,8 +238,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/2/29/256Combusken.png/revision/latest/scale-to-width-down/200?cb=20140329020704",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/256.png",
     price: 2,
   },
   {
@@ -262,8 +248,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/9/90/257Blaziken.png/revision/latest/scale-to-width-down/200?cb=20140329020705",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/257.png",
     price: 3,
   },
   {
@@ -273,8 +258,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/6/60/258Mudkip.png/revision/latest/scale-to-width-down/200?cb=20201023052725",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/258.png",
     price: 1,
   },
   {
@@ -284,8 +268,7 @@ const products = [
     category: "pokemon",
     generation: "III",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/2/27/259Marshtomp.png/revision/latest/scale-to-width-down/200?cb=20140329020706",
+    imageUrl: "https://img.pokemondb.net/artwork/large/marshtomp.jpg",
     price: 2,
   },
   {
@@ -296,7 +279,7 @@ const products = [
     generation: "III",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/b6/260Swampert.png/revision/latest/scale-to-width-down/200?cb=20140329020706",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/260-Swampert.webp",
     price: 3,
   },
   {
@@ -306,8 +289,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/5/5c/387Turtwig.png/revision/latest/scale-to-width-down/200?cb=20201023052937",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/387.png",
     price: 1,
   },
   {
@@ -317,8 +299,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/5/53/388Grotle.png/revision/latest/scale-to-width-down/200?cb=20140329033211",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/388.png",
     price: 2,
   },
   {
@@ -329,7 +310,7 @@ const products = [
     generation: "IV",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/d/df/389Torterra.png/revision/latest/scale-to-width-down/200?cb=20140329033211",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/389-Torterra.webp",
     price: 3,
   },
   {
@@ -339,8 +320,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/76/390Chimchar.png/revision/latest/scale-to-width-down/200?cb=20201023053630",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/390.png",
     price: 1,
   },
   {
@@ -350,8 +330,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/2/2e/391Monferno.png/revision/latest/scale-to-width-down/200?cb=20140329033212",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/391.png",
     price: 2,
   },
   {
@@ -360,8 +339,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/f/fb/392Infernape.png/revision/latest/scale-to-width-down/200?cb=20140329033212",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/392.png",
     price: 3,
   },
   {
@@ -371,8 +349,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/b1/393Piplup.png/revision/latest/scale-to-width-down/132?cb=20211216054546",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/393.png",
     price: 1,
   },
   {
@@ -382,8 +359,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/d/df/394Prinplup.png/revision/latest/scale-to-width-down/200?cb=20140329033213",
+    imageUrl: "https://img.pokemondb.net/artwork/large/prinplup.jpg",
     price: 2,
   },
   {
@@ -393,8 +369,7 @@ const products = [
     category: "pokemon",
     generation: "IV",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/7f/395Empoleon.png/revision/latest/scale-to-width-down/200?cb=20140329033214",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/395.png",
     price: 3,
   },
   {
@@ -405,7 +380,7 @@ const products = [
     generation: "V",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/75/495Snivy.png/revision/latest/scale-to-width-down/200?cb=20201023053959",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/495-Snivy.webp",
     price: 1,
   },
   {
@@ -415,8 +390,7 @@ const products = [
     category: "pokemon",
     generation: "V",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/7/73/496Servine.png/revision/latest/scale-to-width-down/200?cb=20140329044051",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/496.png",
     price: 2,
   },
   {
@@ -427,7 +401,7 @@ const products = [
     generation: "V",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/b7/497Serperior.png/revision/latest/scale-to-width-down/200?cb=20140329044051",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/8497-Mega-Serperior.webp",
     price: 3,
   },
   {
@@ -437,8 +411,7 @@ const products = [
     category: "pokemon",
     generation: "V",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/5/5b/498Tepig.png/revision/latest/scale-to-width-down/200?cb=20201023054106",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/498.png",
     price: 1,
   },
   {
@@ -449,7 +422,7 @@ const products = [
     generation: "V",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/e/e8/499Pignite.png/revision/latest/scale-to-width-down/200?cb=20140329044052",
+      "https://static.pokemonpets.com/images/monsters-images-800-800/499-Pignite.webp",
     price: 2,
   },
   {
@@ -460,7 +433,7 @@ const products = [
     generation: "V",
     inventory: 100,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/1/18/500Emboar.png/revision/latest/scale-to-width-down/200?cb=20140329044052",
+      "http://static.pokemonpets.com/images/monsters-images-800-800/500-Emboar.png",
     price: 3,
   },
   {
@@ -470,8 +443,7 @@ const products = [
     category: "pokemon",
     generation: "V",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/3/3b/501Oshawott.png/revision/latest/scale-to-width-down/200?cb=20201023054214",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/501.png",
     price: 1,
   },
   {
@@ -481,8 +453,7 @@ const products = [
     category: "pokemon",
     generation: "V",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/e/e4/502Dewott.png/revision/latest/scale-to-width-down/200?cb=20140329044053",
+    imageUrl: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/502.png",
     price: 2,
   },
   {
@@ -492,8 +463,7 @@ const products = [
     category: "pokemon",
     generation: "V",
     inventory: 100,
-    imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/b/b5/503Samurott.png/revision/latest/scale-to-width-down/200?cb=20140329044054",
+    imageUrl: "https://img.pokemondb.net/artwork/large/samurott.jpg",
     price: 3,
   },
   {
@@ -526,7 +496,7 @@ const products = [
     inventory: 95,
     generation: null,
     imageUrl:
-      "https://archives.bulbagarden.net/media/upload/c/c8/Dream_Hyper_Potion_Sprite.png",
+      "https://pkmngotrading.com/mediawiki/images/c/cf/Hyper_potion1.png",
     price: 114,
   },
   {
@@ -536,8 +506,7 @@ const products = [
     category: "medicine",
     inventory: 63,
     generation: null,
-    imageUrl:
-      "https://archives.bulbagarden.net/media/upload/a/a2/Dream_Max_Potion_Sprite.png",
+    imageUrl: "https://www.gamerguides.com/assets/media/15/1332/item_0024.png",
     price: 344,
   },
   {
@@ -569,7 +538,7 @@ const products = [
     inventory: 55,
     generation: null,
     imageUrl:
-      "https://archives.bulbagarden.net/media/upload/b/bf/Dream_Great_Ball_Sprite.png",
+      "https://d1lss44hh2trtw.cloudfront.net/assets/article/2016/07/11/great_ball_by_baconb0y-d5uf49k_feature.jpg",
     price: 340,
   },
   {
@@ -601,7 +570,7 @@ const products = [
     inventory: 5,
     generation: null,
     imageUrl:
-      "https://static.wikia.nocookie.net/nintendo/images/a/a1/Master_Ball_Sprite.png/revision/latest?cb=20110417161310&path-prefix=en",
+      "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8742_703-29903_06.jpg",
     price: 99999999,
   },
   {
@@ -612,7 +581,7 @@ const products = [
     inventory: 21,
     generation: null,
     imageUrl:
-      "https://static.wikia.nocookie.net/pokemon/images/4/46/Timer_Ball.png/revision/latest?cb=20151003164314",
+      "https://img.gkbcdn.com/p/2016-08-02/7cm-e-timer-ball-pokemon-ball-1571987162571._w500_.jpg",
     price: 740,
   },
   {
