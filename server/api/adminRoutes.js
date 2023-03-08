@@ -6,9 +6,7 @@ const { OrderProduct, Product, User, Order } = require("../db");
 // Add product
 router.post("/products/add", async (req, res, next) => {
   try {
-    console.log("reqbody --> ", req.body);
     const newProduct = await Product.create(req.body);
-    console.log("user --> ", newProduct);
     res.send(newProduct);
   } catch (err) {
     next(err);
@@ -18,11 +16,9 @@ router.post("/products/add", async (req, res, next) => {
 // Edit product
 router.put("/products/:id", async (req, res, next) => {
   try {
-    console.log("id--> ", req.body.id);
     const product = await Product.findByPk(req.params.id);
     const editedProduct = await product.update(req.body);
     res.send(editedProduct);
-    console.log("editedProduct --> ", editedProduct);
   } catch (err) {
     next(err);
   }
@@ -54,9 +50,7 @@ router.delete("/products/:id", async (req, res, next) => {
 // Add user
 router.post("/users/add", async (req, res, next) => {
   try {
-    console.log("reqbody --> ", req.body);
     const newUser = await User.create(req.body);
-    console.log("user --> ", newUser);
     res.send(newUser);
   } catch (err) {
     next(err);
@@ -66,11 +60,9 @@ router.post("/users/add", async (req, res, next) => {
 // Edit user
 router.put("/users/:id", async (req, res, next) => {
   try {
-    console.log("id--> ", req.body.id);
     const user = await User.findByPk(req.params.id);
     const editedUser = await user.update(req.body);
     res.send(editedUser);
-    console.log("user --> ", editedUser);
   } catch (err) {
     next(err);
   }

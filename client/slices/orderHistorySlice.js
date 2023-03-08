@@ -5,7 +5,6 @@ export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
   const { data } = await axios.get(
     "http://localhost:3000/api/order/order-history"
   );
-  console.log("data --> ", data);
   return data;
 });
 

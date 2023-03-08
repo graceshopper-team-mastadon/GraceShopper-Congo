@@ -77,14 +77,6 @@ export const checkoutCart = createAsyncThunk(
   }
 );
 
-// export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
-//   const { data } = await axios.get(
-//     "http://localhost:3000/api/cart/order-history"
-//   );
-//   console.log("data --> ", data);
-//   return data;
-// });
-
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -92,12 +84,7 @@ export const cartSlice = createSlice({
     guestCart: [],
     orderHistory: [],
   },
-  reducers: {
-    // cartUpdate: (state, action) => {
-    //   console.log('payload', action)
-    //   state.cart.push(action.payload)
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(cartUpdate.fulfilled, (state, { payload }) => {
       state.guestCart = payload;
@@ -105,11 +92,6 @@ export const cartSlice = createSlice({
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;
     });
-    // builder.addCase(getOrderHistory.fulfilled, (state, { payload }) => {
-    //   state.orderHistory = payload;
-    //   state.orderProducts = payload.
-    // });
-
     builder.addCase(QuickAddToCart.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
         if (state.cart[i].productId === payload.productId) {
@@ -121,7 +103,6 @@ export const cartSlice = createSlice({
         }
       }
     });
-
     builder.addCase(mergeGuest.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
         if (state.cart[i].productId === payload.productId) {
@@ -133,7 +114,6 @@ export const cartSlice = createSlice({
         }
       }
     });
-
     builder.addCase(AddToCart.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
         if (state.cart[i].productId === payload.productId) {
@@ -145,7 +125,6 @@ export const cartSlice = createSlice({
         }
       }
     });
-
     builder.addCase(deleteSingleItem.fulfilled, (state, { payload }) => {
       state.cart = state.cart.filter(
         (element) => element.productId !== payload.productId

@@ -8,7 +8,6 @@ const OrderHistory = () => {
   const dispatch = useDispatch();
 
   const orders = useSelector((state) => state.orderHistory.orders);
-  console.log("orders --> ", orders);
 
   useEffect(() => {
     dispatch(getOrderHistory());
@@ -32,7 +31,11 @@ const OrderHistory = () => {
                 <tbody>
                   {orders.map((order, index) => (
                     <tr key={order.id}>
-                      <td>{order.id}</td>
+                      <td>
+                        {(Math.floor(Math.random() * 10000) + 10000)
+                          .toString()
+                          .substring(1)}
+                      </td>
                       <td>{order.date}</td>
                       <td>${order.price}</td>
                       <td>

@@ -8,8 +8,6 @@ const DashContent = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.singleUser);
 
-  console.log("user is --> ", user);
-
   useEffect(() => {
     dispatch(fetchSingleUser());
   }, []);

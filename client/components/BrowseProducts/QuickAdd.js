@@ -6,9 +6,8 @@ import { Button } from "react-bootstrap";
 const axios = require("axios");
 
 const QuickAdd = (props) => {
-  const dispatch = useDispatch()
-  const logged = useSelector((state) => state.auth)
-  console.log('logged', logged)
+  const dispatch = useDispatch();
+  const logged = useSelector((state) => state.auth);
 
   const { product } = props;
 
@@ -20,20 +19,21 @@ const QuickAdd = (props) => {
   // blah()
   //     }, [])
 
-
   const quickAddHandler = async (productInfo) => {
     if (logged) {
       await axios.get("/api/cart");
       await dispatch(QuickAddToCart(productInfo));
     } else {
-      await axios.post("/auth/guestCart", productInfo)
-      const { data } = await axios.get('/auth/guestCart')
-      await dispatch(cartUpdate(data))
+      await axios.post("/auth/guestCart", productInfo);
+      const { data } = await axios.get("/auth/guestCart");
+      await dispatch(cartUpdate(data));
     }
-  }
+  };
 
   return (
-    <Button variant="primary" onClick={() => quickAddHandler(product)}>Quick Add</Button>
+    <Button variant="primary" onClick={() => quickAddHandler(product)}>
+      Quick Add
+    </Button>
   );
 };
 
