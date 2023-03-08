@@ -12,6 +12,8 @@ const Feedback = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setName('');
+        setFeedback('');
         await dispatch(addFeedback({ name, feedback }))
     }
 
