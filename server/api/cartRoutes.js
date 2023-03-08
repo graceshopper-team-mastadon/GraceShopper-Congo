@@ -11,6 +11,7 @@ router.get("/", async (req, res, next) => {
     const orderProductInfo = await OrderProduct.findAll({
       where: { orderId: cart[0].id },
     });
+
     res.send(orderProductInfo);
   } catch (err) {
     next(err);
@@ -102,17 +103,18 @@ router.post("/mergeGuest", async (req, res, next) => {
     });
     if (itemExists) {
       const updatedCartItem = await itemExists.increment("count", {
-        by: 1
+        by: 1,
       });
       res.send(updatedCartItem);
     } else {
       const product = await Product.findByPk(productId);
       const newCartItem = cart.addProduct(product);
-    res.send(newCartItem);
-  } }catch (err) {
+      res.send(newCartItem);
+    }
+  } catch (err) {
     next(err);
   }
-})
+});
 //Quick add
 router.post("/quickadd", async (req, res, next) => {
   try {
@@ -129,7 +131,7 @@ router.post("/quickadd", async (req, res, next) => {
     });
     if (itemExists) {
       const updatedCartItem = await itemExists.increment("count", {
-        by: 1
+        by: 1,
       });
       res.send(updatedCartItem);
     } else {

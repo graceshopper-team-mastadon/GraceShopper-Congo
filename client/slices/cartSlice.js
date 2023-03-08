@@ -8,10 +8,13 @@ export const getAllCart = createAsyncThunk("/cart", async () => {
 export const cartUpdate = createAsyncThunk("/guest/cart", async (product) => {
   return product;
 });
-export const mergeGuest = createAsyncThunk("/guestt/mergeGuest", async (productInfo) => {
-const {data} = await axios.post('api/cart/mergeGuest', productInfo)
-return data
-});
+export const mergeGuest = createAsyncThunk(
+  "/guestt/mergeGuest",
+  async (productInfo) => {
+    const { data } = await axios.post("api/cart/mergeGuest", productInfo);
+    return data;
+  }
+);
 
 export const QuickAddToCart = createAsyncThunk(
   "/QuickAddToCart",
@@ -77,6 +80,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
+    guestCart: [],
     orderHistory: [],
   },
   reducers: {
@@ -87,7 +91,7 @@ export const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(cartUpdate.fulfilled, (state, { payload }) => {
-      state.cart = payload;
+      state.guestCart = payload;
     });
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;
@@ -107,7 +111,7 @@ export const cartSlice = createSlice({
         }
       }
     });
-    
+
     builder.addCase(mergeGuest.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
         if (state.cart[i].productId === payload.productId) {
