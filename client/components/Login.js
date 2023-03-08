@@ -22,7 +22,6 @@ export default function Login() {
       const {data} = await axios.get("/auth/guestCart")
      for (let i = 0; i < data.length; i++) {
       for (let j = 0; j < data[i].quantity; j++) {
-        console.log(data[i].quantity)
       await dispatch(QuickAddToCart(data[i]))
       }
      }

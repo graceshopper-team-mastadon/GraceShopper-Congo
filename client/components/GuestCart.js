@@ -1,42 +1,41 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartUpdate } from "../slices/cartSlice";
 const axios = require("axios");
 
-let total = 0
-let totalPrice = 0
+let total = 0;
+let totalPrice = 0;
 const GuestCart = () => {
-  const cart = useSelector((state) => state.cart.cart); 
-  const dispatch = useDispatch()
+  const cart = useSelector((state) => state.cart.guestCart);
+  const dispatch = useDispatch();
 
   const totalItems = async (data) => {
-  for (let i = 0; i < data.length; i++) {
-    total += data[i].quantity;
-    totalPrice += data[i].price *  data[i].quantity
-  }
-  }
-
-  useEffect(() => {  
-  total = 0
-  totalPrice = 0
-  const blah = async () => {
-    const { data } = await axios.get("/auth/guestCart");
-    dispatch(cartUpdate(data));
-    totalItems(data)
+    for (let i = 0; i < data.length; i++) {
+      total += data[i].quantity;
+      totalPrice += data[i].price * data[i].quantity;
+    }
   };
-  blah();
-}, [])
+
+  useEffect(() => {
+    total = 0;
+    totalPrice = 0;
+    const blah = async () => {
+      const { data } = await axios.get("/auth/guestCart");
+      dispatch(cartUpdate(data));
+      totalItems(data);
+    };
+    blah();
+  }, []);
 
   const handleRemove = async (poke) => {
-    const id = Number(poke.id)
-    await axios.delete(`/auth/guestCart/${id}`)
+    const id = Number(poke.id);
+    await axios.delete(`/auth/guestCart/${id}`);
     const { data } = await axios.get("/auth/guestCart");
     dispatch(cartUpdate(data));
-    total = 0
-    totalPrice = 0
-    totalItems(data)
-  }
-
+    total = 0;
+    totalPrice = 0;
+    totalItems(data);
+  };
 
   return (
     <div>
@@ -49,17 +48,17 @@ const GuestCart = () => {
               {cart.map((pokemon) => {
                 return (
                   <li key={pokemon.id}>
-                      <h4>
-           {pokemon.name}
-       </h4>
+                    <h4>{pokemon.name}</h4>
                     <p></p>
                     <p>
                       Price: ${pokemon.price * pokemon.quantity} Quantity:
                       {pokemon.quantity}
                     </p>
-                    <img src={pokemon.imageUrl}></img>
+                    <img className="pokemonImg" src={pokemon.imageUrl}></img>
                     <div>
-                      <button onClick={() => handleRemove(pokemon)} >Remove from cart</button>
+                      <button onClick={() => handleRemove(pokemon)}>
+                        Remove from cart
+                      </button>
                     </div>
                   </li>
                 );

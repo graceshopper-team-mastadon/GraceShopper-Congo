@@ -15,12 +15,14 @@ import {
   OffcanvasHeader,
   OffcanvasTitle,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
+import { searchProduct } from "../slices/productsSlice";
 
 const PokeHome = () => {
+  const navigate = useNavigate()
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
@@ -32,7 +34,7 @@ const PokeHome = () => {
     margin: "1rem",
     textDecoration: "none",
   };
-
+  const [searchOptions, setSearchOptions] = useState('')
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -60,16 +62,25 @@ const PokeHome = () => {
     adminStatus();
   }, [auth]);
 
+  const formSubmit = async (e) => {
+    e.preventDefault()
+await dispatch(searchProduct(searchOptions));
+setSearchOptions('');
+navigate('/search')
+  }
 
   return (
     <div>
       <Navbar className="aboveBar">
         <Container>
-          <Form className="navbar aboveBar aboveBarContent">
+          <Link to="/" style={linkStyle}>
+            PokeHome
+          </Link>
+        <Form className="navbar aboveBar aboveBarContent" onSubmit={formSubmit}>
             <FormGroup>
-              <FormControl type="text" placeholder="Search" />
+              <FormControl type="text" placeholder="Search" value={searchOptions} onChange={(e) => setSearchOptions(e.target.value)} />
             </FormGroup>
-            <Button variant="outline-secondary" type="submit">
+            <Button variant="outline-secondary" type="submit" >
               Submit
             </Button>
           </Form>

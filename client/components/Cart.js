@@ -12,7 +12,6 @@ import { decrementItemCount } from "../slices/cartSlice";
 const Cart = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.auth);
-  console.log("logged", logged);
   const cart = useSelector((state) => state.cart.cart);
   const products = useSelector((state) => state.products.Products);
 
@@ -27,7 +26,14 @@ const Cart = () => {
     const singleProduct = cart.map((element) => {
       return products.filter((elem) => elem.id === element.productId);
     });
-    if (cart.length === 0 || singleProduct[0].length === 0) {
+    const checkIfLoaded = () => {
+      for (let i = 0; i < cart.length; i++) {
+        if (singleProduct[i].length === 0) return true;
+      }
+      return false;
+    };
+
+    if (cart.length === 0 || checkIfLoaded()) {
       return (
         <h2>
           Oops, looks like your cart is empty. To browse pokemon click{" "}
@@ -50,7 +56,6 @@ const Cart = () => {
 
     const calculatePrice = () => {
       let totalPrice = 0;
-
       singleProduct.map((item, index) => {
         totalPrice += item[0].price * cart[index].count;
       });
