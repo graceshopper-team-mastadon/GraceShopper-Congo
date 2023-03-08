@@ -73,11 +73,7 @@ const Cart = () => {
         <h3>
           Total Price: ${totalPrice}, Total Items: {calculateTotalItems()} items{" "}
         </h3>
-        <div>
-          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
-            <Button variant="success">Checkout!</Button>
-          </Link>
-        </div>
+
         <ul>
           {singleProduct.map((pokemon, index) => {
             return (
@@ -92,7 +88,7 @@ const Cart = () => {
                   Price: ${pokemon[0].price * cart[index].count} Quantity:{" "}
                   {cart[index].count}
                 </p>
-                <img src={pokemon[0].imageUrl}></img>
+                <img className="pokemonImg" src={pokemon[0].imageUrl}></img>
                 <div>
                   <button onClick={() => handleIncrement(pokemon[0].id)}>
                     Add One
@@ -108,6 +104,11 @@ const Cart = () => {
             );
           })}
         </ul>
+        <div>
+          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
+            <Button variant="success">Checkout!</Button>
+          </Link>
+        </div>
       </div>
     );
   }

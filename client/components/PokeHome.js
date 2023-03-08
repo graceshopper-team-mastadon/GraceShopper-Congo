@@ -110,11 +110,6 @@ const PokeHome = () => {
                       </Link>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <Link to="/address-book" style={sideStyle}>
-                        Address Book{" "}
-                      </Link>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
                       <Link to="/payment-cards" style={sideStyle}>
                         Payment Cards
                       </Link>

@@ -77,7 +77,7 @@ const PaymentSite = () => {
                         <div class="col-lg-4 mb-lg-0 mb-3">
                             <div class="card p-3">
                                 <div class="img-box">
-                                    <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="" />
+                                    <img className="pokemonImg" src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="" />
                                 </div>
                                 <div class="number">
                                     <label class="fw-bold" for="">**** **** **** 4358</label>
@@ -95,7 +95,7 @@ const PaymentSite = () => {
                         <div class="col-lg-4 mb-lg-0 mb-3">
                             <div class="card p-3">
                                 <div class="img-box">
-                                    <img src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
+                                    <img className="pokemonImg" src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
                                         alt="" />
                                 </div>
                                 <div class="number">
@@ -114,7 +114,7 @@ const PaymentSite = () => {
                         <div class="col-lg-4 mb-lg-0 mb-3">
                             <div class="card p-3">
                                 <div class="img-box">
-                                    <img src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
+                                    <img className="pokemonImg" src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
                                         alt="" />
                                 </div>
                                 <div class="number">
@@ -204,9 +204,7 @@ const PaymentSite = () => {
                                                                 <label for="" class="form__label">CVV Code</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
-                                                            {/* <Button variant="primary" onClick={handleCreditCard}>Submit</Button> */}
-                                                        </div>
+                                                        <div class="col-12">                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
@@ -261,7 +259,6 @@ const PaymentSite = () => {
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
-                                                            {/* <Button variant="primary" onClick={handleEdit}>Submit</Button> */}
                                                         </div>
                                                     </div>
                                                 </form>
