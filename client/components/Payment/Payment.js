@@ -6,6 +6,8 @@ import { useState } from "react";
 import CheckedOut from "./CheckedOut";
 import { useLocation } from "react-router-dom";
 import ProductInList from "./ProductInList";
+import { checkoutCart } from "../../slices/cartSlice";
+
 
 const PaymentSite = () => {
     const [name, setName] = useState();
@@ -66,6 +68,7 @@ const PaymentSite = () => {
 
     const handleCheckout = async (e) => {
         e.preventDefault();
+        await dispatch(checkoutCart());
         setCheckedOut(true);
     }
 
