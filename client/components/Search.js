@@ -7,7 +7,6 @@ import QuickAdd from '../components/BrowseProducts/QuickAdd'
 
 const Search = () => {
     const products = useSelector((state) => state.products.searched)
-    console.log(products.length)
 
 return (
     <div>
