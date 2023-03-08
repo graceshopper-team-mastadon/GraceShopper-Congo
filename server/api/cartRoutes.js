@@ -21,11 +21,16 @@ router.get("/", async (req, res, next) => {
 //Checkout
 router.put("/checkout", async (req, res, next) => {
   try {
+    console.log("req.body -->", req.body);
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
       where: { userId: UserId, state: "CART" },
     });
-    const checkedOut = await cart.update({ state: "COMPLETED" });
+    const checkedOut = await cart.update({
+      state: "COMPLETED",
+      date: req.body.date,
+      price: req.body.price,
+    });
     res.send(checkedOut);
   } catch (err) {
     next(err);
@@ -56,7 +61,7 @@ router.post("/", async (req, res, next) => {
     const UserId = await User.getId(req.cookies.token);
     const num = input.quantity;
     const cart = await Order.findOne({
-      where: { userId: UserId },
+      where: { userId: UserId, state: "CART" },
     });
     const productId = input.singleProduct.id;
     const itemExists = await OrderProduct.findOne({
@@ -122,7 +127,7 @@ router.post("/quickadd", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
-      where: { userId: UserId },
+      where: { userId: UserId, state: "CART" },
     });
     const productId = req.body.id;
     const itemExists = await OrderProduct.findOne({
@@ -151,7 +156,7 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
-      where: { userId: UserId },
+      where: { userId: UserId, state: "CART" },
     });
     const deletedCartItem = await OrderProduct.findOne({
       where: {
@@ -170,7 +175,7 @@ router.put("/increment/:id", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
-      where: { userId: UserId },
+      where: { userId: UserId, state: "CART" },
     });
     const item = await OrderProduct.findOne({
       where: {
@@ -192,7 +197,7 @@ router.put("/decrement/:id", async (req, res, next) => {
   try {
     const UserId = await User.getId(req.cookies.token);
     const cart = await Order.findOne({
-      where: { userId: UserId },
+      where: { userId: UserId, state: "CART" },
     });
     const item = await OrderProduct.findOne({
       where: {
