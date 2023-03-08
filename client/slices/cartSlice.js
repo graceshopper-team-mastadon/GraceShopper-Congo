@@ -68,13 +68,13 @@ export const checkoutCart = createAsyncThunk("checkoutCart", async () => {
   return data;
 });
 
-export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
-  const { data } = await axios.get(
-    "http://localhost:3000/api/cart/order-history"
-  );
-  console.log("data --> ", data);
-  return data;
-});
+// export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
+//   const { data } = await axios.get(
+//     "http://localhost:3000/api/cart/order-history"
+//   );
+//   console.log("data --> ", data);
+//   return data;
+// });
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -96,9 +96,10 @@ export const cartSlice = createSlice({
     builder.addCase(getAllCart.fulfilled, (state, { payload }) => {
       state.cart = payload;
     });
-    builder.addCase(getOrderHistory.fulfilled, (state, { payload }) => {
-      state.orderHistory.push(payload);
-    });
+    // builder.addCase(getOrderHistory.fulfilled, (state, { payload }) => {
+    //   state.orderHistory = payload;
+    //   state.orderProducts = payload.
+    // });
 
     builder.addCase(QuickAddToCart.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
