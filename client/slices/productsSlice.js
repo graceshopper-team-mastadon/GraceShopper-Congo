@@ -7,9 +7,9 @@ export const getAllProducts = createAsyncThunk("/products", async () => {
 });
 export const getProductCategory = createAsyncThunk(
   "/products/:category",
-  async () => {
+  async (gen) => {
     const { data } = await axios.get(
-      "http://localhost:3000/api/products/:category"
+      `http://localhost:3000/api/products/category/${gen}`
     );
     return data;
   }
@@ -66,6 +66,7 @@ export const productsSlice = createSlice({
   initialState: {
     Products: [],
     singleProduct: {},
+    generationProducts: [],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -73,7 +74,7 @@ export const productsSlice = createSlice({
       state.Products = payload;
     });
     builder.addCase(getProductCategory.fulfilled, (state, { payload }) => {
-      state.Products = payload;
+      state.generationProducts = payload;
     });
     builder.addCase(deleteSingleProduct.fulfilled, (state, { payload }) => {
       state.Products = state.Products.filter(
