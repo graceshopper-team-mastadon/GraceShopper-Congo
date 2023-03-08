@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
   const { data } = await axios.get(
-    "http://localhost:3000/api/cart/order-history"
+    "http://localhost:3000/api/order/order-history"
   );
   console.log("data --> ", data);
   return data;

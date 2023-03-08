@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Cart from "./components/Cart";
 import UserProfile from "./components/AccountView/UserProfile";
 import OrderHistory from "./components/AccountView/OrderHistory";
+import SingleOrder from "./components/AccountView/SingleOrder";
 import AddressBook from "./components/AccountView/AddressBook";
 import PaymentCards from "./components/AccountView/PaymentCards";
 import Feedback from "./components/AccountView/Feedback";
@@ -35,6 +36,7 @@ import GenIVProducts from "./components/GenerationView/Gen4";
 import GenVProducts from "./components/GenerationView/Gen5";
 import Payment from "./components/Payment/Payment"
 import Search from "./components/Search";
+
 
 
 const App = () => {
@@ -62,6 +64,11 @@ const App = () => {
         <Route exact path="/signout" element={<Signout />} />
         <Route exact path="/profile" element={<UserProfile />} />
         <Route exact path="/order-history" element={<OrderHistory />} />
+        <Route
+          exact
+          path="/order-history/single-order"
+          element={<SingleOrder />}
+        />
         <Route exact path="/address-book" element={<AddressBook />} />
         <Route exact path="/payment-cards" element={<PaymentCards />} />
         <Route exact path="/payment" element={<Payment />} />

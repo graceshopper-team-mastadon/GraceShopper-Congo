@@ -63,10 +63,19 @@ export const decrementItemCount = createAsyncThunk(
   }
 );
 
-export const checkoutCart = createAsyncThunk("checkoutCart", async () => {
-  const { data } = await axios.put("http://localhost:3000/api/cart/checkout");
-  return data;
-});
+export const checkoutCart = createAsyncThunk(
+  "checkoutCart",
+  async ({ checkoutDate, price }) => {
+    const { data } = await axios.put(
+      "http://localhost:3000/api/cart/checkout",
+      {
+        date: checkoutDate,
+        price: price,
+      }
+    );
+    return data;
+  }
+);
 
 // export const getOrderHistory = createAsyncThunk("orderHistory", async () => {
 //   const { data } = await axios.get(
