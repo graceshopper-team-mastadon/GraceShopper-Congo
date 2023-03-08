@@ -17,6 +17,35 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//Checkout
+router.put("/checkout", async (req, res, next) => {
+  try {
+    const UserId = await User.getId(req.cookies.token);
+    const cart = await Order.findOne({
+      where: { userId: UserId, state: "CART" },
+    });
+    const checkedOut = await cart.update({ state: "COMPLETED" });
+    res.send(checkedOut);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Order history
+router.get("/order-history", async (req, res, next) => {
+  try {
+    const UserId = await User.getId(req.cookies.token);
+    console.log("UserId --> ", UserId);
+    const orders = await Order.findAll({
+      where: { userId: UserId, state: "COMPLETED" },
+      include: { model: Product },
+    });
+    res.send(orders);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Add item to cart
 router.post("/", async (req, res, next) => {
   try {
@@ -34,7 +63,6 @@ router.post("/", async (req, res, next) => {
       },
     });
     if (itemExists) {
-      console.log("item exists!!");
       const updatedCartItem = await itemExists.increment("count", {
         by: num,
       });
@@ -52,7 +80,6 @@ router.post("/", async (req, res, next) => {
       const updatedCart = await newItem.increment("count", {
         by: newCount,
       });
-
       res.send(updatedCart);
     }
   } catch (err) {
