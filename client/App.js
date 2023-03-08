@@ -28,7 +28,6 @@ import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
 import Potions from "./components/BrowseProducts/Potions";
 import Pokeballs from "./components/BrowseProducts/Pokeballs";
-import Payment from "./components/Payment/Payment";
 import GenIProducts from "./components/GenerationView/Gen1";
 import GenIIProducts from "./components/GenerationView/Gen2";
 import GenIIIProducts from "./components/GenerationView/Gen3";
