@@ -28,8 +28,15 @@ import New from "./components/BrowseProducts/New";
 import Pokemon from "./components/BrowseProducts/Pokemon";
 import Potions from "./components/BrowseProducts/Potions";
 import Pokeballs from "./components/BrowseProducts/Pokeballs";
+import Payment from "./components/Payment/Payment";
+import GenIProducts from "./components/GenerationView/Gen1";
+import GenIIProducts from "./components/GenerationView/Gen2";
+import GenIIIProducts from "./components/GenerationView/Gen3";
+import GenIVProducts from "./components/GenerationView/Gen4";
+import GenVProducts from "./components/GenerationView/Gen5";
 import Payment from "./components/Payment/Payment"
 import Search from "./components/Search";
+
 
 const App = () => {
   return (
@@ -40,6 +47,11 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<AllProducts />} />
         <Route exact path="/products/:id" element={<SingleProduct />} />
+        <Route exact path="/products/GenI" element={<GenIProducts />} />
+        <Route exact path="/products/GenII" element={<GenIIProducts />} />
+        <Route exact path="/products/GenIII" element={<GenIIIProducts />} />
+        <Route exact path="/products/GenIV" element={<GenIVProducts />} />
+        <Route exact path="/products/GenV" element={<GenVProducts />} />
         <Route exact path="/new" element={<New />} />
         <Route exact path="/category/pokemon-all" element={<Pokemon />} />
         <Route exact path="/category/potions" element={<Potions />} />

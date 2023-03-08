@@ -30,11 +30,22 @@ const NavBar = () => {
                 All Pokemon
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item href="">Generation I</NavDropdown.Item>
-            <NavDropdown.Item href="">Generation II</NavDropdown.Item>
-            <NavDropdown.Item href="">Generation III</NavDropdown.Item>
-            <NavDropdown.Item href="">Generation IV</NavDropdown.Item>
-            <NavDropdown.Item href="">Generation V</NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link to="/products/GenI">Generation I</Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/products/GenII">Generation II</Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/products/GenIII">Generation III</Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/products/GenIV">Generation IV</Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/products/GenV">Generation V</Link>
+            </NavDropdown.Item>
           </NavDropdown>
           <Link to="/category/pokeballs" style={linkStyle}>
             Pokeballs
