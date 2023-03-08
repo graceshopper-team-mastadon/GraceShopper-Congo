@@ -484,8 +484,7 @@ const products = [
     category: "medicine",
     inventory: 20,
     generation: null,
-    imageUrl:
-      "https://archives.bulbagarden.net/media/upload/5/57/Dream_Super_Potion_Sprite.png",
+    imageUrl: "https://www.gamerguides.com/assets/media/15/1331/item_0026.png",
     price: 971,
   },
   {
