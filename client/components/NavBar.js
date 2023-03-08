@@ -3,9 +3,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const navigate = useNavigate()
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
@@ -27,24 +28,23 @@ const NavBar = () => {
             <NavDropdown.Item>
               <Link to="/category/pokemon-all" style={linkStyle}>
                 {" "}
-                All Pokemon
+                All Pokemons
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              {" "}
-              <Link to="/products/GenI">Generation I</Link>
+            <NavDropdown.Item onClick={() => navigate('/products/GenI')}>
+            Generation I
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Link to="/products/GenII">Generation II</Link>
+            <NavDropdown.Item onClick={() => navigate('/products/GenII')}>
+          Generation II
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Link to="/products/GenIII">Generation III</Link>
+            <NavDropdown.Item onClick={() => navigate('/products/GenIII')}>
+             Generation III
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Link to="/products/GenIV">Generation IV</Link>
+            <NavDropdown.Item onClick={() => navigate('/products/GenIV')}>
+              Generation IV
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Link to="/products/GenV">Generation V</Link>
+            <NavDropdown.Item onClick={() => navigate('/products/GenV')}>
+             Generation V
             </NavDropdown.Item>
           </NavDropdown>
           <Link to="/category/pokeballs" style={linkStyle}>

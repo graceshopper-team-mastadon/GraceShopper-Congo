@@ -27,7 +27,7 @@ return (
             </Card.Body>
         </Card>
         }
-                    ) : <div>Loading</div>}
+                    ) : <div>Sorry no products found with your Search Term</div>}
         
     </div>
 )
