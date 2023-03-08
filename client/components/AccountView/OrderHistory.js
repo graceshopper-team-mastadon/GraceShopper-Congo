@@ -1,10 +1,20 @@
-const React = require("react");
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getOrderHistory } from "../../slices/cartSlice";
 
 const OrderHistory = () => {
-  //   const location = useLocation();
-  //   const cart = location.state.cart;
-  //   console.log(cart);
+  const dispatch = useDispatch();
+
+  const orders = useSelector((state) => state.cart.orderHistory);
+  console.log("orders --> ", orders);
+  const firstOrder = orders[0];
+  console.log("firstOrder--> ", firstOrder);
+
+  useEffect(() => {
+    dispatch(getOrderHistory());
+  }, []);
+
   return (
     <>
       <div>
