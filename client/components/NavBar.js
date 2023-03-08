@@ -20,7 +20,7 @@ const NavBar = () => {
             All Products
           </Link>
           <Link to="/new" style={linkStyle}>
-            New Selection{" "}
+            Newest Arrivals
           </Link>
           <NavDropdown title="Pokemon" id="basic-nav-dropdown">
             <NavDropdown.Item>
@@ -29,19 +29,19 @@ const NavBar = () => {
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenI')}>
-            Generation I
+              Generation I
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenII')}>
-          Generation II
+              Generation II
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenIII')}>
-             Generation III
+              Generation III
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenIV')}>
               Generation IV
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => navigate('/products/GenV')}>
-             Generation V
+              Generation V
             </NavDropdown.Item>
           </NavDropdown>
           <Link to="/category/pokeballs" style={linkStyle}>

@@ -64,19 +64,16 @@ const PokeHome = () => {
 
   const formSubmit = async (e) => {
     e.preventDefault()
-await dispatch(searchProduct(searchOptions));
-setSearchOptions('');
-navigate('/search')
+    await dispatch(searchProduct(searchOptions));
+    setSearchOptions('');
+    navigate('/search')
   }
 
   return (
     <div>
       <Navbar className="aboveBar">
         <Container>
-          <Link to="/" style={linkStyle}>
-            PokeHome
-          </Link>
-        <Form className="navbar aboveBar aboveBarContent" onSubmit={formSubmit}>
+          <Form className="navbar aboveBar aboveBarContent" onSubmit={formSubmit}>
             <FormGroup>
               <FormControl type="text" placeholder="Search" value={searchOptions} onChange={(e) => setSearchOptions(e.target.value)} />
             </FormGroup>
