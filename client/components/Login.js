@@ -2,7 +2,8 @@ import React, { useState } from "react";
 const axios = require("axios");
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { QuickAddToCart } from "../slices/cartSlice";
 import { authTrue } from "../slices/authSlice";
 
 export default function Login() {
@@ -18,6 +19,14 @@ export default function Login() {
       password: password,
     });
     if (await axios.get("/auth/verify")) {
+      const {data} = await axios.get("/auth/guestCart")
+     for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data[i].quantity; j++) {
+        console.log(data[i].quantity)
+      await dispatch(QuickAddToCart(data[i]))
+      }
+     }
+      await axios.delete('/auth/guestCartCookie')
       dispatch(authTrue())
       navigate("/");
     }

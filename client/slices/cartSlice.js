@@ -8,6 +8,10 @@ export const getAllCart = createAsyncThunk("/cart", async () => {
 export const cartUpdate = createAsyncThunk("/guest/cart", async (product) => {
   return product
 });
+export const mergeGuest = createAsyncThunk("/guestt/mergeGuest", async (productInfo) => {
+const {data} = await axios.post('api/cart/mergeGuest', productInfo)
+return data
+});
 
 export const QuickAddToCart = createAsyncThunk(
   "/QuickAddToCart",
@@ -78,6 +82,18 @@ export const cartSlice = createSlice({
     });
 
     builder.addCase(QuickAddToCart.fulfilled, (state, { payload }) => {
+      for (let i = 0; i < state.cart.length; i++) {
+        if (state.cart[i].productId === payload.productId) {
+          state.cart[i] = payload;
+          break;
+        }
+        if (i === state.cart.length - 1) {
+          state.cart.push(payload);
+        }
+      }
+    });
+    
+    builder.addCase(mergeGuest.fulfilled, (state, { payload }) => {
       for (let i = 0; i < state.cart.length; i++) {
         if (state.cart[i].productId === payload.productId) {
           state.cart[i] = payload;

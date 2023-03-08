@@ -49,7 +49,9 @@ const GuestCart = () => {
               {cart.map((pokemon) => {
                 return (
                   <li key={pokemon.id}>
-                    <h4></h4>
+                      <h4>
+           {pokemon.name}
+       </h4>
                     <p></p>
                     <p>
                       Price: ${pokemon.price * pokemon.quantity} Quantity:

@@ -58,6 +58,10 @@ router.get('/guestCart', async (req, res, next) => {
   res.send(req.cookies.guestCart);
 
 })
+router.delete('/guestCartCookie', async (req, res, next) => {
+  res.clearCookie('guestCart')
+  res.end()
+})
 router.get("/verify", async (req, res, next) => {
   try {
     if (!req.cookies.token) {
