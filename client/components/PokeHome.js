@@ -66,6 +66,7 @@ const PokeHome = () => {
   const formSubmit = async (e) => {
     e.preventDefault()
 await dispatch(searchProduct(searchOptions));
+setSearchOptions('');
 navigate('/search')
   }
   return (
