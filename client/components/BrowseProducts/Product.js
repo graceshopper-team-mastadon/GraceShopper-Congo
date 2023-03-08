@@ -7,21 +7,20 @@ const Product = (props) => {
   const { product } = props;
 
   return (
-    <div>
-      <Card style={{ width: "15rem" }}>
-        <Card.Img variant="top" src={product.imageUrl} />
-        <Card.Body>
-          <Card.Title>
-            <Link to={`/products/${product.id}`}>{product.name}</Link>
-          </Card.Title>
-          <Card.Text>
-            Price: {`${product.price}`} <br></br>
-            Why is he so squished?
-          </Card.Text>
+    <Card style={{ width: '18rem', height: '15rem', float: 'left', padding: '10px', margin: '10px', display: 'inline-block' }}>
+      <Card.Img variant="top" src={product.imageUrl} />
+      <Card.Body style={{ height: '13rem' }}>
+        <Card.Title>
+          <Link to={`/products/${product.id}`}>{product.name}</Link>
+        </Card.Title>
+        <Card.Text style={{ height: '10rem', overflow: 'scroll', overflowX: 'hidden', overflowY: "auto" }}>
+          Price: $ {`${product.price}`}
+        </Card.Text>
+        <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
           {<QuickAdd product={product} key={product.id} />}
-        </Card.Body>
-      </Card>
-    </div>
+        </div>
+      </Card.Body>
+    </Card>
   );
 };
 
