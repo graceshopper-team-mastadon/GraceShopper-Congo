@@ -8,8 +8,7 @@ const NavBar = () => {
   const navigate = useNavigate()
   const linkStyle = {
     margin: "1rem",
-    textDecoration: "none",
-    color: "white",
+    textDecoration: "none"
   };
 
   return (

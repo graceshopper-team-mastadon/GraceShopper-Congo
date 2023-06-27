@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Product from "./Product";
 import Pagination from "../Pagination";
 import { getAllProducts } from "../../slices/productsSlice";
-import { Container, Card, Col, Row } from "react-bootstrap";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
