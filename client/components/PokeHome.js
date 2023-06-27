@@ -26,7 +26,6 @@ const PokeHome = () => {
   const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
-    color: "white",
   };
   const tinyPokeLogo = {
     width: "10%",
@@ -158,12 +157,7 @@ const PokeHome = () => {
       </Navbar>
 
       <div className="logo">
-        <img
-          style={tinyPokeLogo}
-          src=" https://seeklogo.com/images/P/pokeball-logo-DC23868CA1-seeklogo.com.png"
-        />
-        {/* <img className="pokemonImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png?20161023215848" /> */}
-        <Link to="/" style={linkStyle}>
+        <Link to="/" className="logotext">
           PokeHome
         </Link>
       </div>
