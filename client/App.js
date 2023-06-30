@@ -43,7 +43,6 @@ const App = () => {
   return (
     <>
       <div>{<PokeHome />}</div>
-      <div>{<NavBar />}</div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<AllProducts />} />

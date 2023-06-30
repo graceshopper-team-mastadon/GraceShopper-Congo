@@ -22,7 +22,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .aboveBar {
@@ -82,17 +81,25 @@ body {
   color: white;
 }
 
-
-/* homepage text styling */
-.homepage {
-  min-height: 70vh;
-  margin-bottom: 5em;
-  position: relative;
-  width: 100%;
-  padding: 5px;
-  display: flex;
-  align-items: center;
+@media only screen and (max-width: 767px) {
+  .abovebar {
+    text-align: center;
+    flex-direction: column;
+    height: 230px
+  }
 }
+
+
+/* WHOLE main page styling */
+.main {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+/* homepage (this is the upper half) text styling */
 
 .content {
   position: relative;
@@ -109,12 +116,13 @@ body {
 
 .header h1 {
   color: #789ecc;
-  font-size: 4em;
+  font-size: 4vw;
   font-weight: 500;
 }
 
 .header span {
-  font-size: 2em;
+  display: block;
+  font-size: 6vw;
   font-weight: 900;
   background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
   -webkit-background-clip: text;
@@ -123,7 +131,7 @@ body {
 }
 
 .subheader {
-  line-height: 1.4em;
+  line-height: 1vw;
 }
 
 /* homebutton styling */
@@ -172,9 +180,10 @@ body {
   background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
 }
 
-/* homepage image styling */
+/* homepage styling */
 .homepage {
-  min-height: 70vh;
+  min-height: fit-content;
+  width: 100%;
   margin-top: 5em;
   margin-bottom: 5em;
   position: relative;
@@ -185,107 +194,79 @@ body {
   align-items: center;
 }
 
+/* pokemon banner on homepage */
 .images {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: 2em;
 }
 
 .hero-img {
   position: relative;
-  flex-basis: 60%;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.hero-img:nth-child(even) img {
-  transform: translateX(-200px);
+  top: 0;
+  left: 0;
+  transform: translateX(-7vw)
 }
 
 .hero-img img {
   width: 50%;
   z-index: 20;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.hero-img:nth-child(even) img {
+  transform: translateX(15vw);
 }
 
 .squirtle-square,
 .bulbasaur-square,
 .charmander-square {
   position: absolute;
-  bottom: 0;
-  border-radius: 20px 0px 20px 0px;
-  height: 60%;
-  width: 50%;
   z-index: -1;
+  top: 30px;
+  left: 30px;
+  width: 20vw;
+  height: 10vw;
 }
 
 .squirtle-square {
   background: #c4dfe4;
-  right: 50%;
-  transform: translateX(50%) translateY(20px);
+  z-index: -1
 }
 
 .bulbasaur-square {
   background: #C4E4D4;
-  left: 0;
-  transform: translateX(-50%) translateY(20px);
+  z-index: 1;
+  transform: translateX(15vw);
+
 }
 
 .charmander-square {
-  background: #e4d7c4;
-  right: 50%;
-  transform: translateX(50%) translateY(20px);
+  background: #E4D7C4;
+  z-index: 1;
 }
 
-@media only screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 2em;
-    margin-right: 2em;
-  }
 
-
-  .herotext {
-    margin-top: 2em;
-    text-align: center;
-  }
-
-  .header h1 {
-    font-size: 2em;
-  }
-
-  .hero-img {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-img:nth-child(even) img {
-    transform: none;
-  }
-
-  .squirtle-square,
-  .bulbasaur-square,
-  .charmander-square {
-    position: static;
-    transform: none;
-    margin-top: 20px;
-  }
-}
 
 /* featured items */
+.bottom-div {
+  width: 100%;
+}
+
 .featured-items {
   background-color: white;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px
+  padding: 20px;
+  z-index: -1;
 }
 
 .featured-header h1 {
-  font-size: 4em;
+  font-size: 4vw;
   font-weight: 500;
   color: #789ecc;
   padding: 20px
@@ -323,6 +304,7 @@ body {
   filter: none;
   -webkit-filter: grayscale(0);
 }
+
 
 /* single page styling */
 
