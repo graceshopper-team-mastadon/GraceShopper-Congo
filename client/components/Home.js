@@ -27,7 +27,7 @@ const Home = () => {
             <div className="subheader">
               For All Your Pokemon Needs and More!
             </div>
-            <button type="button" class="homebutton" onClick={handleHome}>
+            <button type="button" class="homebutton gradient" onClick={handleHome}>
               Let's Go!
             </button>
           </div>
@@ -61,6 +61,11 @@ const Home = () => {
           <New />
         </div>
       </div>
+
+      <div className="about-us">
+        hey
+      </div>
+
     </section>
   );
 };

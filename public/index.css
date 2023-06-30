@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@600&family=Press+Start+2P&family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@600&family=Montserrat&family=Press+Start+2P&family=Roboto:wght@500&display=swap');
 
 * {
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 
 /* aboveBar styling */
 .abovecontainer {
-  font-family: 'Belanosima', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   position: relative;
   width: 100%;
   min-height: 10vh;
@@ -38,10 +39,13 @@ body {
 .aboveBar ul {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .aboveBar ul li {
   list-style: none;
+
 }
 
 .abovebar-content {
@@ -52,6 +56,11 @@ body {
   color: #5BA2B6;
 }
 
+.abovebar-content:hover {
+  color: #8fbcf3;
+}
+
+
 .logotext {
   font-size: 3em;
   color: #789ecc;
@@ -59,7 +68,7 @@ body {
 }
 
 .logotext:hover {
-  color: #09223b;
+  color: #8fbcf3;
 }
 
 
@@ -88,14 +97,18 @@ body {
 }
 
 .header h1 {
+  color: #789ecc;
   font-size: 4em;
   font-weight: 500;
 }
 
 .header span {
-  color: #789ecc;
   font-size: 2em;
   font-weight: 900;
+  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 
 .subheader {
@@ -109,12 +122,11 @@ body {
   background-color: #789ecc;
   ;
   border: 0;
-  border-radius: 100px;
+  /* border-radius: 20px; */
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-flex;
-  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -136,13 +148,17 @@ body {
 
 .homebutton:hover,
 .homebutton:focus {
-  background-color: #09223b;
+  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
   color: #ffffff;
 }
 
 .homebutton:active {
   background: #09223b;
   color: rgb(255, 255, 255, .7);
+}
+
+.gradient:hover {
+  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
 }
 
 /* homepage image styling */
@@ -194,7 +210,7 @@ body {
 }
 
 .squirtle-square {
-  background: #7cd3ff;
+  background: #c4dfe4;
   right: 50%;
   transform: translateX(50%) translateY(20px);
 }
@@ -206,7 +222,7 @@ body {
 }
 
 .charmander-square {
-  background: #FCD1B1;
+  background: #e4d7c4;
   right: 50%;
   transform: translateX(50%) translateY(20px);
 }
@@ -266,7 +282,6 @@ body {
 
 .featured-list ul {
   position: relative;
-  display: flex;
 }
 
 .featured-list ul li {
@@ -281,6 +296,23 @@ body {
   color: white;
 }
 
+.new {
+  display: flex;
+  flex-direction: row;
+}
+
+.new img {
+  max-width: 100px;
+  max-height: 100px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.new img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
 /* single page styling */
 
 .deck {
@@ -291,7 +323,6 @@ body {
 
 .Userprofile {
   display: flex;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .quickAddButton {

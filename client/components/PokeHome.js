@@ -88,12 +88,11 @@ const PokeHome = () => {
                 onChange={(e) => setSearchOptions(e.target.value)}
               />
             </FormGroup>
-            <Button variant="outline-secondary" type="submit">
+            <button type="submit" class="homebutton gradient">
               Submit
-            </Button>
+            </button>
           </Form>
           <Link to="/products" className="abovebar-content">All</Link>
-          {/* <Link to="/new" className="abovebar-content">Newest Arrivals</Link> */}
           <Link to="/category/pokemon-all" className="abovebar-content">Pokemon</Link>
           <Link to="/category/pokeballs" className="abovebar-content">Pokeballs</Link>
           <Link to="/category/potions" className="abovebar-content">Potions</Link>
