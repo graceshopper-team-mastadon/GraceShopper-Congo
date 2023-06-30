@@ -60,7 +60,6 @@ body {
   color: #8fbcf3;
 }
 
-
 .logotext {
   font-size: 3em;
   color: #789ecc;
@@ -69,6 +68,18 @@ body {
 
 .logotext:hover {
   color: #8fbcf3;
+}
+
+.abovebar-content a {
+  text-decoration: none;
+  color: #5BA2B6;
+}
+
+
+.abovebar-content a:hover {
+  text-decoration: none;
+  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  color: white;
 }
 
 
@@ -265,7 +276,7 @@ body {
 
 /* featured items */
 .featured-items {
-  background-color: #789ecc;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,7 +287,7 @@ body {
 .featured-header h1 {
   font-size: 4em;
   font-weight: 500;
-  color: white;
+  color: #789ecc;
   padding: 20px
 }
 

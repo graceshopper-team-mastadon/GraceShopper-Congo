@@ -1,8 +1,7 @@
 const React = require("react");
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import GenVProducts from "./GenerationView/Gen5";
 import New from "./BrowseProducts/New";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,8 +13,6 @@ const Home = () => {
   return (
     <section className="main">
       <div className="homepage">
-
-
         <div className="content">
           <div className="herotext">
             <div className="subheader">
@@ -27,8 +24,8 @@ const Home = () => {
             <div className="subheader">
               For All Your Pokemon Needs and More!
             </div>
-            <button type="button" class="homebutton gradient" onClick={handleHome}>
-              Let's Go!
+            <button type="button" className="homebutton" onClick={handleHome}>
+              Gotta Catch 'Em All!
             </button>
           </div>
         </div>
@@ -53,19 +50,26 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="featured-items">
-        <div className="featured-header">
-          <h1> Our Newest Additions </h1>
-        </div>
-        <div className="featured-list">
-          <New />
-        </div>
-      </div>
+      <div className="bottom-div">
 
-      <div className="about-us">
-        hey
-      </div>
+        <div className="featured-items">
+          <div className="featured-header">
+            <h1> Our Newest Additions </h1>
 
+          </div>
+          <div className="featured-list">
+            <New />
+          </div>
+          <Link to="/products/GenV">
+            <button type="button" class="homebutton"> Check Them Out! </button>
+          </Link>
+        </div>
+
+        <div className="about-us">
+          hey
+        </div>
+
+      </div>
     </section>
   );
 };
