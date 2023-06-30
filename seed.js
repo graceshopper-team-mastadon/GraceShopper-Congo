@@ -2,6 +2,11 @@ const { db } = require("./server/db/index.js");
 const Product = require("./server/db/models/Product");
 const User = require("./server/db/models/User");
 
+const green = "#C4E4D4";
+const red = "#E4D7C4";
+const blue = "#C4DFE4";
+const yellow = "#FAF3CA";
+
 const products = [
   {
     name: "Bulbasaur",
@@ -12,6 +17,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Bulbasaur.png",
     price: 1,
+    color: green,
   },
   {
     name: "Ivysaur",
@@ -22,6 +28,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Ivysaur.png",
     price: 2,
+    color: green,
   },
   {
     name: "Venusaur ",
@@ -32,6 +39,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Venusaur.png",
     price: 3,
+    color: green,
   },
   {
     name: "Charmander",
@@ -42,6 +50,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Charmander.png",
     price: 1,
+    color: red,
   },
   {
     name: "Charmeleon",
@@ -52,6 +61,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Charmeleon.png",
     price: 2,
+    color: red,
   },
   {
     name: "Charizard",
@@ -62,6 +72,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Charizard.png",
     price: 3,
+    color: red,
   },
   {
     name: "Squirtle",
@@ -72,6 +83,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Squirtle.png",
     price: 1,
+    color: blue,
   },
   {
     name: "Wartortle",
@@ -82,6 +94,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Wartortle.png",
     price: 2,
+    color: blue,
   },
   {
     name: "Blastoise",
@@ -92,6 +105,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Blastoise.png",
     price: 3,
+    color: blue,
   },
   {
     name: "Chikorita",
@@ -102,6 +116,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Chikorita.png",
     price: 1,
+    color: green,
   },
   {
     name: "Bayleef",
@@ -112,6 +127,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Bayleef.png",
     price: 2,
+    color: green,
   },
   {
     name: "Meganium",
@@ -122,6 +138,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Meganium.png",
     price: 3,
+    color: green,
   },
   {
     name: "Cyndaquil",
@@ -132,6 +149,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Cyndaquil.png",
     price: 1,
+    color: red,
   },
   {
     name: "Quilava",
@@ -142,6 +160,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Quilava.png",
     price: 2,
+    color: red,
   },
   {
     name: "Typhlosion",
@@ -152,6 +171,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Typhlosion.png",
     price: 3,
+    color: red,
   },
   {
     name: "Totodile",
@@ -162,6 +182,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Totodile.png",
     price: 1,
+    color: blue,
   },
   {
     name: "Croconaw",
@@ -172,6 +193,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Croconaw.png",
     price: 2,
+    color: blue,
   },
   {
     name: "Feraligatr",
@@ -182,6 +204,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Feraligatr.png",
     price: 3,
+    color: blue,
   },
   {
     name: "Treecko",
@@ -192,6 +215,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Treeko.png",
     price: 1,
+    color: green,
   },
   {
     name: "Grovyle",
@@ -202,6 +226,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Grovyle.png",
     price: 2,
+    color: green,
   },
   {
     name: "Sceptile",
@@ -212,6 +237,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Sceptile.png",
     price: 3,
+    color: green,
   },
   {
     name: "Torchic",
@@ -222,6 +248,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Torchic.png",
     price: 1,
+    color: red,
   },
   {
     name: "Combusken",
@@ -232,6 +259,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Combusken.png",
     price: 2,
+    color: red,
   },
   {
     name: "Blaziken",
@@ -242,6 +270,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Blaziken.png",
     price: 3,
+    color: red,
   },
   {
     name: "Mudkip",
@@ -252,6 +281,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Mudkip.png",
     price: 1,
+    color: blue,
   },
   {
     name: "Marshtomp",
@@ -262,6 +292,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Marshtomp.png",
     price: 2,
+    color: blue,
   },
   {
     name: "Swampert",
@@ -272,6 +303,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Swampert.png",
     price: 3,
+    color: blue,
   },
   {
     name: "Turtwig",
@@ -282,6 +314,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Turtwig.png",
     price: 1,
+    color: green,
   },
   {
     name: "Grotle",
@@ -292,6 +325,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Grotle.png",
     price: 2,
+    color: green,
   },
   {
     name: "Torterra",
@@ -302,6 +336,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Torterra.png",
     price: 3,
+    color: green,
   },
   {
     name: "Chimchar",
@@ -312,6 +347,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Chimchar.png",
     price: 1,
+    color: red,
   },
   {
     name: "Monferno",
@@ -322,6 +358,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Monferno.png",
     price: 2,
+    color: red,
   },
   {
     name: "Infernape",
@@ -331,6 +368,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Infernape.png",
     price: 3,
+    color: red,
   },
   {
     name: "Piplup",
@@ -341,6 +379,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Piplup.png",
     price: 1,
+    color: blue,
   },
   {
     name: "Prinplup",
@@ -351,6 +390,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Prinplup.png",
     price: 2,
+    color: blue,
   },
   {
     name: "Empoleion",
@@ -361,6 +401,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Empoleion.png",
     price: 3,
+    color: blue,
   },
   {
     name: "Snivy",
@@ -371,6 +412,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Snivy.png",
     price: 1,
+    color: green,
   },
   {
     name: "Servine",
@@ -381,6 +423,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Servine.png",
     price: 2,
+    color: green,
   },
   {
     name: "Serperior",
@@ -391,6 +434,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Serperior.png",
     price: 3,
+    color: green,
   },
   {
     name: "Tepig",
@@ -401,6 +445,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Tepig.png",
     price: 1,
+    color: red,
   },
   {
     name: "Pignite",
@@ -411,6 +456,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Pignite.png",
     price: 2,
+    color: red,
   },
   {
     name: "Emboar",
@@ -421,6 +467,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Emboar.png",
     price: 3,
+    color: red,
   },
   {
     name: "Oshawott",
@@ -431,6 +478,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Oshawott.png",
     price: 1,
+    color: blue,
   },
   {
     name: "Dewott",
@@ -441,6 +489,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Dewott.png",
     price: 2,
+    color: blue,
   },
   {
     name: "Samurott",
@@ -451,6 +500,7 @@ const products = [
     inventory: 100,
     imageUrl: "/pokemon/Samurott.png",
     price: 3,
+    color: blue,
   },
   {
     name: "Potion",
@@ -461,6 +511,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/Potions.png",
     price: 745,
+    color: yellow,
   },
   {
     name: "Super Potion",
@@ -471,6 +522,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/SuperPotion.png",
     price: 971,
+    color: yellow,
   },
   {
     name: "Hyper Potion",
@@ -481,6 +533,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/HyperPotion.png",
     price: 114,
+    color: yellow,
   },
   {
     name: "Max Potion",
@@ -491,6 +544,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/MaxPotion.png",
     price: 344,
+    color: yellow,
   },
   {
     name: "Full Restore",
@@ -501,6 +555,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/FullRestore.png",
     price: 3000,
+    color: yellow,
   },
   {
     name: "Poke Ball",
@@ -511,6 +566,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Poke_Ball.png",
     price: 518,
+    color: yellow,
   },
   {
     name: "Great Ball",
@@ -520,6 +576,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Great_Ball.png",
     price: 340,
+    color: yellow,
   },
   {
     name: "Ultra Ball",
@@ -529,6 +586,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Ultra_Ball.png",
     price: 678,
+    color: yellow,
   },
   {
     name: "Feather Ball",
@@ -539,6 +597,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Feather_Ball.png",
     price: 282,
+    color: yellow,
   },
   {
     name: "Master Ball",
@@ -549,6 +608,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Master_Ball.png",
     price: 99999999,
+    color: yellow,
   },
   {
     name: "Timer Ball",
@@ -559,6 +619,7 @@ const products = [
     generation: null,
     imageUrl: "/pokeballs/Timer_Ball.png",
     price: 740,
+    color: yellow,
   },
   {
     name: "Antidote",
@@ -568,6 +629,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/Antidote.png",
     price: 1000,
+    color: yellow,
   },
   {
     name: "Ice Heal",
@@ -578,6 +640,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/IceHeal.png",
     price: 457,
+    color: yellow,
   },
   {
     name: "Burn Heal",
@@ -587,6 +650,7 @@ const products = [
     generation: null,
     imageUrl: "/potions/BurnHeal.png",
     price: 139,
+    color: yellow,
   },
 ];
 
