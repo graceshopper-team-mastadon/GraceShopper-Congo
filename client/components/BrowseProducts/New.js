@@ -17,6 +17,7 @@ const New = () => {
             {genProducts.map((product) => {
                 return (<li className="new-product" key={product.id}>
                     {product.name}
+                    <img src={product.imageUrl} className="new-product-photo"></img>
                 </li>)
             })}
         </ul>
