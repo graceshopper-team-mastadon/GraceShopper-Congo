@@ -72,6 +72,173 @@ const PokeHome = () => {
   };
 
   return (
+    <section className="abovecontainer">
+      <header className="aboveBar">
+        <a href='/' className='logotext'>PokeHome</a>
+        <ul>
+          <Form
+            className="navbar aboveBar aboveBarContent"
+            onSubmit={formSubmit}
+          >
+            <FormGroup>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                value={searchOptions}
+                onChange={(e) => setSearchOptions(e.target.value)}
+              />
+            </FormGroup>
+            <Button variant="outline-secondary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          <Link to="/products" className="abovebar-content">All</Link>
+          {/* <Link to="/new" className="abovebar-content">Newest Arrivals</Link> */}
+          <Link to="/category/pokemon-all" className="abovebar-content">Pokemon</Link>
+          <Link to="/category/pokeballs" className="abovebar-content">Pokeballs</Link>
+          <Link to="/category/potions" className="abovebar-content">Potions</Link>
+          <Link className="abovebar-content" to="/cart">Cart</Link>
+        </ul>
+        <ul>
+          {!loggedIn ? (
+            <ul>
+              <Link className="abovebar-content" to="/login">
+                <button type="button" class="homebutton"> Login </button>
+              </Link>
+              <Link className="abovebar-content" to="/signup">
+                <button type="button" class="homebutton"> Sign Up </button>
+              </Link>
+            </ul>
+          ) : (
+            <>
+              <Link className="content" onClick={handleShow}>
+                Account
+              </Link>
+              <Offcanvas show={show} onHide={handleClose} placement="end">
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title>Account</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <ListGroup style={offCanvasStyle}>
+                    <ListGroup.Item>
+                      <Link to="/profile" style={offCanvasStyle}>
+                        Profile{" "}
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/order-history" style={offCanvasStyle}>
+                        Order History{" "}
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/payment-cards" style={offCanvasStyle}>
+                        Payment Cards
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/feedback" style={offCanvasStyle}>
+                        Send us Feedback
+                      </Link>
+                    </ListGroup.Item>
+                    {isAdmin && (
+                      <>
+                        <ListGroup.Item>
+                          <Link to="/dashboard" style={offCanvasStyle}>
+                            Dashboard
+                          </Link>
+                        </ListGroup.Item>
+                      </>
+                    )}
+                    <ListGroup.Item>
+                      <Link to="/signout" style={offCanvasStyle}>
+                        Sign Out
+                      </Link>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Offcanvas.Body>
+              </Offcanvas>
+            </>
+          )}
+        </ul>
+      </header>
+    </section>
+  );
+
+  // return (
+  //   <section className="abovecontainer">
+
+  //     <header className="aboveBar">
+  //       <a href='/' className='logotext'>PokeHome</a>
+  //       <ul>
+  //         <ul>
+  //           <Link className="abovebar-content" to="/cart">Search</Link>
+  //         </ul>
+  //         <Link className="abovebar-content" to="/cart">Cart</Link>
+  //         {!loggedIn ? (
+  //           <>
+  //             <Link className="abovebar-content" to="/login">
+  //               <button type="button" class="homebutton"> Login </button>
+  //             </Link>
+  //             <Link className="abovebar-content" to="/signup">
+  //               <button type="button" class="homebutton"> Sign Up </button>
+  //             </Link>
+  //           </>
+  //         ) : (
+  //           <>
+  //             <Link className="content" onClick={handleShow}>
+  //               Account
+  //             </Link>
+  //             <Offcanvas show={show} onHide={handleClose} placement="end">
+  //               <Offcanvas.Header closeButton>
+  //                 <Offcanvas.Title>Account</Offcanvas.Title>
+  //               </Offcanvas.Header>
+  //               <Offcanvas.Body>
+  //                 <ListGroup style={offCanvasStyle}>
+  //                   <ListGroup.Item>
+  //                     <Link to="/profile" style={offCanvasStyle}>
+  //                       Profile{" "}
+  //                     </Link>
+  //                   </ListGroup.Item>
+  //                   <ListGroup.Item>
+  //                     <Link to="/order-history" style={offCanvasStyle}>
+  //                       Order History{" "}
+  //                     </Link>
+  //                   </ListGroup.Item>
+  //                   <ListGroup.Item>
+  //                     <Link to="/payment-cards" style={offCanvasStyle}>
+  //                       Payment Cards
+  //                     </Link>
+  //                   </ListGroup.Item>
+  //                   <ListGroup.Item>
+  //                     <Link to="/feedback" style={offCanvasStyle}>
+  //                       Send us Feedback
+  //                     </Link>
+  //                   </ListGroup.Item>
+  //                   {isAdmin && (
+  //                     <>
+  //                       <ListGroup.Item>
+  //                         <Link to="/dashboard" style={offCanvasStyle}>
+  //                           Dashboard
+  //                         </Link>
+  //                       </ListGroup.Item>
+  //                     </>
+  //                   )}
+  //                   <ListGroup.Item>
+  //                     <Link to="/signout" style={offCanvasStyle}>
+  //                       Sign Out
+  //                     </Link>
+  //                   </ListGroup.Item>
+  //                 </ListGroup>
+  //               </Offcanvas.Body>
+  //             </Offcanvas>
+  //           </>
+  //         )}
+  //       </ul>
+  //     </header>
+  //   </section>
+  // );
+
+  return (
     <div>
       <Navbar className="aboveBar">
         <Container>

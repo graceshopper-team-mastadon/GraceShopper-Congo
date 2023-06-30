@@ -1,6 +1,8 @@
 const React = require("react");
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import GenVProducts from "./GenerationView/Gen5";
+import New from "./BrowseProducts/New";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,45 +10,58 @@ const Home = () => {
     e.preventDefault();
     navigate("/products");
   };
-  // return (
-  //   <>
-  //     <div className="bg-image"></div>
-  //     <div className="bg-text">
-  //       <div className="bg-header">Welcome to PokeHome Sanctuary</div>
-  //       <div className="bg-text2">
-  //         <p>For centuries, Pokemon have been bred for battle.</p>
-  //         <p> But where do they turn to when they've been abandoned? </p>
-  //         <p> It is up to you to decide. </p>
-  //         <button type="button" class="homebutton" onClick={handleHome}>
-  //           I am choosing to be a responsible owner!
-  //         </button>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
+
   return (
-    <><section className="homepage">
-      <section className="hero">
-        <div className="herotext">
-          <div className="subheader">
-            For All Your Pokemon Needs and More!
+    <section className="main">
+      <div className="homepage">
+
+
+        <div className="content">
+          <div className="herotext">
+            <div className="subheader">
+              Begin Your Adventure. Pursue Your Passion.
+            </div>
+            <div className="header">
+              <h1> A Trusted Pokemon <span>Sanctuary</span>  </h1>
+            </div>
+            <div className="subheader">
+              For All Your Pokemon Needs and More!
+            </div>
+            <button type="button" class="homebutton" onClick={handleHome}>
+              Let's Go!
+            </button>
           </div>
-          <div className="header">
-            <h1> A Trusted Pokemon Sanctuary </h1>
-          </div>
-          <button type="button" class="homebutton" onClick={handleHome}>
-            Start here
-          </button>
         </div>
 
-        <div className="hero-img">
-          <div className="color-box"></div>
-          <img src='/pokemon/pokemon.png'></img>
 
+        <div className="images">
+          <div className="hero-img">
+            <img src='/pokemon/squirtle.png' className="squirtle"></img>
+            <div className="squirtle-square">
+            </div>
+          </div>
+          <div className="hero-img">
+            <img src='/pokemon/bulbasaur.png' className="bulbasaur"></img>
+            <div className="bulbasaur-square">
+            </div>
+          </div>
+          <div className="hero-img">
+            <img src='/pokemon/charmander.png' className="charmander"></img>
+            <div className="charmander-square">
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <div className="featured-items">
+        <div className="featured-header">
+          <h1> Our Newest Additions </h1>
+        </div>
+        <div className="featured-list">
+          <New />
+        </div>
+      </div>
     </section>
-    </>
   );
 };
 export default Home;
