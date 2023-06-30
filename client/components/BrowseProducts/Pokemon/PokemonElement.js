@@ -9,6 +9,7 @@ const PokemonElement = (props) => {
   const pokemonName = props.pokemon.name;
   const pokemonDescription = props.pokemon.description;
   const pokemonImg = props.pokemon.imageUrl;
+  const bgColor = props.pokemon.color;
 
   return (
     <Card
@@ -19,6 +20,7 @@ const PokemonElement = (props) => {
         padding: "10px",
         margin: "10px",
         display: "inline-block",
+        backgroundColor: bgColor,
       }}
     >
       <Card.Img
