@@ -2,15 +2,24 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../BrowseProducts/Product";
 import { getProductCategory } from "../../slices/productsSlice";
-import GenVProducts from "../GenerationView/Gen5";
 
 const New = () => {
+    const dispatch = useDispatch();
+    const genProducts = useSelector((state) => state.products.generationProducts);
+    useEffect(() => {
+        dispatch(getProductCategory("V"));
+    }, []);
+
+    console.log("genproducts", genProducts)
+
     return (
-        <>
-            <div>
-                <GenVProducts />
-            </div>
-        </>
+        <ul className="new">
+            {genProducts.map((product) => {
+                return (<li className="new-product" key={product.id}>
+                    {product.name}
+                </li>)
+            })}
+        </ul>
     )
 };
 export default New;
