@@ -1,7 +1,6 @@
 {
   "name": "congoshopper",
   "version": "1.0.0",
-  "description": "",
   "main": "./index.js",
   "scripts": {
     "start": "npm run build-watch & npm run start-server ",
@@ -52,5 +51,6 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
-  }
+  },
+  "description": ""
 }

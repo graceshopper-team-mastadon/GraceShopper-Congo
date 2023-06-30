@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../BrowseProducts/Product";
 import { getProductCategory } from "../../slices/productsSlice";
+import { Link } from "react-router-dom";
+
 
 const New = () => {
     const dispatch = useDispatch();
@@ -16,8 +18,9 @@ const New = () => {
         <ul className="new">
             {genProducts.map((product) => {
                 return (<li className="new-product" key={product.id}>
-                    {product.name}
-                    <img src={product.imageUrl} className="new-product-photo"></img>
+                    <Link to={`/products/${product.id}`}>
+                        <img src={product.imageUrl} className="new-product-photo"></img>
+                    </Link>
                 </li>)
             })}
         </ul>

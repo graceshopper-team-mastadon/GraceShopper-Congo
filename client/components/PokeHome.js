@@ -20,6 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
 import { searchProduct } from "../slices/productsSlice";
+import NavDropdown from "react-bootstrap/NavDropdown";
+
 
 const PokeHome = () => {
   const navigate = useNavigate();
@@ -93,7 +95,30 @@ const PokeHome = () => {
             </button>
           </Form>
           <Link to="/products" className="abovebar-content">All</Link>
-          <Link to="/category/pokemon-all" className="abovebar-content">Pokemon</Link>
+
+          <NavDropdown title="Pokemon" className="abovebar-content">
+            <NavDropdown.Item className="dropdown-item">
+              <Link to="/category/pokemon-all">
+                All Pokemon
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenI')}>
+              Generation I
+            </NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenII')}>
+              Generation II
+            </NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenIII')}>
+              Generation III
+            </NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenIV')}>
+              Generation IV
+            </NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenV')}>
+              Generation V
+            </NavDropdown.Item>
+          </NavDropdown>
+
           <Link to="/category/pokeballs" className="abovebar-content">Pokeballs</Link>
           <Link to="/category/potions" className="abovebar-content">Potions</Link>
           <Link className="abovebar-content" to="/cart">Cart</Link>
