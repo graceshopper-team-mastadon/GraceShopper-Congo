@@ -13,6 +13,7 @@ const Home = () => {
   return (
     <section className="main">
       <div className="homepage">
+
         <div className="content">
           <div className="herotext">
             <div className="subheader">
@@ -65,11 +66,12 @@ const Home = () => {
           </Link>
         </div>
 
-        <div className="about-us">
-          hey
-        </div>
+        {/* <div className="about-us">
+          Coming soon!
+        </div> */}
 
       </div>
+
     </section>
   );
 };
