@@ -31,9 +31,7 @@ const QuickAdd = (props) => {
   };
 
   return (
-    <Button variant="primary" onClick={() => quickAddHandler(product)}>
-      Quick Add
-    </Button>
+    <button type="button" class="homebutton" onClick={() => quickAddHandler(product)}> Quick Add </button>
   );
 };
 
