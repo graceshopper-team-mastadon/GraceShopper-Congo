@@ -5,6 +5,7 @@ import PokeballElement from "./PokeballElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
 import CategoryBar from "../../CategoryBar";
+import LoadingScreen from "../../LoadingScreen";
 
 const Pokeballs = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Pokeballs = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     if (allpokeballs.length === 0) {
-        return <h1> Loading your products!! </h1>
+        return <LoadingScreen />
     } else {
         return (
             <>
