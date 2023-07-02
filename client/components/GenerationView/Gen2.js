@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Product from "../BrowseProducts/Product";
 import { getProductCategory } from "../../slices/productsSlice";
 import { Container, Card, Col, Row } from "react-bootstrap";
+import CategoryBar from "../CategoryBar";
 
 const GenIIProducts = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const GenIIProducts = () => {
 
   return (
     <>
+      <CategoryBar category="Generation II" />
       <div class="deck">
         {genProducts.map((product) => (
           <div key={product.id} id="cardItem" className="col-xs-2">

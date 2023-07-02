@@ -5,12 +5,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body {
-  /* background-image: linear-gradient(#91A2BA, #E0C1D7); */
-  /* background-size: cover;
-  background-position: center; */
-}
-
 /* aboveBar styling */
 .abovecontainer {
   font-family: "Montserrat", sans-serif;
@@ -86,6 +80,35 @@ body {
     height: 230px;
   }
 }
+
+/* Off Canvas Bar  */
+.offcanvas-content {
+  text-decoration: none;
+  color: #789ecc;
+}
+
+.offcanvas-content:hover {
+  color: #8fbcf3;
+}
+
+.offcanvas-body {
+  background-color: #789ecc;
+}
+
+/* Destination Bar */
+.category-bar {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #789ecc;
+  color: white;
+  padding: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2vw;
+}
+
 
 /* WHOLE main page styling */
 .main {
@@ -315,6 +338,54 @@ body {
 .page-item {
   cursor: pointer;
 }
+
+/* pagination */
+.pagination {
+  display: block;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  text-decoration: none;
+  background-color: white;
+  color: #789ecc;
+}
+
+.pagination a:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  color: #ffffff;
+
+}
+
+/* single page styling */
+
+.single-product {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* loading screen styling */
+
+.loading-screen {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-text h1 {
+  font-size: 4vw;
+  font-weight: 500;
+  color: #789ecc;
+  padding: 20px
+}
+
+/* miscellaneous styling that has yet to be cleaned up ruhrohs */
 
 .deck {
   text-decoration: none;
