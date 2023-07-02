@@ -155,12 +155,6 @@ const PokeHome = () => {
                     Login{" "}
                   </button>
                 </Link>
-                <Link className="abovebar-content" to="/signup">
-                  <button type="button" class="homebutton">
-                    {" "}
-                    Sign Up{" "}
-                  </button>
-                </Link>
               </ul>
             ) : (
               <>
