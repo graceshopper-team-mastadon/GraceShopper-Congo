@@ -8,14 +8,14 @@ import CategoryBar from "../../CategoryBar";
 import LoadingScreen from "../../LoadingScreen";
 
 const Potions = () => {
-    const dispatch = useDispatch();
-    const potionss = useSelector((state) => state.categories.potions);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(5);
+  const dispatch = useDispatch();
+  const potionss = useSelector((state) => state.categories.potions);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
 
-    useEffect(() => {
-        dispatch(getAllPotions())
-    }, []);
+  useEffect(() => {
+    dispatch(getAllPotions());
+  }, []);
 
     const indexOfLastItems = currentPage * itemsPerPage;
     const indexOfFirstItems = indexOfLastItems - itemsPerPage;
@@ -45,5 +45,25 @@ const Potions = () => {
         )
     }
 
+  if (potionss.length === 0) {
+    return <h1> Loading your products!! </h1>;
+  } else {
+    return (
+      <div className="browse">
+        <div class="deck">
+          {potionss.map((potion) => (
+            <PotionElement key={potion.id} potion={potion} />
+          ))}
+        </div>
+        <div className="paginate">
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={potionss.length}
+            paginate={paginate}
+          />
+        </div>
+      </div>
+    );
+  }
 };
 export default Potions;
