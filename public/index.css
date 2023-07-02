@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  height: 4rem;
 }
 
 /* aboveBar styling */
@@ -19,6 +20,7 @@
   min-height: 10vh;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,10 +31,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: fit-content;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
   margin: auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  gap: 1rem;
   align-items: center;
   z-index: 99%;
 }
@@ -49,7 +56,6 @@
 }
 
 .abovebar-content {
-  display: inline-block;
   font-weight: 400;
   margin-left: 40px;
   text-decoration: none;
@@ -79,6 +85,12 @@
   text-decoration: none;
   background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   color: white;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 767px) {
@@ -111,10 +123,9 @@
   text-align: center;
   background-color: #789ecc;
   color: white;
-  padding: 3rem;
+  padding: 1rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 2vw;
+  font-size: 22px;
 }
 
 /* WHOLE main page styling */
@@ -397,7 +408,6 @@
 .deck {
   text-decoration: none;
   margin-top: 100px;
-
   flex-wrap: wrap;
 }
 
