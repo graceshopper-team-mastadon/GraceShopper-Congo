@@ -135,12 +135,12 @@ const PokeHome = () => {
             </ul>
           ) : (
             <>
-              <Link className="content" onClick={handleShow}>
+              <Link className="offcanvas-content" onClick={handleShow}>
                 Account
               </Link>
               <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>Account</Offcanvas.Title>
+                  <Offcanvas.Title id="offcanvas-title">Account</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <ListGroup style={offCanvasStyle}>

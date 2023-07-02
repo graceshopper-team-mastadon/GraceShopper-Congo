@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Product from "./Product";
 import Pagination from "../Pagination";
 import { getAllProducts } from "../../slices/productsSlice";
+import CategoryBar from "../CategoryBar";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const AllProducts = () => {
 
   return (
     <>
+      <CategoryBar category="All Products" />
       <div class="deck">
         {currentItems.map((product) => (
           <div key={product.id} id="cardItem" className="col-xs-2">
