@@ -32,7 +32,6 @@ const AllProducts = () => {
           </div>
         ))}
       </div>{" "}
-      <br></br>
       <div className="paginate">
         <Pagination
           itemsPerPage={itemsPerPage}

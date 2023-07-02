@@ -14,7 +14,7 @@ const CategoryView = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="browse">
       <div className="browse-products">
         <h2 className="category-title"></h2>
         <div>
@@ -23,7 +23,7 @@ const CategoryView = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
