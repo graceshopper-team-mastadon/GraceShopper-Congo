@@ -111,9 +111,8 @@
   text-align: center;
   background-color: #789ecc;
   color: white;
-  padding: 3rem;
+  padding: 1rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
   font-size: 2vw;
 }
 
@@ -397,7 +396,6 @@
 .deck {
   text-decoration: none;
   margin-top: 100px;
-
   flex-wrap: wrap;
 }
 
