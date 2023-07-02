@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@600&family=Montserrat&family=Press+Start+2P&family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Belanosima&family=Inter:wght@600&family=Montserrat&family=Press+Start+2P&family=Roboto:wght@500&display=swap");
 
 * {
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-
 
 body {
   /* background-image: linear-gradient(#91A2BA, #E0C1D7); */
@@ -14,9 +13,9 @@ body {
 
 /* aboveBar styling */
 .abovecontainer {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   position: relative;
-  width: 100%;
+  width: fit-content;
   min-height: 10vh;
   padding: 5px;
   display: flex;
@@ -28,11 +27,12 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: fit-content;
   padding: 20px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 99%;
 }
 
 .aboveBar ul {
@@ -44,7 +44,6 @@ body {
 
 .aboveBar ul li {
   list-style: none;
-
 }
 
 .abovebar-content {
@@ -52,7 +51,7 @@ body {
   font-weight: 400;
   margin-left: 40px;
   text-decoration: none;
-  color: #5BA2B6;
+  color: #5ba2b6;
 }
 
 .abovebar-content:hover {
@@ -71,13 +70,12 @@ body {
 
 .abovebar-content a {
   text-decoration: none;
-  color: #5BA2B6;
+  color: #5ba2b6;
 }
-
 
 .abovebar-content a:hover {
   text-decoration: none;
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   color: white;
 }
 
@@ -85,10 +83,9 @@ body {
   .abovebar {
     text-align: center;
     flex-direction: column;
-    height: 230px
+    height: 230px;
   }
 }
-
 
 /* WHOLE main page styling */
 .main {
@@ -97,7 +94,6 @@ body {
   width: 100%;
   flex-direction: column;
 }
-
 
 /* homepage (this is the upper half) text styling */
 
@@ -124,10 +120,9 @@ body {
   display: block;
   font-size: 6vw;
   font-weight: 900;
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 
 .subheader {
@@ -139,7 +134,6 @@ body {
   align-items: center;
   margin-top: 20px;
   background-color: #789ecc;
-  ;
   border: 0;
   border-radius: 20px;
   box-sizing: border-box;
@@ -159,7 +153,9 @@ body {
   padding-right: 20px;
   text-align: center;
   touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   user-select: none;
   -webkit-user-select: none;
   vertical-align: middle;
@@ -167,17 +163,17 @@ body {
 
 .homebutton:hover,
 .homebutton:focus {
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   color: #ffffff;
 }
 
 .homebutton:active {
   background: #09223b;
-  color: rgb(255, 255, 255, .7);
+  color: rgb(255, 255, 255, 0.7);
 }
 
 .gradient:hover {
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
 }
 
 /* homepage styling */
@@ -204,7 +200,7 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  transform: translateX(-7vw)
+  transform: translateX(-7vw);
 }
 
 .hero-img img {
@@ -233,21 +229,19 @@ body {
 
 .squirtle-square {
   background: #c4dfe4;
-  z-index: -1
+  z-index: -1;
 }
 
 .bulbasaur-square {
-  background: #C4E4D4;
+  background: #c4e4d4;
   z-index: 1;
   transform: translateX(15vw);
-
 }
 
 .charmander-square {
-  background: #E4D7C4;
+  background: #e4d7c4;
   z-index: 1;
 }
-
 
 /* featured items */
 .bottom-div {
@@ -269,7 +263,7 @@ body {
   font-size: 4vw;
   font-weight: 500;
   color: #789ecc;
-  padding: 20px
+  padding: 20px;
 }
 
 .featured-list ul {
@@ -305,20 +299,19 @@ body {
   -webkit-filter: grayscale(0);
 }
 
-
 /* single page styling */
 
 .deck {
   text-decoration: none;
-  display: inline;
+  margin-top: 100px;
+
   flex-wrap: wrap;
 }
 
 .deck a {
   text-decoration: none;
-  color: #789ecc
+  color: #789ecc;
 }
-
 
 .Userprofile {
   display: flex;
@@ -360,7 +353,7 @@ img.littleguys {
   width: 150px;
 }
 
-.menu>li {
+.menu > li {
   margin: 0;
   background-color: white;
 }

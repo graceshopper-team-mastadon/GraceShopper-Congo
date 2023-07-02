@@ -22,7 +22,6 @@ import { authTrue, authFalse } from "../slices/authSlice";
 import { searchProduct } from "../slices/productsSlice";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-
 const PokeHome = () => {
   const navigate = useNavigate();
   const linkStyle = {
@@ -76,7 +75,9 @@ const PokeHome = () => {
   return (
     <section className="abovecontainer">
       <header className="aboveBar">
-        <a href='/' className='logotext'>PokeHome</a>
+        <a href="/" className="logotext">
+          PokeHome
+        </a>
         <ul>
           <Form
             className="navbar aboveBar aboveBarContent"
@@ -94,43 +95,70 @@ const PokeHome = () => {
               Submit
             </button>
           </Form>
-          <Link to="/products" className="abovebar-content">All</Link>
+          <Link to="/products" className="abovebar-content">
+            All
+          </Link>
 
           <NavDropdown title="Pokemon" className="abovebar-content">
             <NavDropdown.Item className="dropdown-item">
-              <Link to="/category/pokemon-all">
-                All Pokemon
-              </Link>
+              <Link to="/category/pokemon-all">All Pokemon</Link>
             </NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenI')}>
+            <NavDropdown.Item
+              className="dropdown-item"
+              onClick={() => navigate("/products/GenI")}
+            >
               Generation I
             </NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenII')}>
+            <NavDropdown.Item
+              className="dropdown-item"
+              onClick={() => navigate("/products/GenII")}
+            >
               Generation II
             </NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenIII')}>
+            <NavDropdown.Item
+              className="dropdown-item"
+              onClick={() => navigate("/products/GenIII")}
+            >
               Generation III
             </NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenIV')}>
+            <NavDropdown.Item
+              className="dropdown-item"
+              onClick={() => navigate("/products/GenIV")}
+            >
               Generation IV
             </NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" onClick={() => navigate('/products/GenV')}>
+            <NavDropdown.Item
+              className="dropdown-item"
+              onClick={() => navigate("/products/GenV")}
+            >
               Generation V
             </NavDropdown.Item>
           </NavDropdown>
 
-          <Link to="/category/pokeballs" className="abovebar-content">Pokeballs</Link>
-          <Link to="/category/potions" className="abovebar-content">Potions</Link>
-          <Link className="abovebar-content" to="/cart">Cart</Link>
+          <Link to="/category/pokeballs" className="abovebar-content">
+            Pokeballs
+          </Link>
+          <Link to="/category/potions" className="abovebar-content">
+            Potions
+          </Link>
+          <Link className="abovebar-content" to="/cart">
+            Cart
+          </Link>
         </ul>
         <ul>
           {!loggedIn ? (
             <ul>
               <Link className="abovebar-content" to="/login">
-                <button type="button" class="homebutton"> Login </button>
+                <button type="button" class="homebutton">
+                  {" "}
+                  Login{" "}
+                </button>
               </Link>
               <Link className="abovebar-content" to="/signup">
-                <button type="button" class="homebutton"> Sign Up </button>
+                <button type="button" class="homebutton">
+                  {" "}
+                  Sign Up{" "}
+                </button>
               </Link>
             </ul>
           ) : (
