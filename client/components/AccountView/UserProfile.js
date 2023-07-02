@@ -55,13 +55,11 @@ const UserProfile = () => {
   }
 
   return (
-    <div className="Userprofile">
-      <div>
-        <Sidebar />
-      </div>
-      <div className="Profile">
+    <div className="userprofile">
+      <div className="profile-header">
         <h1> Profile </h1>
-        <br></br>
+      </div>
+      <div className="profile-table">
         <form>
           <ListGroup className="listGroup">
             <ListGroup.Item>
@@ -71,6 +69,7 @@ const UserProfile = () => {
             <ListGroup.Item>
               <label htmlFor="username"> Username: </label>
               <input
+                className="profile-input"
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -79,6 +78,7 @@ const UserProfile = () => {
             <ListGroup.Item>
               <label htmlFor="email"> Email: </label>
               <input
+                className="profile-input"
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -87,18 +87,20 @@ const UserProfile = () => {
             <ListGroup.Item>
               <label htmlFor="password"> Password: </label>
               <input
+                className="profile-input"
                 type="password"
                 value={password}
                 id="typepass"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <input type="checkbox"
+              <input type="checkbox" className="profile-checkbox"
                 onClick={() => Toggle()} />
               <strong>Show Password</strong>
             </ListGroup.Item>
             <ListGroup.Item>
               <label htmlFor="address"> Address: </label>
               <input
+                className="profile-input"
                 name="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -107,7 +109,7 @@ const UserProfile = () => {
             {isAdmin === "MEMBER" ? (<><ListGroup.Item>
               Status: MEMBER </ListGroup.Item></>) : (<><ListGroup.Item> Status: ADMIN
               </ListGroup.Item></>)}
-            <button type="edit" onClick={handleEdit}>
+            <button type="edit" className="profile-edit" onClick={handleEdit}>
               Save Changes
             </button>
           </ListGroup>
