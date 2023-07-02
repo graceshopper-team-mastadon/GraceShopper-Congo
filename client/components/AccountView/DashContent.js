@@ -14,25 +14,20 @@ const DashContent = () => {
 
   return (
     <>
-      <div>
-        <h2>Welcome, {user.username}!</h2>
-        <div
-          className="d-flex align-items-center justify-content-center"
-          style={{ minHeight: "50vh" }}
-        >
-          <div className="w-100" style={{ maxWidth: "200px" }}>
-            <Card>
-              <Card.Body>
-                <Link to="/dashboard/users">Manage Users</Link>
-              </Card.Body>
-            </Card>
-            <br />
-            <Card>
-              <Card.Body>
-                <Link to="/dashboard/products">Manage Products</Link>
-              </Card.Body>
-            </Card>
-          </div>
+      <div className="dash-content">
+        <h1>Welcome, {user.username}!</h1>
+        <div className="w-100" style={{ maxWidth: "20rem" }}>
+          <Card className="dash-card">
+            <Card.Body className="dash-card">
+              <Link to="/dashboard/users">Manage Users</Link>
+            </Card.Body>
+          </Card>
+          <br />
+          <Card className="dash-card">
+            <Card.Body className="dash-card">
+              <Link to="/dashboard/products">Manage Products</Link>
+            </Card.Body>
+          </Card>
         </div>
       </div>
     </>
