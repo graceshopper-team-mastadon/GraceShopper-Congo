@@ -5,16 +5,24 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
 /* aboveBar styling */
 .abovecontainer {
   font-family: "Montserrat", sans-serif;
-  position: relative;
-  width: fit-content;
+  /* width: fit-content; */
   min-height: 10vh;
-  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .aboveBar {
@@ -22,7 +30,7 @@
   top: 0;
   left: 0;
   width: fit-content;
-  padding: 20px 100px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +61,7 @@
 }
 
 .logotext {
-  font-size: 3em;
+  font-size: 2em;
   color: #789ecc;
   text-decoration: none;
 }
@@ -109,7 +117,6 @@
   font-size: 2vw;
 }
 
-
 /* WHOLE main page styling */
 .main {
   justify-content: center;
@@ -155,7 +162,6 @@
 /* homebutton styling */
 .homebutton {
   align-items: center;
-  margin-top: 20px;
   background-color: #789ecc;
   border: 0;
   border-radius: 20px;
@@ -355,9 +361,8 @@
 
 .pagination a:hover {
   cursor: pointer;
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   color: #ffffff;
-
 }
 
 /* single page styling */
@@ -382,8 +387,10 @@
   font-size: 4vw;
   font-weight: 500;
   color: #789ecc;
-  padding: 20px
+  padding: 20px;
 }
+
+/* Commenting below out for troubleshooting  */
 
 /* miscellaneous styling that has yet to be cleaned up ruhrohs */
 

@@ -13,14 +13,16 @@ const Home = () => {
   return (
     <section className="main">
       <div className="homepage">
-
         <div className="content">
           <div className="herotext">
             <div className="subheader">
               Begin Your Adventure. Pursue Your Passion.
             </div>
             <div className="header">
-              <h1> A Trusted Pokemon <span>Sanctuary</span>  </h1>
+              <h1>
+                {" "}
+                A Trusted Pokemon <span>Sanctuary</span>{" "}
+              </h1>
             </div>
             <div className="subheader">
               For All Your Pokemon Needs and More!
@@ -31,29 +33,26 @@ const Home = () => {
           </div>
         </div>
 
-
         <div className="images">
           <div className="hero-img">
-            <img src='/pokemon/squirtle.png' className="squirtle"></img>
-            <div className="squirtle-square">
-            </div>
+            <img src="/pokemon/squirtle.png" className="squirtle"></img>
+            <div className="squirtle-square"></div>
           </div>
           <div className="hero-img">
-            <img src='/pokemon/bulbasaur.png' className="bulbasaur"></img>
-            <div className="bulbasaur-square">
-            </div>
+            <img src="/pokemon/bulbasaur.png" className="bulbasaur"></img>
+            <div className="bulbasaur-square"></div>
           </div>
           <div className="hero-img">
-            <img src='/pokemon/charmander.png' className="charmander"></img>
-            <div className="charmander-square">
-            </div>
+            <img src="/pokemon/charmander.png" className="charmander"></img>
+            <div className="charmander-square"></div>
           </div>
         </div>
       </div>
 
-      <div className="bottom-div">
+      {/* Commenting below out for debugging width */}
 
-        <div className="featured-items">
+      {/* <div className="bottom-div"> 
+        {/* <div className="featured-items">
           <div className="featured-header">
             <h1> Our Newest Additions </h1>
           </div>
@@ -61,16 +60,17 @@ const Home = () => {
             <New />
           </div>
           <Link to="/products/GenV">
-            <button type="button" class="homebutton"> Check Them Out! </button>
+            <button type="button" class="homebutton">
+              {" "}
+              Check Them Out!{" "}
+            </button>
           </Link>
-        </div>
-
-        {/* <div className="about-us">
-          Coming soon!
         </div> */}
 
-      </div>
-
+      {/* <div className="about-us">
+          Coming soon!
+        </div> */}
+      {/* </div> */}
     </section>
   );
 };

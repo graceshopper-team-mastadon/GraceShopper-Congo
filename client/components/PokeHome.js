@@ -21,6 +21,7 @@ import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
 import { searchProduct } from "../slices/productsSlice";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { BsSearch } from "react-icons/bs";
 
 const PokeHome = () => {
   const navigate = useNavigate();
@@ -73,147 +74,145 @@ const PokeHome = () => {
   };
 
   return (
-    <section className="abovecontainer">
-      <header className="aboveBar">
-        <a href="/" className="logotext">
-          PokeHome
-        </a>
-        <ul>
-          <Form
-            className="navbar aboveBar aboveBarContent"
-            onSubmit={formSubmit}
-          >
-            <FormGroup>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                value={searchOptions}
-                onChange={(e) => setSearchOptions(e.target.value)}
-              />
-            </FormGroup>
-            <button type="submit" class="homebutton gradient">
-              Submit
-            </button>
-          </Form>
-          <Link to="/products" className="abovebar-content">
-            All
-          </Link>
+    <div className="bg">
+      <div className="abovecontainer">
+        <header className="aboveBar">
+          <a href="/" className="logotext">
+            PokeHome
+          </a>
+          <ul>
+            <Form
+              className="navbar aboveBar aboveBarContent"
+              onSubmit={formSubmit}
+            >
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Search"
+                  value={searchOptions}
+                  onChange={(e) => setSearchOptions(e.target.value)}
+                />
+              </FormGroup>
+              <button type="submit" class="homebutton gradient">
+                <BsSearch />
+              </button>
+            </Form>
+            <Link to="/products" className="abovebar-content">
+              All
+            </Link>
 
-          <NavDropdown title="Pokemon" className="abovebar-content">
-            <NavDropdown.Item className="dropdown-item">
-              <Link to="/category/pokemon-all">All Pokemon</Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              className="dropdown-item"
-              onClick={() => navigate("/products/GenI")}
-            >
-              Generation I
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              className="dropdown-item"
-              onClick={() => navigate("/products/GenII")}
-            >
-              Generation II
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              className="dropdown-item"
-              onClick={() => navigate("/products/GenIII")}
-            >
-              Generation III
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              className="dropdown-item"
-              onClick={() => navigate("/products/GenIV")}
-            >
-              Generation IV
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              className="dropdown-item"
-              onClick={() => navigate("/products/GenV")}
-            >
-              Generation V
-            </NavDropdown.Item>
-          </NavDropdown>
+            <NavDropdown title="Pokemon" className="abovebar-content">
+              <NavDropdown.Item className="dropdown-item">
+                <Link to="/category/pokemon-all">All Pokemon</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/products/GenI")}
+              >
+                Generation I
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/products/GenII")}
+              >
+                Generation II
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/products/GenIII")}
+              >
+                Generation III
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/products/GenIV")}
+              >
+                Generation IV
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/products/GenV")}
+              >
+                Generation V
+              </NavDropdown.Item>
+            </NavDropdown>
 
-          <Link to="/category/pokeballs" className="abovebar-content">
-            Pokeballs
-          </Link>
-          <Link to="/category/potions" className="abovebar-content">
-            Potions
-          </Link>
-          <Link className="abovebar-content" to="/cart">
-            Cart
-          </Link>
-        </ul>
-        <ul>
-          {!loggedIn ? (
-            <ul>
-              <Link className="abovebar-content" to="/login">
-                <button type="button" class="homebutton">
-                  {" "}
-                  Login{" "}
-                </button>
-              </Link>
-              <Link className="abovebar-content" to="/signup">
-                <button type="button" class="homebutton">
-                  {" "}
-                  Sign Up{" "}
-                </button>
-              </Link>
-            </ul>
-          ) : (
-            <>
-              <Link className="offcanvas-content" onClick={handleShow}>
-                Account
-              </Link>
-              <Offcanvas show={show} onHide={handleClose} placement="end">
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id="offcanvas-title">Account</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <ListGroup style={offCanvasStyle}>
-                    <ListGroup.Item>
-                      <Link to="/profile" style={offCanvasStyle}>
-                        Profile{" "}
-                      </Link>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Link to="/order-history" style={offCanvasStyle}>
-                        Order History{" "}
-                      </Link>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Link to="/payment-cards" style={offCanvasStyle}>
-                        Payment Cards
-                      </Link>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Link to="/feedback" style={offCanvasStyle}>
-                        Send us Feedback
-                      </Link>
-                    </ListGroup.Item>
-                    {isAdmin && (
-                      <>
-                        <ListGroup.Item>
-                          <Link to="/dashboard" style={offCanvasStyle}>
-                            Dashboard
-                          </Link>
-                        </ListGroup.Item>
-                      </>
-                    )}
-                    <ListGroup.Item>
-                      <Link to="/signout" style={offCanvasStyle}>
-                        Sign Out
-                      </Link>
-                    </ListGroup.Item>
-                  </ListGroup>
-                </Offcanvas.Body>
-              </Offcanvas>
-            </>
-          )}
-        </ul>
-      </header>
-    </section>
+            <Link to="/category/pokeballs" className="abovebar-content">
+              Pokeballs
+            </Link>
+            <Link to="/category/potions" className="abovebar-content">
+              Potions
+            </Link>
+            <Link className="abovebar-content" to="/cart">
+              Cart
+            </Link>
+          </ul>
+          <ul>
+            {!loggedIn ? (
+              <ul>
+                <Link className="abovebar-content" to="/login">
+                  <button type="button" class="homebutton">
+                    {" "}
+                    Login{" "}
+                  </button>
+                </Link>
+              </ul>
+            ) : (
+              <>
+                <Link className="offcanvas-content" onClick={handleShow}>
+                  Account
+                </Link>
+                <Offcanvas show={show} onHide={handleClose} placement="end">
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title id="offcanvas-title">
+                      Account
+                    </Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    <ListGroup style={offCanvasStyle}>
+                      <ListGroup.Item>
+                        <Link to="/profile" style={offCanvasStyle}>
+                          Profile{" "}
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/order-history" style={offCanvasStyle}>
+                          Order History{" "}
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/payment-cards" style={offCanvasStyle}>
+                          Payment Cards
+                        </Link>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Link to="/feedback" style={offCanvasStyle}>
+                          Send us Feedback
+                        </Link>
+                      </ListGroup.Item>
+                      {isAdmin && (
+                        <>
+                          <ListGroup.Item>
+                            <Link to="/dashboard" style={offCanvasStyle}>
+                              Dashboard
+                            </Link>
+                          </ListGroup.Item>
+                        </>
+                      )}
+                      <ListGroup.Item>
+                        <Link to="/signout" style={offCanvasStyle}>
+                          Sign Out
+                        </Link>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Offcanvas.Body>
+                </Offcanvas>
+              </>
+            )}
+          </ul>
+        </header>
+      </div>
+    </div>
   );
 };
 export default PokeHome;
