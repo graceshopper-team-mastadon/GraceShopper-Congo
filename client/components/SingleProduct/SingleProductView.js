@@ -9,6 +9,7 @@ import {
 import { AddToCart } from "../../slices/cartSlice";
 import { editProduct } from "../../slices/singleProductSlice";
 const axios = require("axios");
+import CategoryBar from "../CategoryBar";
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const SingleProduct = () => {
 
   return (
     <>
+      <CategoryBar category={`${singleProduct.name}`} generation={`${singleProduct.generation}`} />
       <div className="single-product">
         <div className="product-header">
           Product Name : {`${singleProduct.name}`}

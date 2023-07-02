@@ -4,6 +4,7 @@ import { getAllPotions } from "../../../slices/categorySlice";
 import PotionElement from "./PotionElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
+import CategoryBar from "../../CategoryBar";
 
 const Potions = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Potions = () => {
     } else {
         return (
             <>
+                <CategoryBar category="Potions" />
                 <div class="deck">
                     {potionss.map((potion) => (
                         <PotionElement key={potion.id} potion={potion} />

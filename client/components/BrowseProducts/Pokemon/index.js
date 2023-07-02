@@ -4,6 +4,7 @@ import { getAllPokemon } from "../../../slices/categorySlice";
 import PokemonElement from "./PokemonElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
+import CategoryBar from "../../CategoryBar";
 
 const Pokemon = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Pokemon = () => {
     } else {
         return (
             <>
+                <CategoryBar category="All Pokemon" />
                 <div class="deck">
                     {currentItems.map((pokemon) => (
                         <PokemonElement key={pokemon.id} pokemon={pokemon} />

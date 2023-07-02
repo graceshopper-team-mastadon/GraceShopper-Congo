@@ -4,7 +4,6 @@ import Home from "./components/Home";
 import AllProducts from "./components/BrowseProducts/AllProducts";
 import SingleProduct from "./components/SingleProduct/SingleProductView";
 // import CategoryView from "./components/BrowseProducts/CategoryView";
-import NavBar from "./components/NavBar";
 import PokeHome from "./components/PokeHome";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -36,8 +35,6 @@ import GenIVProducts from "./components/GenerationView/Gen4";
 import GenVProducts from "./components/GenerationView/Gen5";
 import Payment from "./components/Payment/Payment"
 import Search from "./components/Search";
-
-
 
 const App = () => {
   return (

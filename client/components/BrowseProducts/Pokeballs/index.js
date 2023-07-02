@@ -4,6 +4,7 @@ import { getAllPokeballs } from "../../../slices/categorySlice";
 import PokeballElement from "./PokeballElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
+import CategoryBar from "../../CategoryBar";
 
 const Pokeballs = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Pokeballs = () => {
     } else {
         return (
             <>
+                <CategoryBar category="Pokeballs" />
                 <div class="deck">
                     {allpokeballs.map((pokeball) => (
                         <PokeballElement key={pokeball.id} pokeball={pokeball} />
