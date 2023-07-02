@@ -5,6 +5,7 @@ import PotionElement from "./PotionElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
 import CategoryBar from "../../CategoryBar";
+import LoadingScreen from "../../LoadingScreen";
 
 const Potions = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Potions = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     if (potionss.length === 0) {
-        return <h1> Loading your products!! </h1>
+        return <LoadingScreen />
     } else {
         return (
             <>

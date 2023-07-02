@@ -5,6 +5,7 @@ import PokemonElement from "./PokemonElement";
 import Pagination from "../../Pagination";
 import { useState } from "react";
 import CategoryBar from "../../CategoryBar";
+import LoadingScreen from "../../LoadingScreen";
 
 const Pokemon = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Pokemon = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     if (pokemons.length === 0) {
-        return <h1> Loading your products!! </h1>
+        return <LoadingScreen />
     } else {
         return (
             <>

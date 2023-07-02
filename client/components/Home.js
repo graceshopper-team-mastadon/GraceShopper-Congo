@@ -56,7 +56,6 @@ const Home = () => {
         <div className="featured-items">
           <div className="featured-header">
             <h1> Our Newest Additions </h1>
-
           </div>
           <div className="featured-list">
             <New />
