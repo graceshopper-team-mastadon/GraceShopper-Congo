@@ -21,6 +21,7 @@ import axios from "axios";
 import { authTrue, authFalse } from "../slices/authSlice";
 import { searchProduct } from "../slices/productsSlice";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { BsSearch } from "react-icons/bs";
 
 const PokeHome = () => {
   const navigate = useNavigate();
@@ -93,7 +94,7 @@ const PokeHome = () => {
                 />
               </FormGroup>
               <button type="submit" class="homebutton gradient">
-                Submit
+                <BsSearch />
               </button>
             </Form>
             <Link to="/products" className="abovebar-content">
