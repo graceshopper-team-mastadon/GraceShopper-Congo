@@ -76,15 +76,14 @@ const PokeHome = () => {
   return (
     <div className="bg">
       <div className="abovecontainer">
-        <header className="aboveBar">
-          <a href="/" className="logotext">
-            PokeHome
-          </a>
-          <ul>
-            <Form
-              className="navbar aboveBar aboveBarContent"
-              onSubmit={formSubmit}
-            >
+        <div className="aboveBar">
+          <div>
+            <a href="/" className="logotext">
+              PokeHome
+            </a>
+          </div>
+          <div>
+            <Form className="aboveBarContent search" onSubmit={formSubmit}>
               <FormGroup>
                 <FormControl
                   type="text"
@@ -97,10 +96,14 @@ const PokeHome = () => {
                 <BsSearch />
               </button>
             </Form>
+          </div>
+
+          <div>
             <Link to="/products" className="abovebar-content">
               All
             </Link>
-
+          </div>
+          <div>
             <NavDropdown title="Pokemon" className="abovebar-content">
               <NavDropdown.Item className="dropdown-item">
                 <Link to="/category/pokemon-all">All Pokemon</Link>
@@ -136,81 +139,87 @@ const PokeHome = () => {
                 Generation V
               </NavDropdown.Item>
             </NavDropdown>
+          </div>
 
+          <div>
             <Link to="/category/pokeballs" className="abovebar-content">
               Pokeballs
             </Link>
+          </div>
+          <div>
             <Link to="/category/potions" className="abovebar-content">
               Potions
             </Link>
+          </div>
+
+          <div>
             <Link className="abovebar-content" to="/cart">
               Cart
             </Link>
-          </ul>
-          <ul>
-            {!loggedIn ? (
-              <ul>
-                <Link className="abovebar-content" to="/login">
-                  <button type="button" class="homebutton">
-                    {" "}
-                    Login{" "}
-                  </button>
-                </Link>
-              </ul>
-            ) : (
-              <>
-                <Link className="offcanvas-content" onClick={handleShow}>
-                  Account
-                </Link>
-                <Offcanvas show={show} onHide={handleClose} placement="end">
-                  <Offcanvas.Header closeButton>
-                    <Offcanvas.Title id="offcanvas-title">
-                      Account
-                    </Offcanvas.Title>
-                  </Offcanvas.Header>
-                  <Offcanvas.Body>
-                    <ListGroup style={offCanvasStyle}>
-                      <ListGroup.Item>
-                        <Link to="/profile" style={offCanvasStyle}>
-                          Profile{" "}
-                        </Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/order-history" style={offCanvasStyle}>
-                          Order History{" "}
-                        </Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/payment-cards" style={offCanvasStyle}>
-                          Payment Cards
-                        </Link>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Link to="/feedback" style={offCanvasStyle}>
-                          Send us Feedback
-                        </Link>
-                      </ListGroup.Item>
-                      {isAdmin && (
-                        <>
-                          <ListGroup.Item>
-                            <Link to="/dashboard" style={offCanvasStyle}>
-                              Dashboard
-                            </Link>
-                          </ListGroup.Item>
-                        </>
-                      )}
-                      <ListGroup.Item>
-                        <Link to="/signout" style={offCanvasStyle}>
-                          Sign Out
-                        </Link>
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Offcanvas.Body>
-                </Offcanvas>
-              </>
-            )}
-          </ul>
-        </header>
+          </div>
+
+          {!loggedIn ? (
+            <div>
+              <Link className="abovebar-content" to="/login">
+                <button type="button" class="homebutton">
+                  {" "}
+                  Login{" "}
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <Link className="offcanvas-content" onClick={handleShow}>
+                Account
+              </Link>
+              <Offcanvas show={show} onHide={handleClose} placement="end">
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id="offcanvas-title">
+                    Account
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <ListGroup style={offCanvasStyle}>
+                    <ListGroup.Item>
+                      <Link to="/profile" style={offCanvasStyle}>
+                        Profile{" "}
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/order-history" style={offCanvasStyle}>
+                        Order History{" "}
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/payment-cards" style={offCanvasStyle}>
+                        Payment Cards
+                      </Link>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Link to="/feedback" style={offCanvasStyle}>
+                        Send us Feedback
+                      </Link>
+                    </ListGroup.Item>
+                    {isAdmin && (
+                      <>
+                        <ListGroup.Item>
+                          <Link to="/dashboard" style={offCanvasStyle}>
+                            Dashboard
+                          </Link>
+                        </ListGroup.Item>
+                      </>
+                    )}
+                    <ListGroup.Item>
+                      <Link to="/signout" style={offCanvasStyle}>
+                        Sign Out
+                      </Link>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Offcanvas.Body>
+              </Offcanvas>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
