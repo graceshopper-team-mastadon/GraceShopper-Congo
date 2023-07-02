@@ -7,7 +7,6 @@ import {
   selectSingleProduct,
 } from "../../slices/singleProductSlice";
 import { AddToCart } from "../../slices/cartSlice";
-import { editProduct } from "../../slices/singleProductSlice";
 const axios = require("axios");
 import CategoryBar from "../CategoryBar";
 
@@ -19,9 +18,15 @@ const SingleProduct = () => {
 
   const [optionValue, setOptionValue] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [description, setDescription] = useState("")
 
   useEffect(() => {
     dispatch(fetchProduct(id));
+
+    // fetch(`https://pokeapi.co/api/v2/pokemon/${singleProductApi}`).then((res)=>res.json()).then((data)=> {
+    //   if (data.flavor_text){setDescription(data.)}
+    // })
+
   }, [dispatch, id]);
 
   const addHandler = async (singleProduct, quantity) => {
@@ -29,50 +34,59 @@ const SingleProduct = () => {
     await dispatch(AddToCart({ singleProduct, quantity }));
   };
 
-  //if usertype is equal to admin, we can render a different page
-
   return (
     <>
       <CategoryBar category={`${singleProduct.name}`} generation={`${singleProduct.generation}`} />
-      <div className="single-product">
-        <div className="product-header">
-          Product Name : {`${singleProduct.name}`}
+      <section className="single-product">
+        <div className="left-side">
+          <div className="pokemon-photo">
+            <img className="product-picture" src={`${singleProduct.imageUrl}`} />
+          </div>
+          <div className="pokemon-description">
+            This is where the description will go.
+          </div>
         </div>
-        <div productpage="product-page">
-          <img className="product-picture" src={`${singleProduct.imageUrl}`} />
-          Product Price: {`${singleProduct.price}`}
-          <br></br>
-          <select
-            value={optionValue}
-            onChange={(e) => setOptionValue(e.target.value)}
-          >
-            <option> Normal </option>
-            <option> Egg </option>
-            <option> Shiny </option>
-          </select>
-          <select
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          >
-            <option> 1 </option>
-            <option> 2 </option>
-            <option> 3 </option>
-            <option> 4 </option>
-            <option> 5 </option>
-          </select>
-          <br></br>
-          <button type="buy"> Buy Now </button>
-          <br></br>
+        <div className="right-side">
+          <div className="single-product-header">
+            <h1>{`${singleProduct.name}`}</h1>
+          </div>
+          <div className="subheader">
+            Price: ${`${singleProduct.price}`}
+          </div>
+          {/* <div className="style-buttons">
+            Select style if this is a pokemon
+            <select
+              value={optionValue}
+              onChange={(e) => setOptionValue(e.target.value)}
+            >
+              <option> Normal </option>
+              <option> Egg </option>
+              <option> Shiny </option>
+            </select>
+          </div> */}
+          <div className="quantity">
+            Quantity:
+            <select
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            >
+              <option> 1 </option>
+              <option> 2 </option>
+              <option> 3 </option>
+              <option> 4 </option>
+              <option> 5 </option>
+            </select>
+          </div>
+          <button type="buy" className="buy"> Buy Now </button>
           <button
             onClick={() => addHandler({ singleProduct, quantity })}
-            type="cart"
-          >
+            type="cart" className="cart">
             Add to Cart
           </button>
         </div>
-      </div>
+      </section>
     </>
-  );
+  )
 };
 
 export default SingleProduct;

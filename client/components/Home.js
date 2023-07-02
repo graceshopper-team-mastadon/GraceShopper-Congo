@@ -50,7 +50,7 @@ const Home = () => {
 
       {/* Commenting below out for debugging width */}
 
-      {/* <div className="bottom-div">
+      <div className="bottom-div">
         <div className="featured-items">
           <div className="featured-header">
             <h1> Our Newest Additions </h1>
@@ -65,7 +65,7 @@ const Home = () => {
           </Link>
         </div>
 
-      </div> */}
+      </div>
 
     </section>
   );

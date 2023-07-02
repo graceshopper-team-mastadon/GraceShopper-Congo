@@ -113,6 +113,7 @@
 
 .offcanvas-body {
   background-color: #789ecc;
+  color: black;
 }
 
 /* Destination Bar */
@@ -465,6 +466,126 @@
   margin-left: 1em;
 }
 
+/* order history  */
+
+.order-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.order-history h1 {
+  font-size: 2vw;
+  font-weight: 300;
+  padding: 20px;
+  color: #789ecc
+}
+
+/* dash-content  */
+.dash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dash-content h1 {
+  font-size: 2vw;
+  font-weight: 300;
+  padding: 20px;
+  color: #789ecc
+}
+
+.dash-card {
+  text-decoration: none;
+  text-align: center;
+  color: #789ecc
+}
+
+.card-body {
+  text-decoration: none;
+}
+
+/* single product  */
+.single-product {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+
+.pokemon-photo img {
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
+.left-side {
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10rem
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  padding: 10rem;
+  align-items: flex-start;
+
+}
+
+.right-side select {
+  display: flex;
+  margin-bottom: 1rem;
+
+}
+
+.right-side button {
+  margin-bottom: 1rem;
+  align-items: center;
+  background-color: #789ecc;
+  border: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+
+.right-side button:hover,
+.right-side button:focus {
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
+  color: #ffffff;
+}
+
+.right-side button:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+
 
 /* Commenting below out for troubleshooting  */
 
@@ -480,7 +601,6 @@
   text-decoration: none;
   color: #789ecc;
 }
-
 
 .quickAddButton {
   align-items: center;
@@ -521,12 +641,4 @@ img.littleguys {
 
 .links {
   text-decoration: none;
-}
-
-.buttonColor {
-  background-color: darkgoldenrod;
-}
-
-.offcanvas-body {
-  color: black;
 }

@@ -55,10 +55,11 @@ const OrderHistory = () => {
           ;
         </div>
       ) : (
-        <div>
-          <Card>
-            <Card.Body>You have not placed any orders yet.</Card.Body>
-          </Card>
+        <div className="order-history">
+          <h1>
+            You have not placed any orders yet.
+          </h1>
+          <Link to={"/products"} className="here">Let's change that!</Link>
         </div>
       )}
     </>
