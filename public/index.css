@@ -309,6 +309,10 @@ body {
 }
 
 .paginate {
+  cursor: pointer;
+}
+.page-item {
+  cursor: pointer;
 }
 
 .deck {
