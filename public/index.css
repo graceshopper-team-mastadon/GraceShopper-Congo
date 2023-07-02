@@ -109,7 +109,6 @@
   font-size: 2vw;
 }
 
-
 /* WHOLE main page styling */
 .main {
   justify-content: center;
@@ -355,9 +354,8 @@
 
 .pagination a:hover {
   cursor: pointer;
-  background-image: linear-gradient(to right, #7CD3FF, #FCD1B1);
+  background-image: linear-gradient(to right, #7cd3ff, #fcd1b1);
   color: #ffffff;
-
 }
 
 /* single page styling */
@@ -382,12 +380,14 @@
   font-size: 4vw;
   font-weight: 500;
   color: #789ecc;
-  padding: 20px
+  padding: 20px;
 }
+
+/* Commenting below out for troubleshooting  */
 
 /* miscellaneous styling that has yet to be cleaned up ruhrohs */
 
-.deck {
+/* .deck {
   text-decoration: none;
   margin-top: 100px;
 
@@ -454,4 +454,4 @@ img.littleguys {
 
 .offcanvas-body {
   color: black;
-}
+} */
