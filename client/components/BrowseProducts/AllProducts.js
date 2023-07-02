@@ -33,12 +33,11 @@ const AllProducts = () => {
         ))}
       </div>{" "}
       <br></br>
-      <div>
+      <div className="paginate">
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={products.length}
           paginate={paginate}
-          className="paginate"
         />
       </div>
     </div>
