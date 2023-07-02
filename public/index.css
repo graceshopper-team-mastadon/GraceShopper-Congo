@@ -387,7 +387,7 @@
 
 /* miscellaneous styling that has yet to be cleaned up ruhrohs */
 
-/* .deck {
+.deck {
   text-decoration: none;
   margin-top: 100px;
 
@@ -454,4 +454,4 @@ img.littleguys {
 
 .offcanvas-body {
   color: black;
-} */
+}
