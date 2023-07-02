@@ -5,16 +5,24 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
 /* aboveBar styling */
 .abovecontainer {
   font-family: "Montserrat", sans-serif;
-  position: relative;
-  width: fit-content;
+  /* width: fit-content; */
   min-height: 10vh;
-  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .aboveBar {
