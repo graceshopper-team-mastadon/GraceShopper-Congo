@@ -301,6 +301,16 @@ body {
 
 /* single page styling */
 
+/* whole browse page container */
+
+.browse {
+  display: flex;
+  flex-direction: column;
+}
+
+.paginate {
+}
+
 .deck {
   text-decoration: none;
   margin-top: 100px;

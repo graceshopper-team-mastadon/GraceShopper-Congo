@@ -24,24 +24,25 @@ const AllProducts = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <div class="deck">
+    <div className="browse">
+      <div className="deck">
         {currentItems.map((product) => (
           <div key={product.id} id="cardItem" className="col-xs-2">
             <Product product={product} key={product.id} />
           </div>
         ))}
-      </div> <br></br>
+      </div>{" "}
+      <br></br>
       <div>
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={products.length}
           paginate={paginate}
+          className="paginate"
         />
       </div>
-    </>
+    </div>
   );
 };
 
 export default AllProducts;
-
