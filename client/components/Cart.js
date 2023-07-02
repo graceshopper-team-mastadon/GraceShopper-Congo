@@ -36,10 +36,14 @@ const Cart = () => {
 
     if (cart.length === 0 || checkIfLoaded()) {
       return (
-        <h2>
-          Oops, looks like your cart is empty. To browse pokemon click{" "}
-          <Link to={"/products"}>here</Link>
-        </h2>
+        <div className="cart-screen">
+          <div className="cart-text">
+            <h1>Oops, looks like your cart is empty. To browse pokemon click: </h1>
+            <Link to={"/products"} className="here">here</Link>
+          </div>
+          <img class="pokemon-1" src="/pikachu.gif" alt="pokemon" />
+        </div>
+
       );
     }
 

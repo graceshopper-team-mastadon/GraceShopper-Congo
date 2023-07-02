@@ -20,8 +20,7 @@ const Home = () => {
             </div>
             <div className="header">
               <h1>
-                {" "}
-                A Trusted Pokemon <span>Sanctuary</span>{" "}
+                A Trusted Pokemon <span>Sanctuary</span>
               </h1>
             </div>
             <div className="subheader">
@@ -51,8 +50,8 @@ const Home = () => {
 
       {/* Commenting below out for debugging width */}
 
-      {/* <div className="bottom-div"> 
-        {/* <div className="featured-items">
+      {/* <div className="bottom-div">
+        <div className="featured-items">
           <div className="featured-header">
             <h1> Our Newest Additions </h1>
           </div>
@@ -61,16 +60,13 @@ const Home = () => {
           </div>
           <Link to="/products/GenV">
             <button type="button" class="homebutton">
-              {" "}
-              Check Them Out!{" "}
+              Check Them Out!
             </button>
           </Link>
-        </div> */}
+        </div>
 
-      {/* <div className="about-us">
-          Coming soon!
-        </div> */}
-      {/* </div> */}
+      </div> */}
+
     </section>
   );
 };
