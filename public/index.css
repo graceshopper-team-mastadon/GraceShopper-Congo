@@ -22,7 +22,7 @@
   top: 0;
   left: 0;
   width: fit-content;
-  padding: 20px 100px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
