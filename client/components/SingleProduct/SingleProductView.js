@@ -43,7 +43,7 @@ const SingleProduct = () => {
             <img className="product-picture" src={`${singleProduct.imageUrl}`} />
           </div>
           <div className="pokemon-description">
-            This is where the description will go.
+            {/* This is where the description will go. */}
           </div>
         </div>
         <div className="right-side">
