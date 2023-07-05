@@ -43,7 +43,7 @@ const GuestCart = () => {
         {cart.length > 0 ? (
           <div>
             <h1>Cart</h1>
-            <h3>{`Total Price: ${totalPrice} Total Items: ${total}`}</h3>
+            <h3>{`Total Price: ${totalPrice}, Total Items: ${total}`}</h3>
             <ul>
               {cart.map((pokemon) => {
                 return (
