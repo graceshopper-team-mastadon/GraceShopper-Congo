@@ -2,6 +2,8 @@ const React = require("react");
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import CategoryBar from "../CategoryBar";
+
 const PaymentCards = () => {
     const [name, setName] = useState();
     useEffect(() => {
@@ -14,6 +16,7 @@ const PaymentCards = () => {
 
     return (
         <>
+            <CategoryBar category="Payment Methods" />
             <div class="container">
                 <div class="row"></div>
                 <div class="col-lg-4 mb-lg-0 mb-3">

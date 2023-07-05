@@ -585,7 +585,18 @@
   color: rgb(255, 255, 255, 0.7);
 }
 
+/* Cart styling  */
+.cart a {
+  text-decoration: none;
+  color: #789ecc
+}
 
+/* container styling */
+.container {
+  margin-top: 10vw;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Commenting below out for troubleshooting  */
 

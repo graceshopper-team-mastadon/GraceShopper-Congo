@@ -9,6 +9,7 @@ import { deleteSingleItem } from "../slices/cartSlice";
 import { incrementItemCount } from "../slices/cartSlice";
 import { decrementItemCount } from "../slices/cartSlice";
 import { List } from "react-admin";
+import CategoryBar from "./CategoryBar";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,6 @@ const Cart = () => {
           </div>
           <img class="pokemon-1" src="/pikachu.gif" alt="pokemon" />
         </div>
-
       );
     }
 
@@ -78,8 +78,8 @@ const Cart = () => {
       return totalItems;
     };
     return (
-      <div class="container flex-column p-2">
-        <h2>Cart</h2>
+      <div class="container flex-column p-2 cart">
+        <CategoryBar category="Cart" />
         <div class="p-2">
           <h5>
             Total: ${totalPrice}, Total Items: {calculateTotalItems()}
@@ -135,13 +135,12 @@ const Cart = () => {
 
           <div>
             <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
-              <Button size="sm" variant="success">
+              <button className="homebutton" variant="success">
                 Checkout!
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
-        {/* </Card> */}
       </div>
     );
   }
