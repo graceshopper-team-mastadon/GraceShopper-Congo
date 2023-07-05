@@ -39,8 +39,12 @@ const Cart = () => {
       return (
         <div className="cart-screen">
           <div className="cart-text">
-            <h1>Oops, looks like your cart is empty. To browse pokemon click: </h1>
-            <Link to={"/products"} className="here">here</Link>
+            <h1>
+              Oops, looks like your cart is empty. To browse pokemon click:{" "}
+            </h1>
+            <Link to={"/products"} className="here">
+              here
+            </Link>
           </div>
           <img class="pokemon-1" src="/pikachu.gif" alt="pokemon" />
         </div>
@@ -78,17 +82,23 @@ const Cart = () => {
       return totalItems;
     };
     return (
-      <div class="container flex-column p-2 cart">
+      <div
+        className="container flex-column p-2 cart"
+        style={{ marginTop: "2vw" }}
+      >
         <CategoryBar category="Cart" />
-        <div class="p-2">
-          <h5>
+        <div className="p-2">
+          <h5 style={{ paddingTop: "40px" }}>
             Total: ${totalPrice}, Total Items: {calculateTotalItems()}
           </h5>
 
           <ListGroup>
             {singleProduct.map((pokemon, index) => {
               return (
-                <div class="container flex-column p-2">
+                <div
+                  class="container flex-column p-2"
+                  style={{ marginTop: "2vw" }}
+                >
                   <ListGroup.Item key={pokemon[0].id}>
                     <h4>
                       <Link to={`/products/${pokemon[0].id}`}>
@@ -104,7 +114,7 @@ const Cart = () => {
                         src={pokemon[0].imageUrl}
                       ></img>
                     </Card.Body>
-                    <div>
+                    <div style={{ paddingTop: "10px" }}>
                       <Button
                         size="sm"
                         variant="outline-dark"
@@ -133,7 +143,7 @@ const Cart = () => {
             })}
           </ListGroup>
 
-          <div>
+          <div style={{ marginTop: "2vw" }}>
             <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
               <button className="homebutton" variant="success">
                 Checkout!
