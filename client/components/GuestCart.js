@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartUpdate } from "../slices/cartSlice";
+import { ListGroup } from "react-bootstrap";
+import CategoryBar from "./CategoryBar";
+import { Link } from "react-router-dom";
 const axios = require("axios");
 
 let total = 0;
@@ -38,36 +41,57 @@ const GuestCart = () => {
   };
 
   return (
-    <div>
+    <div
+      className="container flex-column p-2 cart"
+      style={{ marginTop: "2vw" }}
+    >
       <div>
         {cart.length > 0 ? (
           <div>
-            <h1>Cart</h1>
-            <h3>{`Total Price: ${totalPrice}, Total Items: ${total}`}</h3>
-            <ul>
+            <CategoryBar category="Guest Cart" />
+            <h3
+              style={{ paddingTop: "40px" }}
+            >{`Total Price: ${totalPrice}, Total Items: ${total}`}</h3>
+            <ListGroup>
               {cart.map((pokemon) => {
                 return (
-                  <li key={pokemon.id}>
-                    <h4>{pokemon.name}</h4>
-                    <p></p>
-                    <p>
-                      Price: ${pokemon.price * pokemon.quantity} Quantity:
-                      {pokemon.quantity}
-                    </p>
-                    <img className="pokemonImg" src={pokemon.imageUrl}></img>
-                    <div>
-                      <button onClick={() => handleRemove(pokemon)}>
-                        Remove from cart
-                      </button>
-                    </div>
-                  </li>
+                  <div
+                    class="container flex-column p-2"
+                    style={{ marginTop: "2vw" }}
+                  >
+                    <ListGroup.Item key={pokemon.id}>
+                      <h4>{pokemon.name}</h4>
+                      <p></p>
+                      <p>
+                        Price: ${pokemon.price * pokemon.quantity} Quantity:{" "}
+                        {pokemon.quantity}
+                      </p>
+                      <img className="pokemonImg" src={pokemon.imageUrl}></img>
+                      <div style={{ paddingTop: "10px" }}>
+                        <button onClick={() => handleRemove(pokemon)}>
+                          Remove from cart
+                        </button>
+                      </div>
+                    </ListGroup.Item>
+                  </div>
                 );
               })}
-            </ul>
+            </ListGroup>
           </div>
         ) : (
-          <div>Nothing in cart</div>
+          <div>
+            <CategoryBar category="Guest Cart" />
+            <div style={{ paddingTop: "40px" }}>Nothing in cart</div>
+          </div>
         )}
+
+        <div style={{ marginTop: "2vw" }}>
+          <Link to="/payment" state={{ cart: cart, totalPrice: totalPrice }}>
+            <button className="homebutton" variant="success">
+              Checkout!
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
